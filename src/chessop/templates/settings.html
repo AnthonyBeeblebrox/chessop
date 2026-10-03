@@ -1,0 +1,68 @@
+{% macro number(f) -%}
+<label class="field{{ ' bad' if f.key in errors else '' }}">
+  <span class="label">{{ f.label }}{% if f.unit %} ({{ f.unit }}){% endif %}</span>
+  <input name="{{ f.key }}" value="{{ values.get(f.key, '') }}" inputmode="decimal">
+  <span class="rule">{{ f.rule }}</span>
+  {% if f.key in errors %}<span class="error">{{ errors[f.key] }}</span>{% endif %}
+</label>
+{%- endmacro %}
+{% extends "base.html" %}
+{% block title %}chessop · settings{% endblock %}
+{% block content %}
+<main class="page">
+  <nav class="links"><a href="/">play</a><a href="/progress">progress</a></nav>
+  <h1>Settings</h1>
+  <p class="data">Drilling band <b>{{ band }}</b> from snapshot <code>{{ version }}</code>.</p>
+  {% if notice %}<p class="notice">{{ notice }}</p>{% endif %}
+  {% if errors %}<p class="error">Not saved: {{ errors | length }} field{{ '' if errors | length == 1 else 's' }} refused.</p>{% endif %}
+  {% if '' in errors %}<p class="error">{{ errors[''] }}</p>{% endif %}
+  <form method="post" action="/settings">
+    <fieldset>
+      <legend>Repertoire</legend>
+      <label class="field{{ ' bad' if 'band' in errors else '' }}">
+        <span class="label">Rating band</span>
+        <select name="band">
+          {% for name in band_names %}<option value="{{ name }}"{{ ' selected' if values.get('band') == name else '' }}{{ ' disabled' if name not in bands else '' }}>{{ name }}</option>
+          {% endfor %}
+        </select>
+        <span class="rule">whose games decide which moves are main</span>
+        {% if 'band' in errors %}<span class="error">{{ errors['band'] }}</span>{% endif %}
+      </label>
+      <p class="hint">A closed band such as 1500-1800 holds the games of players inside it: your peers. An open band such as 1500+ holds every game with both players at or above its bound, stronger players included. A band the snapshot holds no games for cannot be chosen.</p>
+      {% for f in fields %}{{ number(f) }}{% endfor %}
+      <p class="hint">Storage cut-off of this snapshot: {{ '%g' | format(storage_cutoff) }}. A width of 1 for you and 3 for the opponent is strict recall.</p>
+    </fieldset>
+    {#- The memory model's parameters, for the learner whose they are to set. #}
+    {% if params_fields %}
+    <fieldset>
+      <legend>Memory model</legend>
+      {% for f in params_fields %}{{ number(f) }}{% endfor %}
+      {% if forced_rate_ignored %}<p class="hint">The forced exploration rate is ignored while your width is 1: there is nothing to set aside.</p>{% endif %}
+    </fieldset>
+    {% endif %}
+    <fieldset>
+      <legend>Board</legend>
+      <label class="field"><span class="label">Sound</span>
+        <input type="checkbox" name="sound"{{ ' checked' if values.get('sound') else '' }}>
+        <span class="rule">also toggled with <kbd>m</kbd> on the play page</span></label>
+      {{ number(animation) }}
+    </fieldset>
+    {% if timezone_field %}
+    <fieldset>
+      <legend>Day</legend>
+      <label class="field{{ ' bad' if 'timezone' in errors else '' }}">
+        <span class="label">Time zone</span>
+        <input name="timezone" value="{{ values.get('timezone', '') }}" placeholder="the server's" autocomplete="off" spellcheck="false">
+        <span class="rule">an IANA name such as Europe/Paris, or blank for the server's</span>
+        {% if 'timezone' in errors %}<span class="error">{{ errors['timezone'] }}</span>{% endif %}
+      </label>
+      <p class="hint">Your day ends at midnight in this time zone: the daily Score and its change since your last day follow it. The play page fills it in from your browser when it is blank.</p>
+    </fieldset>
+    {% endif %}
+    <button type="submit">Save</button>
+  </form>
+  <form method="get" action="/settings/reset" class="danger">
+    <button type="submit">Reset all history…</button>
+  </form>
+</main>
+{% endblock %}

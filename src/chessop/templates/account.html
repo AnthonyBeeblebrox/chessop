@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}chessop · account{% endblock %}
+{% block content %}
+<main class="page">
+  <nav class="links"><a href="/">play</a><a href="/progress">progress</a><a href="/settings">settings</a></nav>
+  <h1>Account</h1>
+  <p>Signed in {{ "with Lichess" if account.kind == "lichess" else "by email" }} as <b>{{ account.name }}</b>.</p>
+  <form method="post" action="/signout">
+    <button type="submit">Sign out</button>
+  </form>
+  <p class="hint">Signing out leaves none of your history on this browser.</p>
+  {#- A Lichess account has no address to change (ADR 0008). #}
+  {% if account.kind == "email" %}
+  <h2>Change your address</h2>
+  {% if sent %}<p>A link is on its way to <b>{{ sent }}</b>. Your address changes when you open it and press Confirm, within 15 minutes; until then, sign in with the one you have.</p>{% endif %}
+  {% if refused %}<p class="error">{{ refused }}</p>{% endif %}
+  <form method="post" action="/account/email">
+    <label class="field"><span class="label">New address</span>
+      <input type="email" name="email" autocomplete="email" required></label>
+    <button type="submit">Send a confirm link</button>
+  </form>
+  {% endif %}
+  <h2>Your data</h2>
+  <p><a href="/data">Your data</a>: download everything chessop stores about you.</p>
+  <h2>Delete your account</h2>
+  <p><a href="/account/delete">Delete my account</a>: your history, settings and sign-in, on every device, at once.</p>
+</main>
+{% endblock %}

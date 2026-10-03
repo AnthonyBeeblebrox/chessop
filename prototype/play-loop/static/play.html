@@ -1,0 +1,15 @@
+<!doctype html>
+<!-- PROTOTYPE (ticket 10). Three variants of one fast round, switchable via ?variant=A|B|C on this throwaway route. -->
+<html lang="en"><head><meta charset="utf-8"><title>chessop play-loop PROTOTYPE</title>
+<link rel="stylesheet" href="/static/chessground/chessground.base.css">
+<link rel="stylesheet" href="/static/chessground/chessground.brown.css">
+<link rel="stylesheet" href="/static/chessground/chessground.cburnett.css">
+<link rel="stylesheet" href="/static/play.css">
+</head><body>
+<div id="app"></div>
+<div id="switcher">
+  <button id="prev">←</button><span id="vlabel"></span><button id="next">→</button>
+  <span id="vstats"></span><a href="/state" target="_blank">state</a>
+</div>
+<script type="module" src="/static/play.js"></script>
+</body></html>

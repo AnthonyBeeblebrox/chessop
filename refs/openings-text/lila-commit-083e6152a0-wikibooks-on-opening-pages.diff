@@ -1,0 +1,154 @@
+diff --git a/app/views/opening/bits.scala b/app/views/opening/bits.scala
+index abd7c0ab9a45d..92fed2c3ed77d 100644
+--- a/app/views/opening/bits.scala
++++ b/app/views/opening/bits.scala
+@@ -70,13 +70,14 @@ object bits:
+       )
+     )
+ 
+-  def moreJs(page: Option[OpeningPage])(implicit ctx: Context) = frag(
++  def moreJs(page: Option[OpeningPage])(using Context) = frag(
+     jsModule("opening"),
+     embedJsUnsafeLoadThen {
+       page match {
+         case Some(p) =>
++          import lila.common.Json.given
+           s"""LichessOpening.page(${safeJsonValue(
+-              Json.obj("history" -> p.explored.??[List[Float]](_.history))
++              Json.obj("history" -> p.explored.??[List[Float]](_.history), "sans" -> p.query.sans)
+             )})"""
+         case None =>
+           s"""LichessOpening.search()"""
+diff --git a/app/views/opening/show.scala b/app/views/opening/show.scala
+index ee62b9b8bbc07..284f9d18717a4 100644
+--- a/app/views/opening/show.scala
++++ b/app/views/opening/show.scala
+@@ -29,7 +29,7 @@ object show:
+           description = page.opening.??(_.pgn.value)
+         )
+         .some,
+-      csp = defaultCsp.withInlineIconFont.some
++      csp = defaultCsp.withInlineIconFont.withWikiBooks.some
+     ) {
+       main(cls := "page box box-pad opening")(
+         index.searchAndConfig(page.query.config, "", page.query.query.key),
+diff --git a/app/views/opening/wiki.scala b/app/views/opening/wiki.scala
+index 38847b9d3ce9c..9d3941ac618a8 100644
+--- a/app/views/opening/wiki.scala
++++ b/app/views/opening/wiki.scala
+@@ -10,14 +10,16 @@ import lila.opening.{ OpeningPage, OpeningWiki }
+ 
+ object wiki:
+ 
+-  def apply(page: OpeningPage)(implicit ctx: Context) =
++  def apply(page: OpeningPage)(using Context) =
+     div(cls := List("opening__wiki" -> true, "opening__wiki--editor" -> isGranted(_.OpeningWiki)))(
+       div(cls := "opening__wiki__markup")(
+         page.wiki
+           .flatMap(_ markupForMove page.query.sans.lastOption.??(_.value))
+-          .fold(frag("No description of the opening, yet. We're working on it!")) { markup =>
+-            raw(markup)
+-          }
++          .fold(
++            div(cls := "opening__wiki__markup__placeholder")(
++              "No description of the opening, yet. We're working on it!"
++            )
++          )(raw)
+       ),
+       (page.query.openingAndExtraMoves._1.isDefined && isGranted(_.OpeningWiki)) option {
+         details(cls := "opening__wiki__editor")(
+diff --git a/ui/opening/src/interfaces.ts b/ui/opening/src/interfaces.ts
+index c578fb4b6a769..405faad957883 100644
+--- a/ui/opening/src/interfaces.ts
++++ b/ui/opening/src/interfaces.ts
+@@ -1,4 +1,4 @@
+ export interface OpeningPage {
+-  name: string;
+   history: number[];
++  sans: string[];
+ }
+diff --git a/ui/opening/src/main.ts b/ui/opening/src/main.ts
+index 6bbfacfcb93e4..66f83112a01ac 100644
+--- a/ui/opening/src/main.ts
++++ b/ui/opening/src/main.ts
+@@ -4,6 +4,7 @@ import { OpeningPage } from './interfaces';
+ import { renderHistoryChart } from './chart';
+ import { init as searchEngine } from './search';
+ import panels from './panels';
++import renderPlaceholderWiki from './wiki';
+ import { Config } from 'chessground/config';
+ 
+ export function page(data: OpeningPage) {
+@@ -29,7 +30,10 @@ export function page(data: OpeningPage) {
+     if (id == 'opening-panel-games') loadExampleGames();
+   });
+   searchEngine();
+-  lichess.requestIdleCallback(() => renderHistoryChart(data));
++  lichess.requestIdleCallback(() => {
++    renderHistoryChart(data);
++    renderPlaceholderWiki(data);
++  });
+ }
+ 
+ export const search = searchEngine;
+diff --git a/ui/opening/src/wiki.ts b/ui/opening/src/wiki.ts
+new file mode 100644
+index 0000000000000..3a969f30877ab
+--- /dev/null
++++ b/ui/opening/src/wiki.ts
+@@ -0,0 +1,55 @@
++import { OpeningPage } from './interfaces';
++
++export default async function wikiTheory(data: OpeningPage) {
++  $('.opening__wiki__markup__placeholder').each(function (this: HTMLDivElement) {
++    const wrap = $(this);
++    fetchAndRender(data, html => wrap.html(html));
++  });
++}
++
++async function fetchAndRender(data: OpeningPage, render: (html: string) => void) {
++  const wikiBooksUrl = 'https://en.wikibooks.org';
++  const apiArgs = 'redirects&origin=*&action=query&prop=extracts&formatversion=2&format=json&exchars=1200';
++
++  const removeH1 = (html: string) => html.replace(/<h1>.+<\/h1>/g, '');
++  const removeEmptyParagraph = (html: string) => html.replace(/<p>(<br \/>|\s)*<\/p>/g, '');
++  const removeTableHeader = (html: string) => html.replace('<h2><span id="Theory_table">Theory table</span></h2>', '');
++  const removeTableExpl = (html: string) =>
++    html.replace(/For explanation of theory tables see theory table and for notation see algebraic notation.?/, '');
++  const removeContributing = (html: string) =>
++    html.replace('When contributing to this Wikibook, please follow the Conventions for organization.', '');
++
++  const readMore = (title: string) =>
++    `<p><a target="_blank" href="${wikiBooksUrl}/wiki/${title}">Read more on WikiBooks</a></p>`;
++
++  const transform = (html: string, title: string) =>
++    removeH1(removeEmptyParagraph(removeTableHeader(removeTableExpl(removeContributing(html))))) + readMore(title);
++
++  const plyPrefix = (ply: number) => `${Math.floor((ply + 1) / 2)}${ply % 2 === 1 ? '._' : '...'}`;
++  const pathParts = data.sans.map((san, i) => `${plyPrefix(i + 1)}${san}`);
++  const path = pathParts.join('/').replace(/[+!#?]/g, '') ?? '';
++  if (pathParts.length > 30 || !path || path.length > 255 - 21) return;
++  const title = `Chess_Opening_Theory/${path}`;
++  try {
++    const res = await fetch(`${wikiBooksUrl}/w/api.php?titles=${title}&${apiArgs}`);
++    if (res.ok) {
++      const json = await res.json();
++      const page = json.query.pages[0];
++      if (page.missing) return;
++      else if (page.invalid) {
++        console.warn('invalid request: ' + page.invalidreason);
++        return;
++      } else if (!page.extract) {
++        console.warn('error: unexpected API response:<br><pre>' + JSON.stringify(page) + '</pre>');
++        return;
++      } else {
++        console.log(page.extract, title);
++        console.log(transform(page.extract, title));
++        return render(transform(page.extract, title));
++      }
++    } else return;
++  } catch (err) {
++    console.warn(err);
++    return;
++  }
++}

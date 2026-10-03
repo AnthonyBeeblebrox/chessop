@@ -1,0 +1,14 @@
+#!/bin/sh
+# Keep 760 days of GoatCounter data on every site (public spec §10): GoatCounter deletes older
+# pageviews itself. Run before each start by goatcounter.service, as the goatcounter user;
+# installed by provision.sh in /usr/local/lib/chessop.
+set -eu
+
+days=760
+db=sqlite+/var/lib/goatcounter/goatcounter.sqlite3
+
+# A site's settings are a JSON document stored as a blob.
+exec /usr/local/bin/goatcounter db query -db "$db" "
+	update sites
+	set settings = cast(json_set(cast(settings as text), '\$.data_retention', $days) as blob)
+	where json_extract(cast(settings as text), '\$.data_retention') is not $days"

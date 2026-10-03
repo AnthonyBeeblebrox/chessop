@@ -1,0 +1,12 @@
+[project]
+name = "chessop-play-loop-prototype"
+version = "0.0.0"
+description = "THROWAWAY prototype for ticket 10: one fast round of the opening drill. Not the app."
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "chess>=1.11",
+  "zstandard>=0.23",
+  "httpx2>=2.12.0",
+]

@@ -1,0 +1,13 @@
+#!/bin/sh
+# Mail the owner the last 24 hours' error-priority journal, only when it is not empty (public
+# spec §14). Run daily by chessop-digest.service; installed by provision.sh in
+# /usr/local/lib/chessop.
+set -eu
+
+chessop=/opt/chessop/current/.venv/bin/chessop
+
+errors=$(journalctl --priority=err --since=-24h --quiet --no-pager --output=short-iso)
+[ -n "$errors" ] || exit 0
+
+printf '%s\n' "$errors" |
+	"$chessop" notify-owner --subject "chessop: errors in the last 24 hours on $(hostname)"

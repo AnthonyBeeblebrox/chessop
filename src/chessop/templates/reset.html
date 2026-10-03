@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}chessop · reset {{ what }}{% endblock %}
+{% block content %}
+<main class="page">
+  <h1>Reset {{ what }}?</h1>
+  <p>{{ deleted }} The round log and the daily scores are kept. This cannot be undone.</p>
+  <form method="post" action="{{ action }}" class="danger">
+    <input type="hidden" name="confirm" value="yes">
+    <button type="submit">Reset {{ what }}</button>
+  </form>
+  <p><a href="{{ back }}">Cancel</a></p>
+</main>
+{% endblock %}

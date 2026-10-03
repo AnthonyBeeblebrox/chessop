@@ -1,0 +1,993 @@
+Source: https://chesstempo.com/manual/en/manual.pdf (ChessTempo User Guide), Chapter 17 'Opening Training', extracted with pdftotext -layout on 2026-09-11
+
+Chapter 17. Opening Training
+The Opening trainer allows you to create and manage an opening repertoire, and then train to
+learn the moves using spaced repetition and other drilling modes. The opening repertoire also
+integrates into the Play online feature by providing immediate post-game feedback on where your
+games deviated from your opening repertoire.
+
+
+17.1. Getting started
+To start opening training you first need to create a new repertoire. Click on the [ New repertoire ]
+button to create your first repertoire. Repertoires can be either black or white repertoires, so
+choose a repertoire name and colour and click the [ Create ] button. If you already have a
+repertoire in PGN format, you can also import your repertoire from PGN by clicking on the
+[ Import PGN ] button.
+
+To add new moves to your repertoire simply make the move on the board and it will be added to
+the currently selected repertoire. When you have some moves entered, you can enter training
+mode by clicking on the [ Train ] or [ Train branch ] buttons. [ Train branch ] will only train
+moves from under the currently selected move in the opening tree panel. See the training mode
+section for more details on training.
+
+You may also want to explore the different settings that can be used to control training and viewing
+your repertoire. Settings can be viewed by clicking on the blue circle menu under the board and
+then clicking on the settings icon.
+
+
+17.2. PGN import
+When creating a new repertoire, you can use an existing PGN file as the import source. If there are
+multiple games in your PGN file , and the file is not the result of a Chesstempo opening repertoire
+export, then each game will be interpreted as multiple lines for the same imported repertoire.
+
+By default, any comments from your repertoire will be imported as private comments. If you’d like
+your PGN comments to be visible to others or ignored completely, you can choose those options on
+the create repertoire dialog. NOTE: If you are using a PGN with comments made by someone else,
+such as a chess book author, please do not make the comments public. If you are an author and find
+any of your annotations being used in comments on Chesstempo, please contact us to have them
+removed.
+
+By default, any alternative moves at the same position for the colour of your repertoire will be
+imported disabled, but you can choose to have them imported enabled as alternative lines to train
+or not imported at all.
+
+There is no size limit on the PGN, but there are quotas for the total number of positions you are
+able to have across all your repertoires. For details on the quotas which differ by membership type ,
+please see the Chesstempo memberships page.
+
+The quota for free accounts is fairly generous (currently 20000 positions can be stored). However
+you should be careful when importing repertoires that you are not trying to import a large
+
+
+
+168
+collection of games. Loading repertoires made up of entire games, including the middle game and
+endgame parts of each game will eat up your quota very quickly with positions that are not useful
+for training purposes.
+
+
+17.3. Adding repertoire moves
+You can enter a new move for a repertoire any time you are not in training mode by playing the
+move on the board. Played moves are automatically stored in your repertoire, and saved on the
+server. Moves will be attached to the currently selected repertoire which is shown in the repertoire
+tree to the left of the board.
+
+To delete moves (or branches of moves) right click on the move in the opening tree and choose the
+delete option. Deleting a non-final move in a line will also remove all sub-moves and variations that
+appear after that move.
+
+
+               Note if you are deleting a line that other moves could have transposed into you
+               will also be truncating those transposition lines as you will be removing the moves
+               from the line they transposed into. If you want to delete a line holding transposed
+               moves that you would like to preserve, then promote the truncated tranposing line
+               first, and this will move the following moves into the promoted transposing line
+               and out of the line you plan to delete. You can then delete the moves left in the
+               demoted line (which will now be marked as the truncated transposing line)
+               without losing the moves that are now attached to the newly promoted
+               transposition destination line. When promoting lines holding transpositions, you
+               may need to reload the opening trainer page in order for the canonical line to be
+               shown as moved in the interface.
+
+
+17.3.1. Changing main line
+
+Most repertoires will have positions where your opponent has multiple choices, and in some cases
+you may have more than one move you want to play in a position. The first move shown in the
+opening tree will be the main line move, and the subsequent moves in the sub-positions will be
+seen as sub-lines. If you’d like to change the order of lines you can right click on a sub-line in the
+opening tree and use the promote line option. The line will move up in order, swapping with the
+next highest line. If the line was one below the main line, then it will swap with the main line, and
+become the new main line move for that positions. When promoting lines holding transpositions,
+you may need to reload the opening trainer page in order for the canonical line to be shown as
+moved in the interface.
+
+
+17.4. Training mode
+Training mode is where you practice the moves in your repertoire. Training mode can be entered
+by clicking on the [ Train ] or [ Train branch ] buttons. [ Train branch ] will only train moves from
+under the currently selected move in the opening tree.
+
+
+
+
+                                                                                                  169
+17.4.1. Move hints
+
+By default if you are seeing a move for the first time you’ll be shown an arrow indicating the
+correct move. Similarly if you have turned on the preview moves wrong on last attempt option in
+your settings, and are seeing a move you got wrong last time you’ll also see an arrow showing the
+correct move.
+
+
+17.4.2. Training depth
+
+If you want to focus only on moves from lines up to a particular depth , then you can set the
+Maximum learning depth in your opening trainer settings. When a maximum depth is set , the
+summary stats shown under the board will reflect the current depth limit. NOTE: Graphs showing
+training status always use the full depth when displaying data.
+
+The training depth option can be used to create a good compromise between the main lines first
+and breadth over depth learning priority settings. With main lines first selected, you can end up
+having to learn some very deep lines before seeing any side branches further up the tree. By setting
+a maximum depth you can force the main line learning priority to start to select side lines earlier
+than would otherwise be the case, creating a hybrid priority between main line and breadth over
+depth options.
+
+
+17.4.3. Available Training Modes
+
+The opening trainer currently provides the following training modes that can be selected in the
+opening trainer settings.
+
+1. Spaced repetition
+
+2. Review in order
+
+3. Least recent/unseen first
+
+
+Spaced repetition
+
+Spaced repetition is a learning method that tries to optimize your time so less time is spent on items
+you know well, and more time is spent on items that are causing trouble. Once a move is first
+served up for training it is given a scheduled time for its next appearance. If you continue to get the
+move correct, the next scheduled time will be moved further and further into the future. If you get
+the move incorrect the system will decide you have forgotten the move and will start to present it
+more frequently. This process of serving up mistakes more quickly, and delaying the reappearance
+of correct moves allows you to maximize the time you spend on the moves you are having the most
+problem remembering.
+
+When you get a move wrong, you are shown the correct move and can then play it to advance on to
+the next scheduled move. If you choose to play the move at this point it will not be considered a
+correct response for the purposes of the spaced repetition system, so will not impact how soon you
+will see the mistake again.
+
+Incorrect moves are by default scheduled almost immediately for review. This means as soon as
+you finish all the moves that were already scheduled due when you started your current training
+session, you’ll be able to review the mistakes you made during the session.
+
+
+170
+Learning priority order
+
+Before you begin training, none of your moves will be scheduled. Any time there are no moves
+scheduled and you start training when there are still moves left that have not been scheduled, the
+system will select an as yet unseen move and from that point will start to schedule it using the
+spaced repetition system.
+
+There are four ways of selecting how the system chooses which of the unseen moves from your
+repertoire will be used first, and these are controlled via the Learning priority setting in your
+opening training settings. The default method is the "Depth first" method which tries to traverse
+your repertoire in a depth first manner. Most repertoires will have multiple lines for your
+opponent in many positions, and in some cases for your own moves. The "Depth first" option will
+start with the first main line, go as deep as possible in that line, before selecting the first variation
+of that main line and training all the moves in that line, before selecting the first variation off the
+initial variation. This process of going to the end of the current line and then repeating the process
+on sub-lines is repeated at all levels until the entire repertoire has been covered.
+
+The "Breadth over depth" is the opposite of the "Depth first" option. Instead of going deep first, it
+will investigate your repertoire looking broadly, before going deep. So this option will look at all the
+moves in the first position in your repertoire, then all the moves at move 2, and then all the moves
+at move 3 across all branches of your repertoire. This option allows you to get a broad but shallow
+view of your repertoire, prioritising a broad range of knowledge before moving to deeper material.
+
+The "Main lines first" option will train the main lines before side lines. When all the main lines are
+done it will start to look at the first sub-lines in each position. This option works by viewing your
+repertoire as variation levels. The top level main line is level 1. A variation that branches off that
+main line will be level 2, and a variation that branches off that level 2 variation will be level 3. This
+option will first show you all the level one moves, then all the moves in level 2 variations, then only
+after those have been covered, all the level 3 variations will be shown. This process continues down
+the levels, until the most deeply nested variation moves have been visited. This method provides a
+mid-way point between breadth over depth and depth first approaches. By making sure you place
+the most important lines as possible in the main lines or main variations when constructing your
+repertoire, this method will allow you to choose to train those most important lines first, and only
+start to tackle the more nested levels of variations after mastering the more popular variations.
+
+The "Common positions first" option will use the opening explorer data that has been synced with
+the repertoire in order to prioritise moves that have been played more often in the source games
+over moves played less often. Moves that have no opening explorer data associated with them will
+not be used until all moves with opening explorer data have been used, at that point moves with no
+opening explorer data, but having engine evaluations will use engine evaluations to prioritise
+learning order, and for moves with neither opening data nor engine evaluation data, breadth first
+order will be used as a fall back method for prioritisation . See the syncing opening explorer stats
+and syncing engine evals sections for further details on how to attach opening explorer and engine
+evaluations to repertoire moves. NOTE: This is a desktop only feature until the next app update.
+
+
+               Learning priority settings only impact which moves are taken from an unseen
+               state into a scheduled state, an operation that only occurs in spaced repetition
+               mode when you elect to continue training when no moves already being trained
+               are scheduled. For moves already scheduled, the spaced repetition system rather
+
+
+
+                                                                                                     171
+               than the learning priority will dictate which moves are selected. Eventually you
+               will reach a state where all moves have been introduced into training and are
+               scheduled for training. At that point, the main lines first and breadth over depth
+               options will not be relevant again until you add new moves into your repertoire.
+
+               If you would like to train all positions using the learning priority order rather than
+               the spaced repetition scheduling algorithm’s choice for move order on moves
+               you’ve already seen once, then choose the review in order learning mode insted of
+               spaced repetition mode, as it will using the learning priority method to determine
+               the order, allowing you to train the entire repertoire in the chosen order
+               irrespective of the spaced repetition scheduling state.
+
+
+Context for training moves
+
+When a move is scheduled for training (or added from the set of unseen moves), the system may
+choose to add some context moves to help orientate you to the position. Once you have a large
+repertoire, it can be confusing to jump from random position to random position without any
+context.
+
+To determine how much context is shown, the system looks at the full line from the move chosen
+for display up to the start position in the game. If the moves are extremely well known the system
+may skip them completely, if they are somewhat less known the system will choose to display them
+as context, with how well known dictating how fast the system will move through the moves. This
+enables the system to provide you some context, but make sure you are not wasting your time
+seeing context that is already second nature to you. The system may also decide that a move that
+appears earlier in the line than the move that is chosen for display was close to being scheduled,
+and so present that move as a training move before reaching the target move. This further
+optimizes the use of context by using the context to present more than one training target from the
+context line for training. There are several settings to control the context behaviours in your
+opening trainer settings, including options that can be used to make the system ask you to play ALL
+the leadup context moves.
+
+
+Review in order
+
+Review in order mode allows you go through an entire repertoire (or repertoire branch) in order,
+bypassing the scheduling algorithm used by the default spaced repetition learning mode. The order
+chosen will be the same as that chosen by the Learning priority order setting. Each repertoire will
+keep track of the current review position, and once you’ve reached the end of order, the order will
+reset and start again. This mode is designed for use in situations where you want a review of all
+your moves, such as before a tournament. Any attempts made in review mode will also impact
+spaced repetition scheduling, so if you get a move wrong in review mode, when you return to
+spaced repetition mode, it will be recognised as a move requiring more work. Similarly, correct
+responses in review mode will increase the time for an item to be later scheduled in spaced
+repetition mode. Any moves in your repertoire that had previously not been seen will move out of
+unseen status into learning status when encountered in review mode.
+
+Note that review mode aims for you to play all moves in your repertoire only once during the
+review. This means when you reach the end of the line, the system will autoplay any moves leading
+up to the next move that you have already played during this review cycle.
+
+
+
+172
+We don’t recommend using review mode as your main training mode as it will not make the most
+efficient use of your training time, due to not priotising your time on items you know least well. So
+leaving review mode for situations where a complete review of a repertoire (or repertoire branch)
+is required is probably best.
+
+To reset the review to the start position, go to the 'Resert' option in the opening trainer actions
+menu, and then click the [ Reset Review Order ] button.
+
+
+Least recent/unseen first
+
+Least recent/unseen first is similar to review in order mode. However instead of reiviewing items
+in a fixed order, the order is largely decided by how long it has been since you’ve played the move
+in any of the training modes. Moves you haven’t yet seen at all are shown first (in the order dictated
+by Learning priority order), and after no more unseen moves are left, the moves you had seen least
+recently are shown. You will end up seeing every move in your repertoire if you continue to train in
+this mode. Like review in order mode, items attempted in this mode will also impact spaced
+repetition mode scheduling.
+
+This mode can also be used to review an entire repertoire before a tournament, but can also
+provide a way of refreshing moves that the spaced repetition system may have scheduled a long
+way into the future, due to previous accurate performances, and that you may be starting to forget.
+Any moves you’ve forgotten since last training them , and so marked wrong during training in this
+mode will then be priotised for more rapid ongoing review within the spaced repetition system
+when you return to using spaced repetition for training.
+
+Note that context moves shown before a currently targeted move may be requested in the same
+way they may be requested in spaced repetition mode. So while each target move follows the least
+recent/unseen ordering rule, it is possible for you to be asked to play some context moves early if
+the system decided they were already due for review now or soon into the future. Context removes
+reviewed in this manner will be deemed to have been already reviewed as part of the current
+sequence, and will not be requested again in this mode until you’ve seen all possible moves.
+
+
+17.4.4. Training all repertoires
+
+If you click on the folder holding the white or black repertoires before you start training, positions
+will be taken from all the repertoires of that colour. NOTE: that with a high level repertoire
+selected, some operations are not allowed, such as adding moves, or deleting lines. If you want to
+remove moves or add new moves you’ll need to have a single repertoire selected first. If you are in
+a high level grouping repertoire, and want to know which repertoire(s) a move comes from , you
+can find that information in the candidate moves panel.
+
+
+17.4.5. Resistant repertoires
+
+Resistant moves are moves that you’ve been training for some time, but are still having trouble
+consistently getting right. Once a move is deemed to be resistant, it will take more than one correct
+answer in a row to move back to being non-resistant. While the spaced repetition system does a
+reasonably good job of prioritizing moves you keep getting wrong, the resistant moves may still
+need extra attention, especially if you are still getting them right sometimes, just not consistently
+enough to indicate mastery has been achieved. To help prioritize your time on these types of
+
+
+
+                                                                                                  173
+moves, there are two specific global repertoires available in the repertoire tree that hold all the
+white and black resistant moves. This allows you to select the resistant repertoire and then start
+training in order to preferentially target scheduled moves that are proving difficult to master.
+
+
+17.4.6. Transpositions
+
+The underlying representation of your repertoire uses positions as the primary entity, rather than
+explicit move orders. This allows a natural treatment of transpositions as moves are secondary to
+positions and there is only one instance of each position, no matter how many repertoires or
+transpositions it appears in. If a particular repertoire contains a transposition to another line
+already stored elsewhere in the repertoire, the opening tree will not fill in a move branch for the
+transposition. If you play the transposition move on the board the tree will jump to the
+transposition position in the tree where the rest of the line will be presented.
+
+Transpositions across repertoires are handled slightly differently. To avoid confusion, a move that
+transposes from repertoire A to repertoire B will have the full line appear in both repertoires
+within the opening tree. However, In both the single repertoire and cross repertoire transposition
+cases there is only one representation of the position in the underlying repertoire data. It doesn’t
+matter which path you reach a position from, once you’ve transposed into a line the learning stats
+and spaced repetition scheduling treats the positions the same. So if you train moves in repertoire A
+that are from positions that transposed to repertoire B you’ll get credit in both repertoires, because
+in the internal representation the positions are the same.
+
+The same is true for any overlap between multiple repertoires, not just transpositions. If you have
+two repertoires that overlap, training in one will also impact the scheduling of the same moves in
+any other repertoire in which the same position and move exists.
+
+
+17.5. Syncing opening explorer stats
+You can choose to add opening explorer statistics to your repertoire, which , as well as provide
+extra information on each move, enables several other features, such as common positions first
+learning prioritisation, colouring options in the opening tree and opening sunburst visualisations,
+and extra sorting and filtering options in the move list table.
+
+To initiate the opening explorer sync, click on the blue circle menu launcher under the board, and
+select the sync explorer option. Several options are available for the sync:
+
+Game Source
+   Choose between our main chesstempo game database (the one containing OTB games, including
+   master games), a recent snapshot of games played on the playing server (the last 3 million games
+   matching the rating criteria), and your own games played on chesstempo. Each of these has
+   different pros and cons. Using the main game database produces stats that reflect quality game
+   play, especially if you choose a master level rating range for the rating filter. Stats based on move
+   choices in master games will produce a better estimate of move quality than estimates extracted
+   from games played on chesstempo or most likely your own games. Using data from chesstempo
+   games will not reflect the high quality play of the OTB master games, but if you want to use the
+   opening explorer data in conjunction with the common positions first option, the data may
+   better reflect the positions you will experience when playing online, especially if you choose a
+
+
+
+174
+  rating range that reflects players of a strength you regularly play against. Choosing your own
+  chesstempo games as the playing source provides game counts that are very specific to the lines
+  you are playing in your online games, but may lack statistical power in low frequency lines.
+
+Rating range
+  The rating range for games used from the source database can be specified. Note that the
+  narrower the range , the fewer games will be available , and while setting a higher minimum
+  rating number will increase the quality of the games, and so the reliability of the win/loss based
+  stats for moves with sufficient games, it will also reduce the total games and so decrease the
+  statistical power of the less common positions.
+
+Only add explorer stats to moves without existing values
+  This option controls if syncing will overwrite any existing values already synced on previous
+  syncs. The option is off by default, which means any old values on moves found to have stats on
+  the current sync will be overwritten. If you’d prefer to keep old values in preference over new
+  values, then turn this option on.
+
+Clear explorer stats from non-matched moves
+  This option controls what happens to moves that are not found to have any explorer data (i.e no
+  matching games) in the current sync. By default this option is on, and such moves will have any
+  existing stats cleared. If you want to keep stats on non-matching moves then turn this option off.
+  An example of a situation where you may want to turn this option off is if you want to sync from
+  several game sources. For example if you want to use the 'common positions' learning priority
+  option, then you may want to first sync with the main database, then the CT playing database,
+  and then finally your own CT games, thus ensuring that the common positions first option will at
+  least use moves played in any matching games across all 3 sources in preference to moves in
+  games not found in any source. To do this you would need to turn off the 'clear explorer stats for
+  non-matches moves' option for each of your 3 syncs. You can also use a combination of either
+  the order of syncing or use the "Only add explorer stats to moves without existing values" option
+  to control which stats source is preferred if stats are available for a move from all 3 sources.
+  Note that if you want to prioritise based on the count of your own games over other sources,
+  then you probably want to sync that source first, and only after running out of moves with
+  explorer data from your own games, syncing one or both of the other sources, otherwise the
+  larger counts from the main game db and chesstempo games sources will overwhelm the
+  numbers in your own games, prioritising based on master games and CT games first.
+
+
+               To avoid excessive load on the server, only one opening explorer sync per game
+               source type can be performed every few minutes.
+
+
+               You will need to manually reload the opening trainer after the sync has completed
+               in order to make use of the synced data.
+
+
+               This is a desktop only feature until the next app update.
+
+
+
+
+                                                                                                 175
+17.6. Syncing engine evals
+Using the sync evals feature you can fill in pre-processed engine evaluations for your repertoire
+moves. Having evals synced with your moves allows extra colouring options for opening tree
+colouring and opening sunburst visualisation colouring , as well as sorting options on the move list
+table and a bulk disable based on engine evals.
+
+Chesstempo has a large cache of pre-cached engine evaluation for many opening positions of
+varying depths. We have been using a portion of our idle cloud engine servers to analyse the most
+common opening positions at high depth (depth 50 using Stockfish). We’ve been running this high
+depth analysis for over a year, but such depth takes around half a day for each position, so even
+with many engines processing these requests in parallel there is still a lot of work to be done to
+cover all common positions. We also have opening position evaluations cached from some of the
+cloud engine analysis done by users of our cloud engine features, that is often of lower depth
+(although occasionally higher depth analysis is also available). We have also recently released a
+feature for diamond members that allows them to request bulk analysis of their repertoires at
+depth 25, and once cached this analysis is also available to other members.
+
+To start the engine eval sync, click on the blue circle menu launcher under the board, and select the
+sync evals option. Several options are available for the sync: Only add evals to moves without
+existing evaluations:: Use this option to preserve any existing evaluations. Because you can
+manually add engine evals or export them via PGN when importing a repertoire from PGN you may
+want to use this option to make sure pre-cached evaluations do not override your hand chosen
+evaluations. The option is on by default, if you want to overwrite existing evals during the sync,
+turn this option off. Minimum engine depth to use:: Only sync pre-cached engine evaluations that
+were analysed to at least this depth.
+
+
+              To avoid excessive load on the server, only one eval sync can be performed every
+              few minutes.
+
+
+              You will need to manually reload the opening trainer after the sync has completed
+              in order to make use of the synced data.
+
+
+              This is a desktop only feature until the next app update.
+
+
+
+17.7. Repertoire engine analysis
+The sync evals feature provides repertoire engine data for positions that already have pre-existing
+engine analysis. Diamond members also have access to a feature that provides engine analysis for
+all moves in a repertoire, filling in the gaps for moves that don’t already have pre-cached analysis.
+To use the engine analysis feature right click on any move in the opening tree panel and choose the
+'analyse line' option. If you want to analyse the entire repertoire, click on the top level move to
+analyse the entire tree. In order to manage load on our cloud engine servers, there is a 5000 daily
+quota on moves analysed. Analysis is done with the Stockfish engine to depth 25. Note that the
+quota only applies to moves that don’t already have at least depth 25 evaluations cached, and with
+average sized repertoires, 5000 moves may be enough to cover all moves without prior evaluation
+in one day. Over time, as more moves are cached, we expect the 5000 limit to be sufficient to
+
+
+176
+analyse entire repertoires in the vast majority of cases, with only those with an unusually large
+number of novel positions needing to spread the analysis out over more than one day.
+
+If you do need to analyse over several days, you can analyse again from the top level move in your
+repertoire, and the system knows which moves have already been analysed and will only look at
+the yet-to-analysed moves in subsequent analysis requests (i.e you don’t need to remember which
+part of the tree you have already asked for analysis on). If you want to monitor how the analysis is
+going, you can request another analysis, and you’ll get feedback on how many items are still in the
+queue waiting to be processed (as well as details on the remaining quota for the day).
+
+Once all positions have been analysed (requesting a new analysis will tell you if that is the case),
+you need to use the sync evals feature to initiate the final sync of the processed moves with your
+repertoire, after a page reload you will then be able to visualise the opening tree and opening
+sunburst using the eval colouring method, and sort the move table based on evaluations.
+
+
+               This is a desktop only feature until the next app update.
+
+
+
+17.8. Opening sunburst repertoire visualisation
+The opening sunburst provides a method of visualising your opening repertoire and various
+metrics such as engine evaluations , opening explorer stats and spaced repetition learning metrics.
+It lays out your repertoire in a radial tree layout which allows a more compact overview than can
+be provided by the opening tree. To launch the sunburst click on the eye icon in the header of the
+opening tree panel.
+
+If your repertoire is of a reasonable size only a sample of the entire repertoire will be displayed,
+with priority given to moves whose sub-branch is a larger percentage of the total repertoire. You
+can click on any move in the sunburst to make that move the centre of the sunburst, thus drilling
+down into the move’s sub-lines. Clicking on any move will also jump to the position in the opening
+tree.
+
+The board in the centre of the sunburst shows the position after the move currently hovered over
+with the mouse. The full line for the hovered move is shown below the board, along with the
+opening name, and opening explorer stats and engine eval if available. The spaced repetition based
+statistics for moves you’ve attempted at least once will be shown towards the top of the sunburst
+when hovering over the move.
+
+If you’d like to return to the previous set of data after drilling into a move by clicking on it, then you
+can zoom back out by clicking on the board in the centre of the sunburst. Subsequent clicks on the
+board will continue to zoom back out until you reach the initial position again. If you’ve drilled
+several moves down and want to jump back to the start position quickly, use shift-click to achieve
+that. There is a resize handle in the bottom right of the sunburst if you need to resize, please note
+that you may have trouble making out the moves when a smaller size is used, if that’s the case you
+may want to change the "Maximum rings in sunburst" setting to limit the total rings displayed at a
+time.
+
+You can click on the settings icon in the top left corner on the sunburst to configure the sunburst
+evaluation, available settings are:
+
+
+
+                                                                                                      177
+Colouring Method
+  The colouring method determines how the move segments in the sunburst are coloured, the
+  options include:
+
+  Engine evaluation
+      Colour the moves based on engine evaluation from the point of view of the repertoire colour,
+      so if the repertoire is from black’s point of view for example, moves the engine think give the
+      edge to black will be coloured green (or blue if the colour blind friendly option is used), and
+      red if the position is considered good for white. the larger the advantage (or disadvantage)
+      the darker the colour will become, and the smaller the advantage the lighter the colouring,
+      with white showing even positions. Positions that currently lack engine evaluation are shown
+      in grey. See syncing engine evals for instructions on syncing evaluations to the moves for use
+      in colouring.
+
+  Opening Explorer win rate
+      Colours the moves based on the win rate in the opening explorer data synced to the move
+      from the point of view of the repertoire colour. The colouring method is similar to the eval
+      colouring with win-rates favouring the repertoire colour shown in green (or blue) and moves
+      not favouring the repertoire colour shown in red. moves with no opening explorer stats
+      available are shown in grey. See the syncing opening explorer stats section for more details
+      on connecting opening explorer stats data to the moves.
+
+  Opening Explorer performance rating
+      Similar to the opening explorer win rate option, but using the performance rating for the
+      move, colouring is based on the performance rating for each move compared to the average
+      rating of the players that played it, so moves that perform above average will be coloured
+      green/blue vs moves that perform below average being coloured red. Note the colouring for
+      this option takes the 'first mover advantage' setting into consideration. This is to adjust for the
+      natural advantage white has over black in the opening, and avoids having all black openings
+      coloured as 'slightly bad'. The default value for this normalisation uses a 35 rating points
+      adjustment bonus for black openings, if you’d prefer a raw performance rating without the
+      adjustment, set it to 0 in your settings.
+
+  Line separation
+      This simply attempts to colour different lines with different colours, providing some visual
+      separation of different lines in your repertoire on the sunburst, but without using any
+      performance metrics.
+
+  Accuracy
+      This colours moves based on your accuracy during opening training. More accurate moves
+      will be coloured green/blue, less accurate moves red. Moves you’ve never attempted will be
+      coloured grey.
+
+  Correct sequence
+      This colours moves based on the number of times you have got them correct in a row while
+      training. The longer the correct sequence the greener/bluer the move will be, the shorter the
+      sequence the more red the move will be. Moves you’ve never attempted will be coloured grey.
+
+
+
+
+178
+   Last seen
+      Colours moves based on how recently you’ve seen them. Recently seen moves will be
+      green/blue and less recently seen will be red. Moves you’ve never attempted will be coloured
+      grey.
+
+   Next scheduled
+      Colours moves on when they are due for their next review. Moves due further into the future
+      will be shown in green/blue, moves due soon will be red. Moves you’ve never attempted will
+      be coloured grey.
+
+   Attempt count
+      Colours moves based on the number of times you have seen them relative to other moves.
+      The more times you have seen them, the greener/bluer the moves will be , the less often , the
+      more red they will be. Moves you’ve never attempted will be coloured grey.
+
+First mover advantage in Elo
+   The estimated advantage to white in the opening in rating points. Used to normalise the
+   performance rating colouring to factor out white’s inherent advantage in the opening. Set this to
+   0 if you’d prefer an unadjusted view.
+
+Maximum rings in sunburst
+   The maximum number of concentric circles shown in the sunburst. A smaller number may be
+   useful on smaller screens. In general smaller numbers provide a less cluttered output, but
+   provide a more high level overview, with less of the data visible at once.
+
+Bad→Good colour range
+   The default metric based colour range uses a Red to Green range (with white in the middle
+   showing a neutral metric). If you have trouble differentiating colours in this range due to issues
+   with colour blindness you can switch to the Red to Blue option which should provide more
+   differentiation for those with Red/Green differentiation issues. Note we may be replace this
+   option in the future with a system wide setting once we start offering other colour blind friendly
+   options for other parts of the site.
+
+There is also an opening trainer wide setting on the opening trainer advanced settings that controls
+the opening explorer based stats, and can be used to set a minimum number of games before a stat
+will be used, this can be useful for the win/rate, and opening performance rating colouring methods
+as smaller game numbers can produce misleading colouring due to small sample sizes, so
+considering using this setting (which is off by default) if you find low-sample size colours confusing.
+
+
+               This is a desktop only feature until the next app update.
+
+
+
+17.9. Move list table
+The move list table provides a linear list of all the moves in your repertoire. Providing data on each
+move such as the engine evaluation and opening explorer stats (where available) and the spaced
+repetition learning metrics for each move. The move list table can be launched by first selecting the
+start of the branch you want to exam (use the top level move if you want to see all moves in your
+
+
+
+                                                                                                   179
+repertoire) and then click on the list icon in the header panel of the opening tree. Once launched
+click on the headers of the table to sort by those metrics, and click on the settings icon in the top left
+of the table to access settings and filters for the table. The forward/back arrows next to the settings
+button moves forward and backwards one move at a time in the table, selecting the move in the
+opening tree (or you can click directly on a move in the table to jump to that position in the tree).
+
+By combining sorting (via clicking on column headers) and the available filters the move list can be
+used to identify important aspects of your repertoire. For example if you want to review all the bad
+moves (according to Stockfish) in your repertoire click on the eval header to toggle between sorting
+by increasing or decreasing eval. This allows you to have the worst moves shown first in the list.
+You may also want select the 'only show our moves' setting, to focus on moves of your colour that
+the engine thinks are poor. You can then tarverse through the list of bad moves and decide if you
+want to keep them in your repertoire, or replace them with better options. Similar filtering can be
+done with opening explorer based settings. You can also zero in on move you are performing
+poorly at in spaced repetition by sorting by those columns.
+
+Another example of using the move list table is to find moves where you might get the most benefit
+from extending the line further. If you enable the "only show end-of-line" moves option, and then
+sort by the "opex #" column (i.e the number of times the move appeared in the opening explorer
+data that was synced with your repertoire) then you can see which lines ended in positions that
+were still very common according to the opening explorer data, and these positions may provide
+good extension points, as they are more likely to come up in actual play, so extending the line
+further is more likely to provide a return on your learning time investment than extending a line
+that rarely comes up. When using explorer based stats, you may also want to filter based on the
+minimum explorer games setting to completely avoid seeing moves with less than minimum
+number of moves.
+
+By default the move list table will also show disabled moves, but you can hide those by enabling the
+'hide disabled moves' option in the move list table settings.
+
+
+               This is a desktop only feature until the next app update.
+
+
+
+17.10. Bulk disable moves
+If you have already synced engine evals and/or opening explorer stats with your repertoire (and
+subsequently reloaded the page) you will be able to disable moves in your repertoire that do not
+meet a minimum engine eval target or number of games played in the opening explorer stats.
+
+To initiate the bulk disable first click on the first move in opening tree of the branch in your
+repertoire you want to disable (click on the first move if you want to consider the entire repertoire
+for disabling). Then click on the blue circle menu launcher under the board, and select the bulk
+disable option. Choose the pawn evaluation threshold and/or the minimum number of games the
+move has been played in for the disabling criteria (any move worse than the stated eval threshold
+or played less number of times in the opening explorer stats will be disabled). You can also choose
+to disable moves of either colour or just your own moves. Only moves from the currently selected
+repertoire will be considered for disabling.
+
+This option can be useful for reducing a very large repertoire down to the essential lines for
+
+
+
+180
+memorisation based on how likely you are to see them in your actual games. Disabled moves
+remain in the tree for instrucitonal purposes, but are not included in training.
+
+
+17.11. Move details
+When paused or not in training mode, details about the move just played are shown under the
+board, this includes: - Accuracy - Last time the move was seen - Number of times the move was
+wrong or correct in a row. - When it is next scheduled - The mistake history for the move, which
+shows all the incorrect moves that have been made in the current position and their frequency and
+most recent date played. Note: This only applies to moves made after the 25th of April 2020, and
+currently only collects mistakes made on the desktop version, the apps will also track mistakes after
+the next update. - Engine evaluation of the move if available (see the syncing engine evals section). -
+Opening explorer stats for the move if available (see the syncing opening explorer stats section).
+
+
+17.12. Personal comments panel
+Any comments you have made on a position or move in the comment panel, or comments imported
+automatically from a PGN import will be made visible in the personal comments panel. You can
+control when these items will be visible via the 'Show our move comments' setting in the opening
+trainer settings panel.
+
+
+17.13. Board annotations
+You can draw arrows and highlight squares on the main opening trainer board using right click
+(square highlight) or right click and drag (draw arrow), combined with Ctrl/Shift/Alt key combos for
+choosing the colour of the square or arrow.
+
+These board annotations can be permanently saved on the move for this position by pressing the 's'
+key after you’ve finished making the required graphical annotations, and will be available when
+traversing the move list and included any PGN exports.
+
+
+               This is currently a desktop only feature, viewing board annotations (but not
+               creating them) will be made available on the app in a future update.
+
+
+
+17.14. Play online integration
+When you have one or more opening repertoires created, they will be used after each game you
+play on Chesstempo to provide feedback on where the game deviates from your repertoire. A
+deviation will be either where you play a move that was different than the one recommended in
+your repertoire, or your opponent plays a move that you don’t have in your repertoire yet. You can
+choose to add new moves via the opening explorer without leaving the playing page, or launch the
+opening training page with the relevant repertoire selected.
+
+
+17.15. Opening training settings
+To launch the settings panel, click on the blue circle menu launcher under the board, and select the
+
+
+
+                                                                                                     181
+settings option.
+
+
+17.15.1. Basic settings
+
+Learning mode
+   Choose between the different methods of deciding which items to train, either Spaced repetition,
+   Review in order or Least recent/unseen first. (Note: Desktop only until next app update)
+
+Pause at end of line
+   While training, don’t show the next move automatically after reaching the end of a line. You can
+   also choose to pause after any move by using the pause button under the board, allowing you to
+   review comments etc without automatically moving on to the next move.
+
+Preview moves in new lines
+   Show the correct move via an arrow in all new positions.
+
+Preview moves wrong on last attempt
+   Show the correct move via an arrow if it was wrong on the last attempt.
+
+Preview moves in all lines
+   Show the correct move via an arrow before all moves.
+
+Candidate moves as arrows when not training
+   When not in training mode, use arrows to show the current candidate moves in the position, the
+   main line move will be shown as a purple arrow, other candidate moves as grey arrows. (Note:
+   Desktop only until next app update)
+
+Top explorer move as arrow when not training
+   When not in training mode, use an orange arrow to show the most popular move in the position
+   according to the opening explorer. If the top explorer move is also the main line move, and
+   candidate move arrows is turned on then the orange arrow will be shown with a purple border,
+   indicating the main line move is also the most popular move. If the top explorer move is an non-
+   main line candidate move then it will be shown with a grey border. (Note: Desktop only until
+   next app update)
+
+Show our move comments
+   Your own move comments (either made by you in the comment panel, or imported from PGN
+   when creating your repertoire) are shown in the personal comments panel under conditions
+   decided by this option. You can choose to have comments shown only when not training, always
+   (so both training and non-training), never or in situations where the move is previewed. The
+   latter includes several cases, such as when showing a previously wrong move, showing a new
+   move you haven’t seen yet, or when training might be paused such as when a mistake was just
+   made or a line has reached the end. When not training is the default. When your own comments
+   are shown in training in a situation where the system is currently expecting you to play a move,
+   then the comment will be shown for the move to play rather than move just played, which is
+   different to the all comments list panel which always shows comments for the move just played.
+   (Note: Desktop only until next app update)
+
+
+
+
+182
+Learning priority
+  How new moves are moved from the as yet unseen moves into the learning set. 'Main lines first'
+  takes moves from main lines first and sidelines later. 'Breadth over depth' mode takes all moves
+  at depth 1 first then moves on to all moves at depth 2, continually increasing the depth until all
+  moves have been added to the learning set. This setting is also used to decide the move order in
+  Review in order mode and the order in which unseen items are selected in the Least
+  recent/unseen first mode.
+
+Maximum learning depth
+  The maximum depth to train moves to. Default to unlimited, entering 0 for the depth will revert
+  back to unlimited. Note that the global training graphs will always use unlimited depth for stats
+  display, even if a depth limit has been requested.
+
+
+17.15.2. Spaced repetition settings
+
+Sort due items by
+  When the spaced repetition system has several items that are due for presentation, this option
+  decides what order they will be presented in. "Variation" means due items will be sorted by
+  variation, "Due date" will sort the items by when they are due. Variation is the default option
+  and will lead to less jumping around in your repertoire, especially if your repertoire is large.
+  However if you are having trouble completing all items each day, you may want to switch to
+  "Due date" which will prioitise the items that are most overdue first. Note that using "Variation"
+  mode means wrong moves will not be scheduled until you either finish the due items that were
+  scheduled at the start of the session or you reinitialise the repertoire by reloading the page or
+  clicking between different repertoires. (Note: Desktop only until next app update)
+
+Sort undue items by variation window
+  When using the sort due items by variation option, this value dictates how many hours into the
+  future any undue items will be included in the sorting. For example if the value is set to 24 hours
+  then you can continue solving against problems due up to 24 hours into the future, and still have
+  them sorted by variation. Once the window has been passed, if you continue to train when there
+  are 0 due items then they will be selected purely on the order they are due, which may mean
+  you jump between variations. The default value is 0 hours, which disables including undue
+  problems in the variation-based sorting, but if you often solve when due = 0 and would like to
+  keep variation based sorting, at least for the items due soon, then change this setting so the
+  window is large enough to reflect what you consider to be 'soon'.
+
+Gap growth factor
+  The gap growth factor dictates how quickly moves you get correct are pushed into the future. If
+  the gap growth is 2 for example and you get the item correct after having previously got it
+  correct 4 days ago, then the next presentation will be scheduled in 2*4 days = 8 days. If you
+  choose 1.5 as the gap factor then it would have been scheduled in 1.5*4 days = 6 days. If you feel
+  you are forgetting moves before the next review (and you are solving all due problems each
+  day), you may want to decrease the growth factor. If you are remembering items ok, but feeling
+  overwhelmed by the total number of problems due each day, try increasing the gap factor
+  beyond the default 2.0 value in order to more quickly push correct items into the future.
+
+
+
+
+                                                                                                 183
+Max Days into the future
+  The maximum number of days the spaced repetition system will allow an item to be scheduled
+  into the future. The bigger this number is , the easier it becomes to manage the learning load in a
+  very large repertoire. However if it is too large you may find yourself forgetting items. The
+  current default is 1095 days (3 years).
+
+Mistake Reschedule time
+  The number of minutes into the future to schedule a mistake move. Defaults to 0.5 minutes (30
+  seconds). Note this doesn’t mean it will be automatically shown in 30 seconds, as there may be
+  other items already scheduled before it, it simply means its due date will be 30 seconds from
+  now.
+
+Initial Correct Scheduled time
+  The first time you get an item correct it will be scheduled this number of minutes into the future.
+  The default value is 1440 minutes (1 day) into the future.
+
+Preview reschedule time
+  If a move triggered preview treatment (for example , you had got it wrong previously and had
+  the preview wrong moves option on), then it will be scheduled more quickly into the future
+  using the default setting of 1 minute. The reason being that a move shown in preview mode has
+  basically given you the correct solution, so we don’t have any extra information on how well you
+  know the move, placing it beyond the end of the already scheduled items gives the system a
+  chance to check your memory further towards the end of the current session.
+
+
+17.15.3. Advanced settings
+
+Consider leadup moves when training branch
+  If turned on, then when training a branch, context moves leading directly from the branch point
+  up to the start position will be considered as training targets if they meet reinforcement or
+  scheduling criteria. Currently off by default.
+
+Reinforce minimum correct
+  If we choose a move for training that has earlier context moves in the move list with less than
+  the "Reinforce minimum correct" number of correct attempts in a row, then that move will be
+  tested before testing the target move, even if it is not scheduled yet.
+
+Reinforce minimum days
+  This is similar to the 'Reinforce minimum correct' setting, in that if a move leading up to the
+  target move is scheduled within 'Reinforce minimum days' number of days then the move will
+  be tested before moving on to the target move. If you’d like the spaced repetition system to force
+  you to play all context moves, then you can set either this number or the reinforce minimum
+  correct number to a very large number which will trigger reinforcement on all leadup items. We
+  don’t recommend this choice, as it will take much longer to learn your repertoire if you are
+  forced to continually play moves you know well, but some users prefer this style of training, and
+  it can be useful in smaller repertoires. Setting both the the values to 0 with disable
+  reinforcement and only context moves that are due or about to be due will be used as training
+  targets.
+
+
+
+
+184
+Don’t show start moves threshold
+  When deciding how many context moves to show before the current target move, skip
+  displaying any previous moves that have already been solved at least this number of times
+  correct in a row.
+
+Move speed adjustment
+  Controls the speed at which context moves are played. 1.0 uses the default speed. Values under 1
+  speed up the piece movement, values over 1 slow it down. So for example 0.5 would make the
+  speed twice as fast as the default value of 1.0, and 5.0 would make the speed 5 times as slow.
+  Note that the base speed is also controlled by how well learnt a particular move may be, so very
+  well learnt context moves will be played faster than less well learnt moves.
+
+Use fixed piece movement speed
+  By default, leadup context moves are played at a speed determined by how well you know the
+  move, combined with the move speed adjustment setting. If you’d like a fixed amount of time for
+  each move animation where the base speed is determined by the board settings piece movement
+  speed instead of learning data, then turn this item on. The speed adjustment factor setting will
+  still be used, but it will applied to the board settings for piece speed instead of the speed chosen
+  by your learning history. NOTE: This does not change the speed of moves that match the "don’t
+  show start move threshold" criteria, if you’d like all moves from the start position played at your
+  preferred speed, you will also need to change that setting to a very large number in order to turn
+  off start move skipping.
+
+Engine eval output style
+  By default engine evaluations for repertoire moves are output from the point of view of white,
+  that is a positive evaluation is good for white (and bad for black), and a negative evaluation is
+  bad for white (and good for black). It may be clearer in some contexts to view evaluations from
+  the point of view of the repertoire colour, so for example in a black repertoire, positive
+  evaluations are good for black, and negative evaluations are bad for black. If you’d prefer a
+  repertoire colour based view, you can change the setting here from white based to repertoire
+  colour based.
+
+Opening tree colouring method
+  The moves in the opening tree can be coloured using several metrics. The colouring methods are
+  the same as those used in the opening sunburst visualisation, please see the sunburst colouring
+  settings section for a more detailed description of the colouring options available.
+
+Explorer game threshold
+  When move colouring methods are used (for either the opening tree moves or the opening
+  sunburst visualisation) that rely on opening explorer stats you can choose to set the minimum
+  number of explorer games for a move to use the explorer colouring, if the threshold is not met
+  then grey colouring will be used to indicate 'no explorer data available'. This option is useful in
+  avoiding the use of colouring for moves that may have misleading colours applied due to their
+  stats being sourced from a small sample of games.
+
+
+
+
+                                                                                                  185
+17.16. Opening tree
+The opening tree shows all the moves for the currently selected repertoire (or repertoires when a
+global repertoire like all white repertoires is selected). Clicking on any move will jump to that move
+on the board, with the moves required to lead to that position shown in the move list. You can start
+training moves below any position in the tree by clicking on a move and then clicking on the
+[ Train branch ] button.
+
+Moves can be deleted by right clicking on any move in the tree and selecting the delete option. That
+move and all moves under it will be deleted. On mobile devices right click can be simulated by
+pressing and holding on the relevant move in the tree.
+
+
+               Note if you are deleting a line that other moves could have transposed into you
+               will also be truncating those transposition lines as you will be removing the moves
+               from the line they transposed into. If you want to delete a line holding transposed
+               moves that you would like to preserve, then promote the truncated tranposing line
+               first, and this will move the following moves into the promoted transposing line
+               and out of the line you plan to delete. You can then delete the moves left in the
+               demoted line (which will now be marked as the truncated transposing line)
+               without losing the moves that are now attached to the newly promoted
+               transposition destination line.
+
+
+Parts of the opening tree can also be disabled or enabled by right clicking on the move, and
+selecting the enable or disable line option. Disabling allows you to keep lines in your repertoire that
+will not be trained, and can be useful for example when you may want to list moves for your own
+colour that are poor, with comments explaining why the move should be avoided. You may also
+want to temporarily disable lines during training if you are not currently planning to play them,
+but may want to do so in the future.
+
+Lines can be copied from one repertoire to another by again right clicking on the move to start the
+copy from, and then choosing the Copy line option. The destination repertoire will be prompted for
+after the option is selected, after the copy the line will exist in both the original and destination
+repertoires. When copying, it is the sub-tree under the selected move that will be copied. In
+addition, the moves from the selected move up to the root of the opening tree will also be copied to
+ensure the destination repertoire has a branch on which to attach the copied sub-tree.
+
+

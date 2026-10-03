@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}chessop · legal notice{% endblock %}
+{% set mail %}<a href="mailto:{{ site.contact }}">{{ site.contact }}</a>{% endset %}
+{% block content %}
+<main class="page legal">
+  <nav class="links"><a href="/">play</a><a href="/privacy">privacy</a></nav>
+  <h1>Legal notice</h1>
+  <h2>Publisher</h2>
+  <p>chessop is published by a private person, not as a business. As French law allows (LCEN, article 1-1 II), they stay anonymous here: their identity has been given to the host.</p>
+  <h2>Host</h2>
+  <p>{{ host.name }}, {{ host.address }}. Phone: {{ host.phone }}.</p>
+  <h2>Contact</h2>
+  <p>{{ mail }}</p>
+  <h2>Terms</h2>
+  <ul class="terms">
+    <li>chessop is free and provided as is, with no warranty.</li>
+    <li>It may change or end at any time.</li>
+    <li>Do not misuse it: no automated clients, no scraping.</li>
+  </ul>
+  <p>What chessop does with your data: the <a href="/privacy">privacy notice</a>.</p>
+
+  <section lang="fr">
+    <h2>Mentions légales</h2>
+    <p><b>Éditeur</b> : un particulier, à titre non professionnel, qui garde l'anonymat (LCEN, article 1-1 II) ; son identité a été communiquée à l'hébergeur.</p>
+    <p><b>Hébergeur</b> : {{ host.name }}, {{ host.address }}. Téléphone : {{ host.phone }}.</p>
+    <p><b>Contact</b> : {{ mail }}</p>
+    <p><b>Conditions</b> : chessop est gratuit et fourni en l'état, sans garantie ; il peut changer ou s'arrêter à tout moment ; pas d'usage abusif (robots, aspiration du site).</p>
+  </section>
+</main>
+{% endblock %}

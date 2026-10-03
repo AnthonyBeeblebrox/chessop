@@ -1,0 +1,35 @@
+# The hosted site (public spec §14): chessop serve --hosted from the current release, on
+# 127.0.0.1:8000 behind Caddy. Installed by provision.sh; started by the first deploy, which is
+# what makes the current release exist.
+[Unit]
+Description=chessop, the hosted site
+After=network-online.target
+Wants=network-online.target
+ConditionPathExists=/opt/chessop/current/.venv/bin/chessop
+OnFailure=chessop-notify@%n.service
+# Restarts are silent (RestartMode=direct); more than 5 starts in 2 minutes and systemd gives
+# up, which is what mails the owner.
+StartLimitIntervalSec=120
+StartLimitBurst=5
+
+[Service]
+Type=exec
+User=chessop
+Group=chessop
+EnvironmentFile=/etc/chessop/chessop.env
+ExecStart=/opt/chessop/current/.venv/bin/chessop serve --hosted
+StateDirectory=chessop
+StateDirectoryMode=0700
+Restart=on-failure
+RestartSec=2
+RestartMode=direct
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+# Outbound stays open: Scaleway for mail, Lichess for sign-in.
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+
+[Install]
+WantedBy=multi-user.target

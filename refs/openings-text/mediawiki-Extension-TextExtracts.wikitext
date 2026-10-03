@@ -1,0 +1,131 @@
+<languages/>
+{{note|1=<translate><!--T:48--> This extension is under code stewardship review and not actively maintained.</translate> ({{phab|T256505}}) <translate><!--T:49--> No new feature requests will be considered during this period.</translate>}}
+{{mbox
+| type  = notice
+| text  = <translate><!--T:31--> For obtaining summaries in Wikimedia sites, the <tvar name=pcs>[[Page Content Service]]</tvar> is used.</translate> <translate><!--T:53--> Please do not create new features for code running in Wikimedia production using this API.</translate>
+}}
+{{Extension
+|status          = stable
+|type1           = api
+|type2           = 
+|author          = Max Semenik
+|username        = MaxSem
+|description     = <translate><!--T:1--> Provides API with plain-text or limited HTML extracts of page content</translate>
+|image           = 
+|imagesize       = 
+|version         = 
+|update          = 
+|mediawiki       = 
+|php             = 
+|download        = {{WikimediaDownload|phab=ETEX}}
+|readme          = 
+|changelog       = 
+|needs-updatephp = No
+|tags            = 
+|rights          = 
+|example         = 
+|compatibility   = 
+|compatibility policy = rel
+|phabricator     = TextExtracts
+}}
+<translate>
+<!--T:3-->
+The '''TextExtracts''' extension provides an API which allows retrieval of plain-text or limited HTML (HTML with content for [<tvar name=url>https://github.com/wikimedia/mediawiki-extensions-TextExtracts/blob/master/extension.json#L51</tvar> some CSS classes] removed) extracts of page content.
+
+==Installation== <!--T:5-->
+</translate>
+{{Bundled|1.34}}
+{{ExtensionInstall|TextExtracts
+|registration=1
+|no-registration-version=1.26
+}}
+
+<translate>
+==Configuration settings== <!--T:6-->
+
+<!--T:24-->
+* <tvar name=1><code>$wgExtractsRemoveClasses</code></tvar> is an array of <tvar name=2>&lt;tag>, &lt;tag>.class, .&lt;class>, #&lt;id></tvar> which will be excluded from extraction.</translate>
+<translate>
+<!--T:28-->
+*:For example, <tvar name=1><code>$wgExtractsRemoveClasses[] = 'dl';</code></tvar> removes indented text, often used for non-templated hatnotes that are not desired in summaries.</translate>
+<translate>
+<!--T:29-->
+*:<tvar name=1>[[phab:diffusion/ETEX/browse/master/extension.json$46|extension.json]]</tvar> defines the defaults, of which the class "noexcerpt" is one - this may be added to any template to exclude it.</translate>
+<translate>
+<!--T:30-->
+* <tvar name=1><code>$wgExtractsExtendOpenSearchXml</code></tvar> defines whether TextExtracts should provide its extracts to the <tvar name=2>[[Special:MyLanguage/Api:Opensearch|Opensearch]]</tvar> API module.</translate> <translate><!--T:52--> The default is <tvar name=3>{{phpi|false}}</tvar>.</translate>
+
+<translate>
+== API == <!--T:7-->
+</translate>
+{{API-head
+|module=extracts
+|version=
+|prefix=ex
+|rrights=None
+|postonly=No
+|description=<translate><!--T:26--> Returns plain-text or limited HTML extracts of the given pages</translate>
+|query=yes
+}}
+{{Api help|query+extracts}}
+{{ApiEx
+| desc=<translate><!--T:25--> Another example</translate>
+| p1=action=query
+| p2=prop=extracts
+| p3=exchars=100
+| p4=explaintext
+| p5=titles=Earth
+| result=<syntaxhighlight lang="javascript">{
+    "query": {
+        "pages": {
+            "9228": {
+                "pageid": 9228,
+                "ns": 0,
+                "title": "Earth",
+                "extract": "Earth, also called the world and, less frequently, Gaia, (or Terra in some works of science fiction)..."
+            }
+        }
+    }
+}</syntaxhighlight>
+}}
+
+<translate>
+=== Caveats === <!--T:32-->
+
+<!--T:33-->
+There are various things to be aware of when using the API or software that uses the API e.g. <tvar name=1>{{ll|Extension:Popups}}</tvar>.
+
+<!--T:34-->
+* We do not recommend the usage of `exsentences`.</translate> <translate><!--T:35--> It does not work for HTML extracts and there are many edge cases for which it doesn't exist.</translate> <translate><!--T:36--> For example "Arm. gen. Ing. John Smith was a soldier." will be treated as 4 sentences.</translate> <translate><!--T:37--> We do not plan to fix this.</translate>
+<translate>
+<!--T:38-->
+* Inline images are stripped from the response (even in HTML mode). This means if you are using the <tvar name=1>{{ll|Extension:Math|Math}}</tvar> extension and using formulae in your lead section they may not appear in the summary output.</translate>
+<translate>
+<!--T:39-->
+* In HTML mode we cannot guarantee well formed HTML. Resulting HTML may be invalid or malformed.</translate>
+<translate>
+<!--T:40-->
+* In plaintext mode:
+</translate>
+**<translate><!--T:41--> citations may not be stripped (see <tvar name=1>[[phab:T197266]]</tvar>)</translate>
+**<translate><!--T:42--> if a paragraph ends with an HTML tag e.g. ref tag, new lines may be dropped (see <tvar name=1>[[phab:T201946]]</tvar>)</translate>
+**<translate><!--T:43--> new lines may be dropped after lists <tvar name=1>[[phab:T208132]]</tvar></translate>
+** <translate><!--T:50--> Articles must begin with the lead paragraph for an extract to be generated.</translate> <translate><!--T:51--> The use of any template, and/or unclosed or empty HTML element may result in no preview for the article.</translate> E.g. <nowiki>"<div></div>hello</nowiki>" will give an empty extract.
+
+<translate>
+== FAQ == <!--T:44-->
+
+=== How can I remove content from a page preview/extract? === <!--T:45-->
+</translate>
+<translate><!--T:46--> TextExtracts will strip any element that is marked with the class <tvar name=1>{{inline-code|.noexcerpt}}</tvar>.</translate>
+<translate><!--T:47--> This is provided by the <tvar name=1>{{inline-code|$wgExtractsRemoveClasses}}</tvar> configuration variable (which also defines {{<tvar name=2>tmpl|0={{Git file|file=extension.json|project=mediawiki/extensions/TextExtracts|action=|branch=|sha=5309ab92bdb5d8c36a472f5c8e5d421d7747edeb|line=42|text=$1}}</tvar>|some other excluded elements}}).</translate>
+
+<translate>
+== See also == <!--T:27-->
+</translate>
+* {{ll|Extension:InterwikiExtracts}}
+* [[Page Content Service]]
+* {{Ll|API:Get the contents of a page}}
+
+{{OnWikimedia}}
+{{Used by}}

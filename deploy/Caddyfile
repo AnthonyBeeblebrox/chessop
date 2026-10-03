@@ -1,0 +1,51 @@
+# chessop's Caddy configuration (public spec §14, ADR 0007), installed by provision.sh as
+# /etc/caddy/Caddyfile. Written for the Caddy Debian 13 ships (2.6).
+#
+# Automatic HTTPS gets the certificates and redirects plain http to https; www.chessop.fr then
+# redirects to the apex. There is no `log` directive anywhere: Caddy writes no access log
+# (public spec §10), only its own errors to the journal.
+
+(hsts) {
+	header Strict-Transport-Security "max-age=31536000"
+}
+
+chessop.fr {
+	import hsts
+
+	# chessop serve --hosted on its fixed port. WebSockets pass through as they are; Caddy sets
+	# X-Forwarded-For and X-Forwarded-Proto, which the app trusts from 127.0.0.1 only.
+	reverse_proxy 127.0.0.1:8000
+
+	# chessop not answering (a restart, a deploy): a static page, not Caddy's empty 502.
+	handle_errors {
+		@down expression {http.error.status_code} == 502
+		handle @down {
+			root * /usr/share/chessop
+			rewrite * /back-in-a-moment.html
+			header Cache-Control no-store
+			file_server
+		}
+	}
+}
+
+www.chessop.fr {
+	import hsts
+	redir https://chessop.fr{uri} permanent
+}
+
+# GoatCounter, the audience statistics (goatcounter.service), on its own host. Nothing there is
+# for search engines.
+stats.chessop.fr {
+	import hsts
+
+	handle /robots.txt {
+		header Content-Type "text/plain; charset=utf-8"
+		respond `User-agent: *
+Disallow: /
+`
+	}
+
+	handle {
+		reverse_proxy 127.0.0.1:8081
+	}
+}

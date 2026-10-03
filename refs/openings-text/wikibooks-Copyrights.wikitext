@@ -1,0 +1,62 @@
+{{pp-protected|small=yes}}
+{{policy|WB:COPY}}
+
+Wikibooks is a collection of [[:w:free content|free content]] books licensed under the terms of the [[Wikibooks:GNU Free Documentation License|GNU Free Documentation License]] and [[Wikibooks:Creative Commons Attribution-ShareAlike 3.0 Unported License|Creative Commons Attribution-ShareAlike 4.0 License]]. Submitting work without the copyright holder's permission threatens our objective to build a truly free resource that anyone can redistribute, and could lead to legal liability for the project.
+
+All text is irrevocably licensed to the public under one or several liberal licenses, and is copyrighted by contributors to Wikibooks unless otherwise noted (for example; public domain text or other text where permission was given or obtained). Most of Wikibooks' text is dual licensed under the [https://creativecommons.org/licenses/by-sa/4.0/deed.en Creative Commons Attribution-ShareAlike 4.0 International License] ("CC BY-SA 4.0") and the [[Wikibooks:GNU Free Documentation License|GNU Free Documentation License]] (GFDL) (unversioned, with no invariant sections, front-cover texts, or back-cover texts). Some text may be only available under CC-BY-SA and CC-BY-SA-compatible license and cannot be reused under GFDL; such text will be identified either on the page footer, in the page history, or the discussion page of the module that utilizes the text.
+
+Wikibooks content can be copied, modified, and redistributed if and only if the copied version is made available on the same terms to others and acknowledgment of the authors of the work used is included (a link back to the book or module is generally thought to satisfy the attribution requirement; see below for more details). Copied content will therefore remain free under appropriate license and can continue to be used by anyone subject to certain restrictions, most of which aim to ensure that freedom.
+
+To this end,
+
+* Permission is granted to copy, distribute and/or modify Wikibooks' text under the terms of the Creative Commons Attribution-ShareAlike 4.0 International License and, unless otherwise noted, the [[Wikibooks:GNU Free Documentation License|GNU Free Documentation License]], unversioned, with no invariant sections, front-cover texts, or back-cover texts.
+* Content on Wikibooks is covered by [[Wikibooks:General disclaimer|disclaimers]].
+
+The English text of the CC-BY-SA and GFDL licenses are the only legally binding restriction between authors and users of Wikibooks content. What follows is Wikibooks interpretation of CC-BY-SA and GFDL, as it pertains to the rights and obligations of users and contributors.
+
+== Contributors' rights and obligations ==
+
+All creative works are copyrighted, by international agreement, unless either they fall into the public domain or their copyright is explicitly disclaimed.
+
+If you contribute text directly to Wikibooks, '''you irrevocably agree to license it to the public for reuse under CC-BY-SA and GFDL (unversioned, with no invariant sections, front-cover texts, or back-cover texts). You also agree to be credited by re-users, at minimum, through a hyperlink or URL to the page you are contributing to. See [[Foundation:Terms of Use|Terms of Use]] for details.''' Non-text media may be contributed under a variety of different licenses that support the general goal of allowing unrestricted re-use and re-distribution. See [[Wikibooks:Media]] for details.
+
+If you want to import text that you have found elsewhere or that you have co-authored with others, you can only do so if it is available under terms that are compatible with the CC-BY-SA license. You do not need to ensure or guarantee that the imported text is available under the GNU Free Documentation License. Furthermore, please note that you cannot import information which is available only under the GFDL. In other words, you may only import text that is (a) single-licensed under terms compatible with the CC-BY-SA license or (b) dual-licensed with the GFDL and another license with terms compatible with the CC-BY-SA license. If you are the sole author of the material, you must license it under both CC-BY-SA and GFDL.
+
+If the material, text or media, has been previously published and you wish to use it under appropriate license, you will need to verify copyright permission. If you are not a copyright holder, you will still need to verify copyright permission. '''Never''' use materials that infringe the copyrights of others. This could create legal liabilities and seriously hurt Wikibooks. If in doubt, write the content yourself, thereby creating a new copyrighted work which can be included without trouble.
+
+You retain copyright to materials you contribute to Wikibooks, text and media. Copyright is ''never'' transferred to Wikibooks. You can later republish and relicense them in any way you like. However, you can never retract or alter the license for copies of materials that you place here; these copies will remain so licensed until they enter the public domain when your copyright expires (currently some decades after an author's death).
+
+If you do not agree with these terms, then do not submit your work to Wikibooks.
+
+== Reusers' rights and obligations ==
+The only Wikibooks content you should contact the Wikimedia Foundation about is the trademarked Wikibooks/Wikimedia logos, which are not freely usable without permission (members of the media, see [[Foundation:Press room]]). If you want to use other Wikibooks materials in your own books/articles/websites or other publications, you can do so, but only in compliance with the licensing terms. Please follow the guidelines below:
+
+===Re-use of text===
+;Attribution: To re-distribute a text page in any form, provide credit to the authors either by including a) a hyperlink (where possible) or URL to the page or pages you are re-using, b) a hyperlink (where possible) or URL to an alternative, stable online copy which is freely accessible, which conforms with the license, and which provides credit to the authors in a manner equivalent to the credit given on this website, or c) a list of all authors. (Any list of authors may be filtered to exclude very small or irrelevant contributions.) This applies to text developed by the Wikibooks community. Text from external sources may attach additional attribution requirements to the work, which should be indicated on an module's face or on its talk page. For example, a page may have a banner or other notation indicating that some or all of its content was originally published somewhere else. Where such notations are visible in the page itself, they should generally be preserved by re-users.
+
+;Copyleft/Share Alike: If you make modifications or additions to the page you re-use, you must license them under the Creative Commons Attribution-Share-Alike License 4.0 or later.
+;Indicate changes: If you make modifications or additions, you must indicate in a reasonable fashion that the original work has been modified. If you are re-using the page in a wiki, for example, indicating this in the page history is sufficient.
+;Licensing notice: Each copy or modified version that you distribute must include a licensing notice stating that the work is released under CC-BY-SA and either a) a hyperlink or URL to the text of the license or b) a copy of the license. For this purpose, a suitable URL is: https://creativecommons.org/licenses/by-sa/4.0/deed.en
+
+'''For further information''', please refer to the [https://creativecommons.org/licenses/by-sa/4.0/deed.en legal code of the CC-BY-SA License].
+
+For compatibility reasons, any page which does not incorporate text that is exclusively available under CC-BY-SA or a CC-BY-SA-compatible license is also available under the terms of the [http://www.gnu.org/copyleft/fdl.html GNU Free Documentation License]. In order to determine whether a page is available under the GFDL, review the page footer, page history, and discussion page for attribution of single-licensed content that is not GFDL-compatible. All text published before June 15th, 2009 on Wikibooks was released under the GFDL, and you may also use the page history to retrieve content published before that date to ensure GFDL compatibility.
+
+===Re-use of non-text media===
+
+Where not otherwise noted, non-text media files are available under various free culture licenses, consistent with the [[Wikibooks:Media]]. Please view the media description page for details about the license of any specific media file.
+
+=== Non-free materials and special requirements ===
+
+Wikibooks' materials may also include quotations, images, or other media under the U.S. Copyright law "fair use" doctrine. ''In Wikibooks'', such "fair use" material should be identified as from an external source by an appropriate method (on the image description page, or history page, as appropriate; quotations should be denoted with quotation marks or block quotation. This leads to possible restrictions on the use, outside of Wikibooks, of such "fair use" content retrieved from Wikibooks: this "fair use" content does not fall under the CC-BY-SA or GFDL license as such, but under the "fair use" (or similar/different) regulations in the country where the media are retrieved.
+
+== Linking to copyrighted works ==
+
+Since most recently-created works are copyrighted, almost any book on Wikibooks which cites sources will link to copyrighted material. It is usually not necessary to obtain the permission of a copyright holder before linking to copyrighted material, just as an author of a dead-tree book does not need permission to cite someone else's work in their bibliography. Likewise, Wikibooks is not restricted to linking only to CC-BY-SA or open-source content.
+
+==If you are the owner of Wikibooks-hosted content being used without your permission==
+
+If you are the owner of content that is being used on Wikibooks without your permission, then please contact our [[wmf:Designated agent|designated agent]] to have it permanently removed (blanking the page is not enough, it will still be in the page history). You may also blank the page and replace it with {{tlx|copyvio|''URL or place you published the text''}}. Either way, we will, of course, need some evidence to support your claim of ownership. This will automatically add the page to [[:Category:Copyright violations]] which is reviewed by administrators at Wikibooks.
+
+{{Wikibooks policies and guidelines}}
+[[Category:Content-related policies]]

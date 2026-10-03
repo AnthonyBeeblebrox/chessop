@@ -1,0 +1,24 @@
+{| class="infobox" style="font-size:95%; width:260px; float:right"
+! colspan="2" style="border-collapse:collapse; text-align:center; background:#ffce9e;{{Text default color}};" |<span style="font-size:medium; font-weight:bold;">{{#if: {{{name|{{{1|}}}}}} | {{{name|{{{1}}}}}} | Position has no title}}</span>
+|-
+| colspan="2" style="border-collapse:collapse; text-align:center; background:#ffffff; {{Text default color}}; padding:0;" |
+{{#if:{{{moves|}}} | {{Chess/board|moves={{{moves|}}}|float=center}} | {{Chess/board|fen={{#invoke:Chess/board|pagename}}|float=center}} }}<hr />
+|-
+| <div class="collapsible" style="width:100%; clear:both; border:none; font-size:80%;"><div class="title" style="text-align:left">Position in Forsyth-Edwards Notation (FEN)</div><div class="body" style="text-align:left;">{{#invoke:Chess|ascii2fen}}</div></div>
+|-
+{{#if: {{{openings<includeonly>|</includeonly>}}} | {{!}} '''Openings:''' {{{openings}}} }}
+|-
+{{#if: {{{moves<includeonly>|{{#invoke:Chess|pagename2pgn|{{{moves|}}}}}</includeonly>}}} | {{!}} '''Moves:''' {{#invoke:Chess|pagename2pgn|{{{moves<includeonly>|</includeonly>}}}}} }}
+|-
+{{#if: {{{eco<includeonly>|</includeonly>}}} | {{!}} '''ECO code:''' {{{eco}}} }}
+|-
+{{#if: {{{parent<includeonly>|</includeonly>}}} | {{!}} '''Parent:''' {{{parent}}} }}
+|-
+{{#if: {{{aka<includeonly>|</includeonly>}}} | {{!}} '''Synonym(s):''' {{{aka}}} }}
+|-
+{{#if: {{{responses<includeonly>|</includeonly>}}} | {{!}} '''Responses:''' {{{responses}}} }}
+|-
+|}{{BookCat}}<noinclude>
+{{documentation}}
+[[{{BOOKCATEGORY|Chess}}/Templates|{{PAGENAME}}]]
+</noinclude>

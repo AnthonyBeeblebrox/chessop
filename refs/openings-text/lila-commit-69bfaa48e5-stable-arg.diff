@@ -1,0 +1,28 @@
+diff --git a/ui/analyse/src/wiki.ts b/ui/analyse/src/wiki.ts
+index 74def91477b4a..18a4dae8015c6 100644
+--- a/ui/analyse/src/wiki.ts
++++ b/ui/analyse/src/wiki.ts
+@@ -35,7 +35,8 @@ export default function wikiTheory(): WikiTheory {
+     `${Math.floor((node.ply + 1) / 2)}${node.ply % 2 === 1 ? '._' : '...'}`;
+ 
+   const wikiBooksUrl = 'https://en.wikibooks.org';
+-  const apiArgs = 'redirects&origin=*&action=query&prop=extracts&formatversion=2&format=json&exchars=1200';
++  const apiArgs =
++    'redirects&origin=*&action=query&prop=extracts&formatversion=2&format=json&exchars=1200&stable=1';
+ 
+   const removeEmptyParagraph = (html: string) => html.replace(/<p>(<br \/>|\s)*<\/p>/g, '');
+ 
+diff --git a/ui/opening/src/wiki.ts b/ui/opening/src/wiki.ts
+index e69ff4d6f4895..6690b1e0808db 100644
+--- a/ui/opening/src/wiki.ts
++++ b/ui/opening/src/wiki.ts
+@@ -9,7 +9,8 @@ export default function wikiTheory(data: OpeningPage): void {
+ 
+ async function fetchAndRender(data: OpeningPage, render: (html: string) => void) {
+   const wikiBooksUrl = 'https://en.wikibooks.org';
+-  const apiArgs = 'redirects&origin=*&action=query&prop=extracts&formatversion=2&format=json&exchars=1200';
++  const apiArgs =
++    'redirects&origin=*&action=query&prop=extracts&formatversion=2&format=json&exchars=1200&stable=1';
+ 
+   const removeH1 = (html: string) => html.replace(/<h1>.+<\/h1>/g, '');
+   const removeEmptyParagraph = (html: string) => html.replace(/<p>(<br \/>|\s)*<\/p>/g, '');

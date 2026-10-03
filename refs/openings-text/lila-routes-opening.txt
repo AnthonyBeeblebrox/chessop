@@ -1,0 +1,9 @@
+# Opening
+GET   /opening                         controllers.Opening.index(q: Option[String] ?= None)
+POST  /opening/config/:key             controllers.Opening.config(key)
+POST  /opening/wiki/:key/:moves        controllers.Opening.wikiWrite(key, moves)
+GET   /opening/tree                    controllers.Opening.tree
+GET   /opening/:key                    controllers.Opening.byKeyAndMoves(key, moves = "")
+GET   /opening/:key/:moves             controllers.Opening.byKeyAndMoves(key, moves)
+GET   /training/openings               controllers.Puzzle.openings(order ?= "popular")
+GET   /tutor/:user/:range/:perf/opening/:color/:opening controllers.Tutor.opening(user: UserStr, range, perf: PerfKey, color: Color, opening: String)

@@ -1,0 +1,10 @@
+# Starts chessop-disk.service daily (public spec §14), after the night's backup.
+[Unit]
+Description=chessop disk check, daily
+
+[Timer]
+OnCalendar=*-*-* 06:00:00 UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,21 @@
+# Mails the owner the last 24 hours' error-priority journal, only when there is any (public
+# spec §14). Started by chessop-digest.timer. The systemd-journal group lets it read every
+# unit's messages.
+[Unit]
+Description=chessop daily error digest
+ConditionPathExists=/opt/chessop/current/.venv/bin/chessop
+OnFailure=chessop-notify@%n.service
+
+[Service]
+Type=oneshot
+User=chessop
+Group=chessop
+SupplementaryGroups=systemd-journal
+EnvironmentFile=/etc/chessop/chessop.env
+ExecStart=/usr/local/lib/chessop/error-digest
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX

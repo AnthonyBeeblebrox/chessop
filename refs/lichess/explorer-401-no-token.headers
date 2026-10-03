@@ -1,0 +1,10 @@
+HTTP/2 401 
+server: nginx
+date: Fri, 11 Sep 2026 06:07:13 GMT
+content-type: text/html; charset=utf-8
+content-length: 172
+vary: Origin
+access-control-allow-origin: *
+access-control-allow-methods: GET,OPTIONS
+access-control-allow-headers: Accept,If-Modified-Since,Cache-Control,X-Requested-With,Authorization
+

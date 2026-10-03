@@ -1,0 +1,4 @@
+// Unattended security upgrades (ADR 0007), installed by provision.sh as
+// /etc/apt/apt.conf.d/20auto-upgrades. Debian's 50unattended-upgrades picks the origins.
+APT::Periodic::Update-Package-Lists "1";
+APT::Periodic::Unattended-Upgrade "1";

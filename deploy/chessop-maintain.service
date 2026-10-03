@@ -1,0 +1,23 @@
+# The nightly upkeep (public spec §13): yesterday's usage aggregate, account warnings, the three
+# purges, the backup and its upload. Started by chessop-maintain.timer.
+[Unit]
+Description=chessop nightly upkeep
+After=network-online.target
+Wants=network-online.target
+ConditionPathExists=/opt/chessop/current/.venv/bin/chessop
+OnFailure=chessop-notify@%n.service
+
+[Service]
+Type=oneshot
+User=chessop
+Group=chessop
+EnvironmentFile=/etc/chessop/chessop.env
+ExecStart=/opt/chessop/current/.venv/bin/chessop maintain
+StateDirectory=chessop
+StateDirectoryMode=0700
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX

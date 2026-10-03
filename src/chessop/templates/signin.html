@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}chessop · sign in{% endblock %}
+{% block content %}
+<main class="page">
+  <h1>Sign in</h1>
+  <p>Sign in to keep your progress and find it on your other devices. No password either way.</p>
+  {% if refused %}<p class="error">{{ refused }}</p>{% endif %}
+  <form method="post" action="/signin/lichess">
+    <input type="hidden" name="next" value="{{ next }}">
+    <button type="submit">Sign in with Lichess</button>
+  </form>
+  <p class="hint">Lichess tells us your username and nothing else.</p>
+  <p>Or by email: we send you a link and a code.</p>
+  <form method="post" action="/signin">
+    <input type="hidden" name="next" value="{{ next }}">
+    <label class="field"><span class="label">Email address</span>
+      <input type="email" name="email" autocomplete="email" required></label>
+    <button type="submit">Email me a sign-in link</button>
+  </form>
+  <p class="hint">What we do with your address: <a href="/privacy">privacy notice</a>.</p>
+  <p><a href="{{ next }}">Cancel</a></p>
+</main>
+{% endblock %}

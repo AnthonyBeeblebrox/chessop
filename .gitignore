@@ -1,0 +1,30 @@
+# python
+__pycache__/
+*.pyc
+.venv/
+
+# prototype run-time files (ticket 10)
+prototype/play-loop/server.log
+prototype/play-loop/server.pid
+prototype/play-loop/build.log
+prototype/play-loop/nohup.out
+
+# editors / OS
+.DS_Store
+*.swp
+# over GitHub's file limit
+refs/algorithms/sutton-barto-2020-rlbook.pdf
+
+# secrets (the Lichess token; the owner's notes under secrets/): never commit
+token.txt
+secrets/
+
+# prototype run-time files (ticket 19)
+prototype/progress-view/server.log
+prototype/progress-view/server.pid
+
+# loop.py run logs
+loop-logs/
+
+# agent worktrees
+.claude/worktrees/

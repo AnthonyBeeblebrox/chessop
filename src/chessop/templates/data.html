@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}chessop · your data{% endblock %}
+{% block content %}
+<main class="page">
+  <nav class="links"><a href="/">play</a><a href="/progress">progress</a><a href="/settings">settings</a></nav>
+  <h1>Your data</h1>
+  {% if not held %}
+  <p>Nothing is stored about this browser: chessop keeps a history only once you play a round, save your settings or opt an opening in or out.</p>
+  {% else %}
+  <h2>Download it</h2>
+  <p><a href="/data/download">Download my data</a>: one JSON file of everything chessop stores about you{% if account %} and your account{% endif %}: your settings, your record at every position, every round you played and your daily Scores.</p>
+  <h2>Delete it</h2>
+  {% if account %}
+  <p>Your history belongs to your account. To delete it, <a href="/account/delete">delete your account</a>: your history, settings and sign-in, on every device, at once.</p>
+  {% else %}
+  <p><a href="/data/forget">Forget this browser's history</a>: your history and settings are deleted at once, and this browser starts over.</p>
+  {% endif %}
+  {% endif %}
+  <p class="hint">Questions about your data? Write to <a href="mailto:{{ contact }}">{{ contact }}</a>.</p>
+</main>
+{% endblock %}

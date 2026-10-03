@@ -1,0 +1,62 @@
+/* PROTOTYPE (ticket 10) */
+:root { --bg:#161512; --fg:#e8e6e3; --dim:#8a8781; --ok:#5fb85f; --bad:#e04b4b; --panel:#22201c; }
+html,body { margin:0; height:100%; background:var(--bg); color:var(--fg); font:15px/1.4 system-ui,sans-serif; }
+#app { height:100%; }
+button { font:inherit; }
+.board { position:relative; }
+.board .cg-wrap { width:100%; height:100%; }
+.board > div:first-child { width:100%; height:100%; }
+cg-board { transition: box-shadow .15s; }
+.glow-ok cg-board { box-shadow: 0 0 0 6px var(--ok); }
+.glow-bad cg-board { box-shadow: 0 0 0 6px var(--bad); }
+.badge { display:inline-block; padding:.2em .6em; border-radius:.4em; font-weight:700; letter-spacing:.04em; }
+.badge.white { background:#f0f0f0; color:#111; } .badge.black { background:#111; color:#eee; border:1px solid #555; }
+.dim { color:var(--dim); }
+kbd { background:#333; border-radius:3px; padding:0 .35em; font-size:.85em; }
+
+/* ---- switcher (not part of the design) ---- */
+#switcher { position:fixed; left:50%; bottom:12px; transform:translateX(-50%); background:#ff4fa3; color:#111; border-radius:999px;
+  padding:6px 12px; display:flex; gap:10px; align-items:center; box-shadow:0 4px 16px #0008; font-weight:600; z-index:99; }
+#switcher button { background:#fff; border:0; border-radius:999px; width:28px; height:28px; cursor:pointer; }
+#switcher a { color:#111; }
+#vstats { font-weight:400; font-size:.85em; }
+
+/* ---- A: bare board ---- */
+.A { display:grid; place-items:center; height:100%; }
+.A .board { width:min(92vh,92vw); height:min(92vh,92vw); }
+.A .corner { position:fixed; top:14px; left:14px; font-size:1.3em; display:flex; gap:.6em; align-items:center; }
+.A .toast { position:fixed; top:14px; right:14px; background:#333; padding:.4em .8em; border-radius:.4em; opacity:0; transition:opacity .15s; }
+.A .toast.show { opacity:1; }
+
+/* ---- B: ledger ---- */
+.B { display:grid; grid-template-columns: min(88vh,60vw) 1fr; gap:24px; padding:24px; height:calc(100% - 48px); }
+.B .board { width:min(88vh,60vw); height:min(88vh,60vw); }
+.B .side { display:flex; flex-direction:column; min-width:0; }
+.B .head { display:flex; gap:.8em; align-items:baseline; margin-bottom:.6em; }
+.B .head .name { font-size:1.2em; }
+.B .ledger { flex:1; overflow:auto; background:var(--panel); border-radius:8px; padding:8px 12px; }
+.B .row { display:grid; grid-template-columns: 3em 5em 1fr; gap:.6em; padding:.35em 0; border-bottom:1px solid #2e2b26; align-items:center; }
+.B .row.opp { color:var(--dim); }
+.B .row.miss { background:#3a1c1c; }
+.B .row.done { color:var(--ok); }
+.B .chip { display:inline-block; padding:.05em .5em; border-radius:999px; background:#3a372f; margin-right:.3em; font-size:.9em; }
+.B .chip.played { background:var(--ok); color:#111; }
+.B .chip.missed { background:var(--bad); color:#fff; text-decoration:line-through; }
+.B .chip.forced { background:#5a4a1a; }
+.B .kind { font-size:.8em; color:var(--dim); }
+.B .nextbtn { margin-top:10px; padding:.6em; font-size:1.1em; background:var(--ok); border:0; border-radius:6px; cursor:pointer; }
+.B .nextbtn[hidden] { display:none; }
+.B .strip { margin-top:8px; color:var(--dim); font-size:.9em; }
+
+/* ---- C: pure recall (winner) ---- */
+.C { display:flex; flex-direction:column; align-items:center; height:100%; }
+.C .banner { width:100%; text-align:center; padding:14px 0; font-size:1.6em; background:var(--panel); }
+.C .banner .name { color:var(--dim); font-size:.75em; margin-left:.8em; }
+.C .banner .forced { color:#f0c419; font-size:.8em; margin-left:1.2em; font-weight:700; }
+.C .board { margin-top:16px; width:min(72vh,92vw); height:min(72vh,92vw); }
+.C .verdict { margin-top:14px; min-height:2.4em; font-size:1.3em; visibility:hidden; cursor:pointer; display:flex; gap:1em; align-items:baseline; }
+.C .verdict.show { visibility:visible; }
+.C .verdict .big { font-size:1.4em; font-weight:800; }
+.C .verdict.ok .big { color:var(--ok); } .C .verdict.bad .big { color:var(--bad); } .C .verdict.warn .big { color:#f0c419; }
+.C .verdict .hint { color:var(--dim); font-size:.75em; }
+.C .counter { position:fixed; top:14px; right:14px; font-size:1.2em; color:var(--dim); }

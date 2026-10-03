@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}chessop · sign in{% endblock %}
+{% block content %}
+<main class="page">
+  <h1>Sign in</h1>
+  {% if good %}
+  <p>Press the button to sign in on this browser.</p>
+  <form method="post" action="{{ action }}">
+    <input type="hidden" name="token" value="{{ token }}">
+    <input type="hidden" name="next" value="{{ next }}">
+    <button type="submit">Sign in</button>
+  </form>
+  {% else %}
+  <p class="error">This link no longer works: it was used already, or it is more than 15 minutes old.</p>
+  <p><a href="/signin">Ask for a new one</a></p>
+  {% endif %}
+</main>
+{% endblock %}

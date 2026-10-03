@@ -1,0 +1,120 @@
+2026-03-03T10:00:51Z update explorer/tablebase doc
+
+after
+https://lichess.org/@/thibault/blog/the-opening-explorer-now-requires-authentication/FSWh9Zg3
+https://github.com/lichess-org/api/commit/ac27c30086a66ba6bd00b399341e5e6ca0906eec
+--- doc/specs/lichess-api.yaml
+@@ -219,7 +219,7 @@ tags:
+ 
+       Runs <https://github.com/lichess-org/lila-openingexplorer>.
+ 
+-      **The endpoint hostname is not lichess.org but explorer.lichess.ovh.**
++      **The endpoint hostname is not lichess.org but explorer.lichess.org.**
+   - name: Puzzles
+     description: |
+       Fetch and solve [puzzles](https://lichess.org/training), view your puzzle history and dashboard.
+@@ -242,7 +242,7 @@ tags:
+     description: |
+       Lookup positions from the [Lichess tablebase server](https://lichess.org/blog/W3WeMyQAACQAdfAL/7-piece-syzygy-tablebases-are-complete).
+ 
+-      **The endpoint hostname is not lichess.org but tablebase.lichess.ovh.**
++      **The endpoint hostname is not lichess.org but tablebase.lichess.org.**
+   - name: Teams
+     description: |
+       Access and manage Lichess teams and their members.
+--- doc/specs/tags/openingexplorer/lichess.yaml
+@@ -1,17 +1,18 @@
+ servers:
+-  - url: https://explorer.lichess.ovh
++  - url: https://explorer.lichess.org
+ get:
+   operationId: openingExplorerLichess
+   summary: Lichess games
+   description: |
+-    **Endpoint: <https://explorer.lichess.ovh/lichess>**
++    **Endpoint: <https://explorer.lichess.org/lichess>**
+ 
+     Aggregated rated games from all Lichess players.
+ 
+-    Example: `curl https://explorer.lichess.ovh/lichess?variant=standard&speeds=blitz,rapid,classical&ratings=2200,2500&fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR%20w%20KQkq%20-%200%201`
++    Example: `curl https://explorer.lichess.org/lichess?variant=standard&speeds=blitz,rapid,classical&ratings=2200,2500&fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR%20w%20KQkq%20-%200%201`
+   tags:
+     - Opening Explorer
+-  security: []
++  security:
++    - OAuth2: []
+   parameters:
+     - in: query
+       name: variant
+--- doc/specs/tags/openingexplorer/master-pgn-gameId.yaml
+@@ -1,15 +1,16 @@
+ servers:
+-  - url: https://explorer.lichess.ovh
++  - url: https://explorer.lichess.org
+ get:
+   operationId: openingExplorerMasterGame
+   summary: OTB master game
+   description: |
+-    **Endpoint: `https://explorer.lichess.ovh/masters/pgn/{gameId}`**
++    **Endpoint: `https://explorer.lichess.org/masters/pgn/{gameId}`**
+ 
+-    Example: `curl https://explorer.lichess.ovh/masters/pgn/aAbqI4ey`
++    Example: `curl https://explorer.lichess.org/masters/pgn/aAbqI4ey`
+   tags:
+     - Opening Explorer
+-  security: []
++  security:
++    - OAuth2: []
+   parameters:
+     - in: path
+       name: gameId
+--- doc/specs/tags/openingexplorer/masters.yaml
+@@ -1,15 +1,16 @@
+ servers:
+-  - url: https://explorer.lichess.ovh
++  - url: https://explorer.lichess.org
+ get:
+   operationId: openingExplorerMaster
+   summary: Masters database
+   description: |
+-    **Endpoint: <https://explorer.lichess.ovh/masters>**
++    **Endpoint: <https://explorer.lichess.org/masters>**
+ 
+-    Example: `curl https://explorer.lichess.ovh/masters?play=d2d4,d7d5,c2c4,c7c6,c4d5`
++    Example: `curl https://explorer.lichess.org/masters?play=d2d4,d7d5,c2c4,c7c6,c4d5`
+   tags:
+     - Opening Explorer
+-  security: []
++  security:
++    - OAuth2: []
+   parameters:
+     - in: query
+       name: fen
+--- doc/specs/tags/openingexplorer/player.yaml
+@@ -1,10 +1,10 @@
+ servers:
+-  - url: https://explorer.lichess.ovh
++  - url: https://explorer.lichess.org
+ get:
+   operationId: openingExplorerPlayer
+   summary: Player games
+   description: |
+-    **Endpoint: <https://explorer.lichess.ovh/player>**
++    **Endpoint: <https://explorer.lichess.org/player>**
+ 
+     Games of a Lichess player.
+ 
+@@ -16,10 +16,11 @@ get:
+     Will index new games at most once per minute, and revisit previously
+     ongoing games at most once every day.
+ 
+-    Example: `curl https://explorer.lichess.ovh/player?player=revoof&color=white&play=d2d4,d7d5&recentGames=1`
++    Example: `curl https://explorer.lichess.org/player?player=revoof&color=white&play=d2d4,d7d5&recentGames=1`
+   tags:
+     - Opening Explorer
+-  security: []
++  security:
++    - OAuth2: []
+   parameters:
+     - in: query
+       name: player

@@ -1,0 +1,927 @@
+{
+ "meta": {
+  "version": "fixture/1500+,1500-1800/none/0",
+  "month": null,
+  "bands": [
+   "1500+",
+   "1500-1800"
+  ],
+  "book_commit": null,
+  "build_revision": 0,
+  "storage_cutoff": 0.0002,
+  "ply_cap": 36,
+  "note": "tiny hand-written fixture graph for tests and the walking skeleton"
+ },
+ "bands": {
+  "1500+": {
+   "games": 10000,
+   "positions": [
+    {
+     "epd": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -",
+     "count": 10000,
+     "name": null,
+     "eco": null,
+     "canonical": [],
+     "book_line": null
+    },
+    {
+     "epd": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq -",
+     "count": 6000,
+     "name": "King's Pawn Game",
+     "eco": "B00",
+     "canonical": [
+      "e2e4"
+     ],
+     "book_line": [
+      "e2e4"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq -",
+     "count": 3000,
+     "name": "Queen's Pawn Game",
+     "eco": "A40",
+     "canonical": [
+      "d2d4"
+     ],
+     "book_line": [
+      "d2d4"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+     "count": 2400,
+     "name": "Sicilian Defense",
+     "eco": "B20",
+     "canonical": [
+      "e2e4",
+      "c7c5"
+     ],
+     "book_line": [
+      "e2e4",
+      "c7c5"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+     "count": 2200,
+     "name": "King's Pawn Game",
+     "eco": "C20",
+     "canonical": [
+      "e2e4",
+      "e7e5"
+     ],
+     "book_line": [
+      "e2e4",
+      "e7e5"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+     "count": 600,
+     "name": "French Defense",
+     "eco": "C00",
+     "canonical": [
+      "e2e4",
+      "e7e6"
+     ],
+     "book_line": [
+      "e2e4",
+      "e7e6"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -",
+     "count": 1500,
+     "name": "Sicilian Defense",
+     "eco": "B27",
+     "canonical": [
+      "e2e4",
+      "c7c5",
+      "g1f3"
+     ],
+     "book_line": [
+      "e2e4",
+      "c7c5",
+      "g1f3"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/pp1ppppp/8/2p5/4P3/2N5/PPPP1PPP/R1BQKBNR b KQkq -",
+     "count": 500,
+     "name": "Sicilian Defense: Closed",
+     "eco": "B23",
+     "canonical": [
+      "e2e4",
+      "c7c5",
+      "b1c3"
+     ],
+     "book_line": [
+      "e2e4",
+      "c7c5",
+      "b1c3"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -",
+     "count": 700,
+     "name": "Sicilian Defense: Modern Variations",
+     "eco": "B50",
+     "canonical": [
+      "e2e4",
+      "c7c5",
+      "g1f3",
+      "d7d6"
+     ],
+     "book_line": [
+      "e2e4",
+      "c7c5",
+      "g1f3",
+      "d7d6"
+     ]
+    },
+    {
+     "epd": "r1bqkbnr/pp1ppppp/2n5/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -",
+     "count": 500,
+     "name": "Sicilian Defense: Old Sicilian",
+     "eco": "B30",
+     "canonical": [
+      "e2e4",
+      "c7c5",
+      "g1f3",
+      "b8c6"
+     ],
+     "book_line": [
+      "e2e4",
+      "c7c5",
+      "g1f3",
+      "b8c6"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -",
+     "count": 1800,
+     "name": "King's Knight Opening",
+     "eco": "C40",
+     "canonical": [
+      "e2e4",
+      "e7e5",
+      "g1f3"
+     ],
+     "book_line": [
+      "e2e4",
+      "e7e5",
+      "g1f3"
+     ]
+    },
+    {
+     "epd": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -",
+     "count": 1500,
+     "name": "King's Knight Opening: Normal Variation",
+     "eco": "C44",
+     "canonical": [
+      "e2e4",
+      "e7e5",
+      "g1f3",
+      "b8c6"
+     ],
+     "book_line": [
+      "e2e4",
+      "e7e5",
+      "g1f3",
+      "b8c6"
+     ]
+    },
+    {
+     "epd": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -",
+     "count": 500,
+     "name": "Ruy Lopez",
+     "eco": "C60",
+     "canonical": [
+      "e2e4",
+      "e7e5",
+      "g1f3",
+      "b8c6",
+      "f1b5"
+     ],
+     "book_line": [
+      "e2e4",
+      "e7e5",
+      "g1f3",
+      "b8c6",
+      "f1b5"
+     ]
+    },
+    {
+     "epd": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq -",
+     "count": 600,
+     "name": "Italian Game",
+     "eco": "C50",
+     "canonical": [
+      "e2e4",
+      "e7e5",
+      "g1f3",
+      "b8c6",
+      "f1c4"
+     ],
+     "book_line": [
+      "e2e4",
+      "e7e5",
+      "g1f3",
+      "b8c6",
+      "f1c4"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/pppp1ppp/4p3/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq -",
+     "count": 500,
+     "name": "French Defense: Normal Variation",
+     "eco": "C00",
+     "canonical": [
+      "e2e4",
+      "e7e6",
+      "d2d4"
+     ],
+     "book_line": [
+      "e2e4",
+      "e7e6",
+      "d2d4"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -",
+     "count": 1500,
+     "name": "Queen's Pawn Game",
+     "eco": "D00",
+     "canonical": [
+      "d2d4",
+      "d7d5"
+     ],
+     "book_line": [
+      "d2d4",
+      "d7d5"
+     ]
+    },
+    {
+     "epd": "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -",
+     "count": 1200,
+     "name": "Indian Defense",
+     "eco": "A45",
+     "canonical": [
+      "d2d4",
+      "g8f6"
+     ],
+     "book_line": [
+      "d2d4",
+      "g8f6"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq -",
+     "count": 700,
+     "name": "Queen's Gambit",
+     "eco": "D06",
+     "canonical": [
+      "d2d4",
+      "d7d5",
+      "c2c4"
+     ],
+     "book_line": [
+      "d2d4",
+      "d7d5",
+      "c2c4"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/ppp1pppp/8/3p4/3P4/5N2/PPP1PPPP/RNBQKB1R b KQkq -",
+     "count": 400,
+     "name": "Queen's Pawn Game: Zukertort Variation",
+     "eco": "D02",
+     "canonical": [
+      "d2d4",
+      "d7d5",
+      "g1f3"
+     ],
+     "book_line": [
+      "d2d4",
+      "d7d5",
+      "g1f3"
+     ]
+    },
+    {
+     "epd": "rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq -",
+     "count": 800,
+     "name": "Indian Defense: Normal Variation",
+     "eco": "A50",
+     "canonical": [
+      "d2d4",
+      "g8f6",
+      "c2c4"
+     ],
+     "book_line": [
+      "d2d4",
+      "g8f6",
+      "c2c4"
+     ]
+    }
+   ],
+   "edges": [
+    {
+     "epd": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -",
+     "uci": "e2e4",
+     "san": "e4",
+     "count": 6000,
+     "child_epd": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -",
+     "uci": "d2d4",
+     "san": "d4",
+     "count": 3000,
+     "child_epd": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -",
+     "uci": "g1f3",
+     "san": "Nf3",
+     "count": 400,
+     "child_epd": "rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq -",
+     "uci": "c7c5",
+     "san": "c5",
+     "count": 2400,
+     "child_epd": "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq -",
+     "uci": "e7e5",
+     "san": "e5",
+     "count": 2200,
+     "child_epd": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq -",
+     "uci": "e7e6",
+     "san": "e6",
+     "count": 600,
+     "child_epd": "rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+     "uci": "g1f3",
+     "san": "Nf3",
+     "count": 1500,
+     "child_epd": "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+     "uci": "b1c3",
+     "san": "Nc3",
+     "count": 500,
+     "child_epd": "rnbqkbnr/pp1ppppp/8/2p5/4P3/2N5/PPPP1PPP/R1BQKBNR b KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -",
+     "uci": "d7d6",
+     "san": "d6",
+     "count": 700,
+     "child_epd": "rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -",
+     "uci": "b8c6",
+     "san": "Nc6",
+     "count": 500,
+     "child_epd": "r1bqkbnr/pp1ppppp/2n5/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+     "uci": "g1f3",
+     "san": "Nf3",
+     "count": 1800,
+     "child_epd": "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -",
+     "uci": "b8c6",
+     "san": "Nc6",
+     "count": 1500,
+     "child_epd": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -"
+    },
+    {
+     "epd": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -",
+     "uci": "f1b5",
+     "san": "Bb5",
+     "count": 500,
+     "child_epd": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -"
+    },
+    {
+     "epd": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -",
+     "uci": "f1c4",
+     "san": "Bc4",
+     "count": 600,
+     "child_epd": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+     "uci": "d2d4",
+     "san": "d4",
+     "count": 500,
+     "child_epd": "rnbqkbnr/pppp1ppp/4p3/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq -",
+     "uci": "d7d5",
+     "san": "d5",
+     "count": 1500,
+     "child_epd": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq -",
+     "uci": "g8f6",
+     "san": "Nf6",
+     "count": 1200,
+     "child_epd": "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -",
+     "uci": "c2c4",
+     "san": "c4",
+     "count": 700,
+     "child_epd": "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -",
+     "uci": "g1f3",
+     "san": "Nf3",
+     "count": 400,
+     "child_epd": "rnbqkbnr/ppp1pppp/8/3p4/3P4/5N2/PPP1PPPP/RNBQKB1R b KQkq -"
+    },
+    {
+     "epd": "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -",
+     "uci": "c2c4",
+     "san": "c4",
+     "count": 800,
+     "child_epd": "rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq -"
+    }
+   ]
+  },
+  "1500-1800": {
+   "games": 10000,
+   "positions": [
+    {
+     "epd": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -",
+     "count": 10000,
+     "name": null,
+     "eco": null,
+     "canonical": [],
+     "book_line": null
+    },
+    {
+     "epd": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq -",
+     "count": 6000,
+     "name": "King's Pawn Game",
+     "eco": "B00",
+     "canonical": [
+      "e2e4"
+     ],
+     "book_line": [
+      "e2e4"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq -",
+     "count": 3000,
+     "name": "Queen's Pawn Game",
+     "eco": "A40",
+     "canonical": [
+      "d2d4"
+     ],
+     "book_line": [
+      "d2d4"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+     "count": 2400,
+     "name": "Sicilian Defense",
+     "eco": "B20",
+     "canonical": [
+      "e2e4",
+      "c7c5"
+     ],
+     "book_line": [
+      "e2e4",
+      "c7c5"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+     "count": 2200,
+     "name": "King's Pawn Game",
+     "eco": "C20",
+     "canonical": [
+      "e2e4",
+      "e7e5"
+     ],
+     "book_line": [
+      "e2e4",
+      "e7e5"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+     "count": 600,
+     "name": "French Defense",
+     "eco": "C00",
+     "canonical": [
+      "e2e4",
+      "e7e6"
+     ],
+     "book_line": [
+      "e2e4",
+      "e7e6"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -",
+     "count": 1500,
+     "name": "Sicilian Defense",
+     "eco": "B27",
+     "canonical": [
+      "e2e4",
+      "c7c5",
+      "g1f3"
+     ],
+     "book_line": [
+      "e2e4",
+      "c7c5",
+      "g1f3"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/pp1ppppp/8/2p5/4P3/2N5/PPPP1PPP/R1BQKBNR b KQkq -",
+     "count": 500,
+     "name": "Sicilian Defense: Closed",
+     "eco": "B23",
+     "canonical": [
+      "e2e4",
+      "c7c5",
+      "b1c3"
+     ],
+     "book_line": [
+      "e2e4",
+      "c7c5",
+      "b1c3"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -",
+     "count": 700,
+     "name": "Sicilian Defense: Modern Variations",
+     "eco": "B50",
+     "canonical": [
+      "e2e4",
+      "c7c5",
+      "g1f3",
+      "d7d6"
+     ],
+     "book_line": [
+      "e2e4",
+      "c7c5",
+      "g1f3",
+      "d7d6"
+     ]
+    },
+    {
+     "epd": "r1bqkbnr/pp1ppppp/2n5/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -",
+     "count": 500,
+     "name": "Sicilian Defense: Old Sicilian",
+     "eco": "B30",
+     "canonical": [
+      "e2e4",
+      "c7c5",
+      "g1f3",
+      "b8c6"
+     ],
+     "book_line": [
+      "e2e4",
+      "c7c5",
+      "g1f3",
+      "b8c6"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -",
+     "count": 1800,
+     "name": "King's Knight Opening",
+     "eco": "C40",
+     "canonical": [
+      "e2e4",
+      "e7e5",
+      "g1f3"
+     ],
+     "book_line": [
+      "e2e4",
+      "e7e5",
+      "g1f3"
+     ]
+    },
+    {
+     "epd": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -",
+     "count": 1500,
+     "name": "King's Knight Opening: Normal Variation",
+     "eco": "C44",
+     "canonical": [
+      "e2e4",
+      "e7e5",
+      "g1f3",
+      "b8c6"
+     ],
+     "book_line": [
+      "e2e4",
+      "e7e5",
+      "g1f3",
+      "b8c6"
+     ]
+    },
+    {
+     "epd": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -",
+     "count": 500,
+     "name": "Ruy Lopez",
+     "eco": "C60",
+     "canonical": [
+      "e2e4",
+      "e7e5",
+      "g1f3",
+      "b8c6",
+      "f1b5"
+     ],
+     "book_line": [
+      "e2e4",
+      "e7e5",
+      "g1f3",
+      "b8c6",
+      "f1b5"
+     ]
+    },
+    {
+     "epd": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq -",
+     "count": 600,
+     "name": "Italian Game",
+     "eco": "C50",
+     "canonical": [
+      "e2e4",
+      "e7e5",
+      "g1f3",
+      "b8c6",
+      "f1c4"
+     ],
+     "book_line": [
+      "e2e4",
+      "e7e5",
+      "g1f3",
+      "b8c6",
+      "f1c4"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/pppp1ppp/4p3/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq -",
+     "count": 500,
+     "name": "French Defense: Normal Variation",
+     "eco": "C00",
+     "canonical": [
+      "e2e4",
+      "e7e6",
+      "d2d4"
+     ],
+     "book_line": [
+      "e2e4",
+      "e7e6",
+      "d2d4"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -",
+     "count": 1500,
+     "name": "Queen's Pawn Game",
+     "eco": "D00",
+     "canonical": [
+      "d2d4",
+      "d7d5"
+     ],
+     "book_line": [
+      "d2d4",
+      "d7d5"
+     ]
+    },
+    {
+     "epd": "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -",
+     "count": 1200,
+     "name": "Indian Defense",
+     "eco": "A45",
+     "canonical": [
+      "d2d4",
+      "g8f6"
+     ],
+     "book_line": [
+      "d2d4",
+      "g8f6"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq -",
+     "count": 700,
+     "name": "Queen's Gambit",
+     "eco": "D06",
+     "canonical": [
+      "d2d4",
+      "d7d5",
+      "c2c4"
+     ],
+     "book_line": [
+      "d2d4",
+      "d7d5",
+      "c2c4"
+     ]
+    },
+    {
+     "epd": "rnbqkbnr/ppp1pppp/8/3p4/3P4/5N2/PPP1PPPP/RNBQKB1R b KQkq -",
+     "count": 400,
+     "name": "Queen's Pawn Game: Zukertort Variation",
+     "eco": "D02",
+     "canonical": [
+      "d2d4",
+      "d7d5",
+      "g1f3"
+     ],
+     "book_line": [
+      "d2d4",
+      "d7d5",
+      "g1f3"
+     ]
+    },
+    {
+     "epd": "rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq -",
+     "count": 800,
+     "name": "Indian Defense: Normal Variation",
+     "eco": "A50",
+     "canonical": [
+      "d2d4",
+      "g8f6",
+      "c2c4"
+     ],
+     "book_line": [
+      "d2d4",
+      "g8f6",
+      "c2c4"
+     ]
+    }
+   ],
+   "edges": [
+    {
+     "epd": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -",
+     "uci": "e2e4",
+     "san": "e4",
+     "count": 6000,
+     "child_epd": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -",
+     "uci": "d2d4",
+     "san": "d4",
+     "count": 3000,
+     "child_epd": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -",
+     "uci": "g1f3",
+     "san": "Nf3",
+     "count": 400,
+     "child_epd": "rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq -",
+     "uci": "c7c5",
+     "san": "c5",
+     "count": 2400,
+     "child_epd": "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq -",
+     "uci": "e7e5",
+     "san": "e5",
+     "count": 2200,
+     "child_epd": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq -",
+     "uci": "e7e6",
+     "san": "e6",
+     "count": 600,
+     "child_epd": "rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+     "uci": "g1f3",
+     "san": "Nf3",
+     "count": 1500,
+     "child_epd": "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+     "uci": "b1c3",
+     "san": "Nc3",
+     "count": 500,
+     "child_epd": "rnbqkbnr/pp1ppppp/8/2p5/4P3/2N5/PPPP1PPP/R1BQKBNR b KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -",
+     "uci": "d7d6",
+     "san": "d6",
+     "count": 700,
+     "child_epd": "rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -",
+     "uci": "b8c6",
+     "san": "Nc6",
+     "count": 500,
+     "child_epd": "r1bqkbnr/pp1ppppp/2n5/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+     "uci": "g1f3",
+     "san": "Nf3",
+     "count": 1800,
+     "child_epd": "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -",
+     "uci": "b8c6",
+     "san": "Nc6",
+     "count": 1500,
+     "child_epd": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -"
+    },
+    {
+     "epd": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -",
+     "uci": "f1b5",
+     "san": "Bb5",
+     "count": 500,
+     "child_epd": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -"
+    },
+    {
+     "epd": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -",
+     "uci": "f1c4",
+     "san": "Bc4",
+     "count": 600,
+     "child_epd": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+     "uci": "d2d4",
+     "san": "d4",
+     "count": 500,
+     "child_epd": "rnbqkbnr/pppp1ppp/4p3/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq -",
+     "uci": "d7d5",
+     "san": "d5",
+     "count": 1500,
+     "child_epd": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq -",
+     "uci": "g8f6",
+     "san": "Nf6",
+     "count": 1200,
+     "child_epd": "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -",
+     "uci": "c2c4",
+     "san": "c4",
+     "count": 700,
+     "child_epd": "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq -"
+    },
+    {
+     "epd": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -",
+     "uci": "g1f3",
+     "san": "Nf3",
+     "count": 400,
+     "child_epd": "rnbqkbnr/ppp1pppp/8/3p4/3P4/5N2/PPP1PPPP/RNBQKB1R b KQkq -"
+    },
+    {
+     "epd": "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -",
+     "uci": "c2c4",
+     "san": "c4",
+     "count": 800,
+     "child_epd": "rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq -"
+    }
+   ]
+  }
+ }
+}

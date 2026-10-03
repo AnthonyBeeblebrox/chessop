@@ -1,0 +1,17 @@
+# What publish.sh leaves out of the public tree (public spec §14, ADR 0007): one git glob
+# pathspec a line, matched against the private commit's tracked files; `#` starts a comment.
+# Everything else that is tracked is published: source, tests, docs, .scratch, prototypes,
+# licences, and the rest of refs/ (our analysis scripts, the opening book, API specifications).
+
+# The third-party papers and web pages saved under refs/: refs/README.md cites them by link.
+refs/**/*.pdf
+refs/**/*.html
+
+# Personal tooling: the agent loop script and the wayfinder prompts.
+loop.py
+prompt0.md
+prompt1.md
+
+# The owner's Lichess token: untracked and ignored now, but once committed.
+token.txt
+secrets/

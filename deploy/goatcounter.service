@@ -1,0 +1,35 @@
+# GoatCounter, the audience statistics behind Caddy at stats.chessop.fr (public spec §14). Its
+# database appears when the owner creates the site (the runbook; provision.sh prints the
+# command), and the unit waits for it: with no site yet, GoatCounter's web page would let
+# anyone create one. Each start sets every site's retention to 760 days.
+[Unit]
+Description=GoatCounter audience statistics for chessop
+After=network.target
+ConditionPathExists=/var/lib/goatcounter/goatcounter.sqlite3
+OnFailure=chessop-notify@%n.service
+# Restarts are silent (RestartMode=direct); more than 5 starts in 2 minutes and systemd gives
+# up, which is what mails the owner.
+StartLimitIntervalSec=120
+StartLimitBurst=5
+
+[Service]
+Type=exec
+User=goatcounter
+Group=goatcounter
+WorkingDirectory=/var/lib/goatcounter
+StateDirectory=goatcounter
+StateDirectoryMode=0700
+ExecStartPre=/usr/local/lib/chessop/goatcounter-retention
+ExecStart=/usr/local/bin/goatcounter serve -listen 127.0.0.1:8081 -tls http -automigrate -db sqlite+/var/lib/goatcounter/goatcounter.sqlite3
+Restart=on-failure
+RestartSec=2
+RestartMode=direct
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+
+[Install]
+WantedBy=multi-user.target

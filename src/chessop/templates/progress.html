@@ -1,0 +1,77 @@
+{% macro pct(v) -%}{{ '–' if v is none else '%.1f %%' | format(v) }}{%- endmacro %}
+{% macro bar(r) -%}
+<span class="bar" title="{{ r.known }} known · {{ r.learning }} learning · {{ r.never }} never passed">
+  {%- if r.total %}<i class="known" style="width:{{ 100 * r.known / r.total }}%"></i><i class="learning" style="width:{{ 100 * r.learning / r.total }}%"></i>{% endif -%}
+</span>
+{%- endmacro %}
+{% macro cells(r) -%}
+<span class="eco">{{ r.eco }}</span><span class="num pos">{{ r.positions }}</span>{{ bar(r) }}<b class="num">{{ pct(r.score) }}</b><span class="num dim">{{ pct(r.white) }}</span><span class="num dim">{{ pct(r.black) }}</span>
+{%- endmacro %}
+{#- A figure's label, a dotted-underline link to its section of the help page (public spec §9). -#}
+{% macro help(anchor, text) -%}<a class="hl" href="/help#{{ anchor }}">{{ text }}</a>{%- endmacro %}
+{% extends "base.html" %}
+{% block title %}chessop · progress{% endblock %}
+{% block content %}
+<main class="page ledger">
+  <nav class="links"><a href="/">play</a><a href="/settings">settings</a></nav>
+  <h1>Progress</h1>
+  {% if notice %}<p class="notice changed">{{ notice }}</p>{% endif %}
+  {% if refused %}<p class="error">{{ refused }}</p>{% endif %}
+  <section class="head">
+    <div class="big"><b>{{ pct(head.score) }}</b>
+      <span class="dim">{{ help('score', 'Score') }}{% if since %} · {{ help('since', '%+.1f' | format(since.delta) ~ ' since ' ~ since.day) }}{% endif %}</span></div>
+    <div><span class="dim">{{ help('sides', 'as White') }}</span><b>{{ pct(head.white) }}</b></div>
+    <div><span class="dim">{{ help('sides', 'as Black') }}</span><b>{{ pct(head.black) }}</b></div>
+    <div><span class="dim">{{ help('counts', 'known / learning / never passed') }}</span>
+      <b>{{ head.known }} / {{ head.learning }} / <a href="/progress?never=1">{{ head.never }}</a></b></div>
+    <div><span class="dim">{{ help('session', 'this session') }}</span>
+      {% if session.rounds %}<b class="{{ 'outside' if session.outside else '' }}">{{ session.successes }}/{{ session.rounds }} rounds ({{ session.rate }} %)</b> <span class="dim">target {{ target }} %</span>
+      {% else %}<b>no rounds yet</b> <span class="dim">target {{ target }} %</span>{% endif %}</div>
+    {% if spark.days %}
+    <svg class="spark" viewBox="-3 -3 166 38" width="166" height="38" role="img" aria-label="daily Score, {{ spark.days }} day{{ '' if spark.days == 1 else 's' }}">
+      <polyline points="{{ spark.points }}"/>
+      {% set last = spark.points.split(' ')[-1].split(',') %}<circle cx="{{ last[0] }}" cy="{{ last[1] }}" r="2.5"/>
+    </svg> {{ help('spark', 'daily') }}
+    {% endif %}
+  </section>
+
+  {% if never_list is not none %}
+  <p><a href="/progress">← all openings</a></p>
+  <h2>Never passed ({{ never_list | length }})</h2>
+  <ol class="never">
+    {% for p in never_list %}
+    <li><a href="{{ p.href }}">{{ p.moves }}</a> <span class="dim">{{ p.side }} to move · {{ p.name or 'Start position' }} · {{ '%.2f' | format(p.share) }} % of games</span></li>
+    {% else %}<li class="dim">Every position has been passed at least once.</li>{% endfor %}
+  </ol>
+  {% else %}
+  <div class="table">
+    <div class="row th"><span>{{ help('openings', 'Opening') }}</span><span class="eco">ECO</span><span class="num pos">positions</span><span>known / learning / never</span><span class="num">score</span><span class="num">White</span><span class="num">Black</span><span class="acts"></span></div>
+    {% for o in openings %}
+    <details class="opening{{ ' out' if o.out else '' }}">
+      <summary class="row"><span>{{ o.name }}{% if o.out %} <i class="dim">(out)</i>{% endif %}</span>{{ cells(o) }}<span class="acts">
+        {%- if o.toggle %}<button form="toggle-{{ loop.index }}" title="{{ 'take it back into' if o.out else 'take it out of' }} the repertoire">{{ 'in' if o.out else 'out' }}</button>{% endif -%}
+        <button form="reset-{{ loop.index }}" title="reset its records, after a confirmation">reset…</button></span></summary>
+      {% for line in o.lines %}
+      <details class="line">
+        <summary class="row"><span>{{ line.name or 'Start position' }}</span>{{ cells(line) }}</summary>
+        <ul class="branches">
+          {% for branch in line.branches %}
+          <li>{% for c in branch %}{% if c.href %}<a class="mv {{ c.shade }}" href="{{ c.href }}">{{ c.text }}</a>{% else %}<span class="mv">{{ c.text }}</span>{% endif %} {% endfor %}</li>
+          {% endfor %}
+        </ul>
+      </details>
+      {% endfor %}
+    </details>
+    {% endfor %}
+  </div>
+  {# The rows' forms, outside the summaries their buttons sit in; plain POSTs, no script. #}
+  {% for o in openings %}
+  {% if o.toggle %}<form method="post" action="{{ o.toggle }}" id="toggle-{{ loop.index }}"></form>{% endif %}
+  <form method="post" action="{{ o.reset }}" id="reset-{{ loop.index }}"></form>
+  {% endfor %}
+  <p class="legend dim">{{ help('colours', 'colours') }}: <span class="mv known">≥ {{ sure }} %</span> <span class="mv learning">50–{{ sure }} %</span> <span class="mv fading">&lt; 50 %</span> <span class="mv relearn">relearning pass owed</span> <span class="mv never">never passed</span></p>
+  {% endif %}
+</main>
+{% endblock %}
+{#- The hosted site's tip jar (public spec §10); local mode has none. #}
+{% block site_end %}<p class="page ledger kofi dim"><a href="{{ site.kofi }}">Support chessop on Ko-fi</a>: tips pay for the server and the domain, and are not tax-deductible.</p>{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}chessop · delete your account{% endblock %}
+{% block content %}
+<main class="page">
+  <h1>Delete your account?</h1>
+  <p>This deletes <b>{{ account.name }}</b> at once: your history, your settings and your sign-in, and signs out every device signed in to it. It cannot be undone.</p>
+  <form method="post" action="/account/delete">
+    <button type="submit">Delete my account</button>
+  </form>
+  <p><a href="/account">Keep my account</a></p>
+</main>
+{% endblock %}

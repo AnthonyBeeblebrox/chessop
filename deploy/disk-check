@@ -1,0 +1,21 @@
+#!/bin/sh
+# Mail the owner the df table when a filesystem is more than 80 % full (public spec §14). Run
+# daily by chessop-disk.service; installed by provision.sh in /usr/local/lib/chessop.
+set -eu
+
+limit=80
+chessop=/opt/chessop/current/.venv/bin/chessop
+skip="-x tmpfs -x devtmpfs -x efivarfs -x squashfs -x overlay"
+
+# shellcheck disable=SC2086 # $skip is a list of options
+full=$(df --output=pcent,target $skip | awk -v limit="$limit" \
+	'NR > 1 { used = $1; sub("%", "", used); if (used + 0 > limit) full = full ", " $2 }
+	END { print substr(full, 3) }')
+[ -n "$full" ] || exit 0
+
+{
+	echo "More than $limit % used on: $full"
+	echo
+	# shellcheck disable=SC2086
+	df -h $skip
+} | "$chessop" notify-owner --subject "chessop: disk more than $limit % full on $(hostname)"

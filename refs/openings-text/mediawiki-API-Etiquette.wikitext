@@ -1,0 +1,155 @@
+<languages/>
+{{API}}
+{{nutshell|1=
+* <translate><!--T:55--> Set an informative <tvar name=1>User-Agent</tvar> string with contact information, or you may be IP-blocked without notice.</translate>
+* <translate><!--T:57--> Make your requests in series rather than in parallel, by waiting for one request to finish before sending a new request.</translate>
+* <translate><!--T:71--> Perform grouped updates via one single <tvar name=1><code>editEntity</code></tvar>, for all languages and for labels, descriptions, and aliases at once.</translate>
+}}
+<translate>
+<!--T:31-->
+This page contains the best practices that should be followed when using the Action API.
+
+== Behaviour == <!--T:8-->
+
+=== Request limit === <!--T:9-->
+</translate>
+<translate><!--T:10--> There is no hard speed limit on read requests, but be considerate and try not to take a site down.</translate>
+<translate><!--T:11--> Most system administrators reserve the right to unceremoniously block you if you do endanger the stability of their site.</translate>
+
+<translate><!--T:32--> Making your requests in series rather than in parallel, by waiting for one request to finish before sending a new request, should result in a safe request rate.</translate>
+<translate><!--T:33--> It is also recommended that you ask for multiple items in one request by:</translate>
+
+<translate>
+<!--T:34-->
+* Using the pipe character (<tvar name=1><code>|</code></tvar>) whenever possible e.g. <tvar name=2><code>titles=PageA|PageB|PageC</code></tvar>, instead of making a new request for each title.</translate>
+<translate>
+<!--T:35-->
+* Using a {{<tvar name=1>ll|API:Query#Generators</tvar>|generator}} instead of making a request for each result from another request.
+
+<!--T:36-->
+* Use GZip compression when making API calls by setting <tvar name=1><code>Accept-Encoding: gzip</code></tvar> to reduce bandwidth usage.
+</translate>
+
+<translate><!--T:51--> Requests which make edits, modify state or otherwise are not read-only requests, <em>are</em> subject to {{<tvar name=1>ll|Manual:Rate limits</tvar>|rate limiting}}. The exact rate limit being applied might depend on the type of action, your user rights and the configuration of the website you are making the request to.</translate>
+<translate><!--T:53--> The limits that apply to you can be determined by accessing the <tvar name=1>action=query&meta=userinfo&uiprop=ratelimits</tvar> API endpoint.</translate>
+
+{{ApiEx
+|desc=
+|p1=action=query
+|p2=format=json
+|p3=meta=userinfo
+|p4=uiprop=ratelimits
+}}
+
+<translate><!--T:52--> When you hit the request rate limit you will receive a {{<tvar name=1>ll|API:Errors_and_warnings</tvar>|API error response}} with the error code <tvar name=2><code>ratelimited</code></tvar>.</translate>
+<translate><!--T:88--> When you encounter this error, you may retry that request, however you should increase the time between subsequent requests.</translate>
+<translate><!--T:89--> A common strategy for this is [[w:Exponential backoff|Exponential backoff]].</translate>
+
+<translate>
+=== Parsing of revisions === <!--T:15-->
+</translate>
+<translate><!--T:16--> While it is possible to query for results from a specific revision number using the <tvar name=1><code>revid</code></tvar> parameter, this is an expensive operation for the servers.</translate>
+<translate><!--T:17--> To retrieve a specific revision use the <tvar name=1><code>oldid</code></tvar> parameter. For example:</translate>
+{{ApiEx
+|desc=
+|p1=action=parse
+|p2=format=json
+|p3=prop=images
+|p4=oldid=254862759
+}}
+
+<translate>
+=== The maxlag parameter === <!--T:18-->
+</translate>
+<translate><!--T:19--> If your task is not interactive, i.e. a user is not waiting for the result, you should use the <tvar name=1><code>maxlag</code></tvar> parameter.</translate>
+<translate><!--T:37--> The value of the <tvar name=1><code>maxlag</code></tvar> parameter should be an integer number of seconds.</translate>
+<translate><!--T:38--> For example:</translate>
+{{ApiEx
+|desc=
+|p1=action=query
+|p2=format=json
+|p3=titles=Main%20Page
+|p4=maxlag=1
+}}
+<translate><!--T:20--> This will prevent your task from running when the load on the servers is high.</translate>
+<translate><!--T:21--> Higher values mean more aggressive behaviour, lower values are nicer.</translate>
+
+<translate>
+<!--T:39-->
+See <tvar name=1>{{ll|Manual:Maxlag parameter}}</tvar> for more details.
+
+=== The <tvar name=1>User-Agent</tvar> header === <!--T:23-->
+</translate>
+<translate><!--T:40--> It is best practice to set a descriptive <tvar name=1>User-Agent</tvar> header.</translate>
+<translate><!--T:41--> To do so, use <code>User-Agent: clientname/version (contact information e.g. username, email) framework/version...</code>.</translate>
+<translate><!--T:42--> For example in PHP:</translate>
+
+<div style="width:60%">
+<syntaxhighlight lang="php">
+ini_set('user_agent', 'MyCoolTool/1.1 (https://example.org/MyCoolTool/; MyCoolTool@example.org) UsedBaseLibrary/1.4');
+</syntaxhighlight>
+</div>
+
+<translate><!--T:25--> Do not simply copy the user-agent of a popular web browser.</translate>
+<translate><!--T:26--> This ensures that if a problem does arise it is easy to track down where it originates.</translate>
+
+<translate><!--T:43--> If you are calling the API from browser-based JavaScript, you may not be able to influence the <tvar name=1><code>User-Agent</code></tvar> header, depending on the browser.</translate>
+<translate><!--T:44--> To work around this, use the <tvar name=1><code>Api-User-Agent</code></tvar> header.</translate>
+
+<translate>
+=== Data formats === <!--T:45-->
+</translate>
+<translate><!--T:46--> All new API users {{<tvar name=1>ll|API:Data_formats#Output</tvar>|should use JSON}}.</translate>
+<translate><!--T:47--> See <tvar name=1>{{ll|API:Data_formats}}</tvar> for more details.</translate>
+
+<translate>
+=== Caching === <!--T:79-->
+</translate>
+<translate><!--T:62--> If your requests obtain data that can be cached for a while, you should take steps to cache it, so you don't request the same data over and over again.</translate>
+<translate><!--T:63--> Some clients may be able to cache data themselves, but for others (particularly JavaScript clients), this is not possible.</translate>
+
+<translate>
+=== POST requests === <!--T:80-->
+
+<!--T:65-->
+Whenever you're reading data from the web service API, you should try to use GET requests if possible, not POST, as the latter are not cacheable and, in [[<tvar name=1>wikitech:Performance/Multi-DC MediaWiki</tvar>|multi-datacenter]] configurations (including Wikimedia sites), may go to a farther data center.
+</translate>
+
+<translate><!--T:73--> In exceptional cases where you really need to use POST for a read request, such as calling <tvar name=1><code>{{ll|API:Parsing wikitext|2=action=parse}}</code></tvar> with a long string of wikitext, consider setting the <tvar name=2><code>Promise-Non-Write-API-Action: true</code></tvar> header.</translate>
+<translate><!--T:72--> This helps ensure that your POST request is processed by an application server in the closest data center, if appropriate.</translate>
+
+<translate>
+== Guidelines for Wikimedia wikis == <!--T:81-->
+</translate>
+<translate><!--T:82--> In addition to the best practices described above, the following guidelines apply to using the Action API to access Wikimedia wikis.</translate>
+<translate><!--T:76--> See also [[<tvar name=1>foundation:Special:MyLanguage/Policy:Wikimedia Foundation API Usage Guidelines</tvar>|the official guidelines about API usage]] on Wikimedia Foundation Governance wiki.</translate>
+
+<translate>
+=== <tvar name=1>User-Agent</tvar> policy === <!--T:83-->
+</translate>
+<translate><!--T:84--> API requests to Wikimedia wikis must include a meaningful <tvar name=1>User-Agent</tvar> header.</translate>
+<translate><!--T:27--> See [[<tvar name=meta>foundation:Special:MyLanguage/Policy:User-Agent policy</tvar>|User-Agent policy]] for more details.</translate>
+
+<translate>
+=== Rate limits === <!--T:85-->
+
+<!--T:86-->
+In addition to {{<tvar name=1>ll|Manual:Rate limits</tvar>|rate limits}} based on user actions, API requests to Wikimedia wiki are subject to {{<tvar name=2>ll|Wikimedia APIs/Rate limits</tvar>|API rate limits}}.
+
+=== Performance === <!--T:48-->
+</translate>
+<translate><!--T:54--> Downloading data in bulk is not always extremely efficient using the Action API.</translate>
+<translate><!--T:60--> On Wikimedia wikis, there are faster ways to get data in bulk, see <tvar name=1>[[m:Research:Data]]</tvar> and <tvar name=2>[[wikitech:Portal:Data Services]]</tvar> for more details.</translate>
+
+<translate>
+== See also == <!--T:49-->
+</translate>
+* <translate><!--T:77--> [[<tvar name=1>:foundation:Policy:Wikimedia Foundation API Usage Guidelines</tvar>|Official guidelines about API usage]] on Wikimedia Foundation Governance wiki</translate>
+* <translate><!--T:78--> [[<tvar name=1>wikitech:Robot policy</tvar>|Wikimedia Robot policy]] on Wikitech</translate>
+* {{ll|API:Main page}} - <translate><!--T:50--> The quick start guide.</translate>
+* {{ll|Manual:Rate limits}} & {{ll|Wikimedia APIs/Rate limits}}
+
+<translate>
+== Code stewardship == <!--T:87-->
+</translate>
+{{Component|mediawiki-api}}

@@ -1,0 +1,27 @@
+# Deploying chessop to the VPS
+
+Type: grilling
+Status: resolved
+Blocked by: 
+Map: [chessop in public](../map.md)
+
+## Question
+
+With the host fixed (ADR 0007: OVH VPS-1, Debian 13, systemd, Caddy, no Docker) and hosted mode's switch set (Switching chessop serve into hosted mode): how does code get from the public GitHub repository to the VPS? Decide CI (GitHub Actions running the tests, or none), the deploy step (pull and `uv sync` over SSH by hand, a script, or a push-triggered action, and where its key lives), the `chessop` system user and directory layout, the systemd unit and `/etc/chessop/chessop.env`, how a deploy restarts without losing a round in progress (in-memory limits and sessions reset, per Abuse and limits on the hosted site), how often a new snapshot is built and shipped, and what happens to learners' bands, position records and repertoires when a new snapshot changes the graph.
+
+## Answer
+
+Grilled 2026-09-30. ADR 0007 amended (install by checkout + `uv sync --frozen`, releases from a private repo as squashed public commits). No glossary change: a snapshot still arrives only with a release.
+
+- **Two repositories.** Development stays in the **private** local repo, never pushed. Its history is rewritten once with `git filter-repo --path token.txt --invert-paths` (a Lichess personal token, `lip_…`, was committed in 48b99f3); the token is revoked on Lichess regardless. The **public** GitHub repo starts with no history and gains **one squashed commit per release**, `Release vX.Y.Z`, stacked on a local `public` branch tracking the GitHub remote.
+- **`deploy/publish.sh vX.Y.Z`**: refuses a dirty private `main`; runs ruff and pytest; tags the private commit; copies its tree onto `public` minus the paths in `deploy/public-exclude`; scans the result for secret patterns (`lip_`, TEM keys) and refuses on a hit; commits, tags `vX.Y.Z`, pushes. Excluded: the third-party PDF and HTML copies under `refs/` (kept tracked privately; `refs/README.md` becomes a bibliography with links, `refs/lichess/*.py` published), `loop.py`, `prompt0.md`, `token.txt`. Published: `src`, `tests`, `docs`, `.scratch`, `prototype`, `LICENSES`.
+- **CI**: GitHub Actions on every push and tag of the public repo: `uv sync --frozen`, ruff, pytest, the Python of `.python-version`. Never deploys.
+- **`deploy/deploy.sh vX.Y.Z`**, run by hand from the owner's machine with the owner's SSH key (no deploy key in GitHub): requires a public `vX.Y.Z` tag whose CI run is green; on the VPS checks the tag out into `/opt/chessop/releases/vX.Y.Z`, runs `uv sync --frozen --no-dev`, takes `sqlite3 .backup` to `/var/lib/chessop/pre-deploy/chessop-vX.Y.Z.db` (last 3 kept), switches the `current` symlink, `systemctl restart chessop`, polls `/healthz` for 30 s; on failure switches the symlink back and restarts. The database is never restored automatically: a rollback past a migration is symlink back + restore that file by hand, losing what learners did since the deploy. Last 3 releases kept. Pre-deploy copies count as backups under the 30-day rule (Legal pages and data rights).
+- **Restart**: plain. Rounds, sessions and rate counters are in memory and lost; a finished round is already in SQLite, so the worst case is one unscored round per open tab. Deploy at a quiet hour. Caddy serves a static "back in a moment" page on 502. How the page reconnects is Latency over the internet's.
+- **Layout**: system user `chessop`, no login shell. Code `/opt/chessop/releases/*` + `current` symlink, root-owned, readable by `chessop`. uv-managed CPython 3.12 in `/opt/chessop/python` (`UV_PYTHON_INSTALL_DIR`), not Debian's 3.13. Data `/var/lib/chessop` (`StateDirectory=chessop`, 0700) = `CHESSOP_DATA_DIR`. `/etc/chessop/chessop.env` root:chessop 0640. The owner's admin user deploys through sudo.
+- **`chessop.service`**: `User=chessop`, `ExecStart=/opt/chessop/current/.venv/bin/chessop serve --hosted`, `EnvironmentFile=/etc/chessop/chessop.env`, `StateDirectory=chessop`, `Restart=on-failure`, `RestartSec=2`, `OnFailure=` the notify-owner unit, `NoNewPrivileges`, `ProtectSystem=strict`, `ProtectHome`, `PrivateTmp`, `PrivateDevices`, `RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX` (outbound open for TEM and Lichess).
+- **`deploy/`** holds `provision.sh` (idempotent: `chessop` user, uv pinned to a version, Caddy from Debian, ufw 22/80/443, unattended-upgrades, SSH password login off, the `/opt/chessop` and `/etc/chessop` layout), `deploy.sh`, `publish.sh`, `public-exclude`, `chessop.service`, `Caddyfile`, `chessop.env.example`.
+- **Snapshot**: built on the owner's machine, committed as package data, shipped by a normal release when the owner chooses; no schedule, the VPS never builds.
+- **Snapshot change, per learner**: `snapshot_version` becomes a per-learner setting (today `snapshot_notice`, `src/chessop/app.py:550`, keeps one global value written at startup). A learner sees the existing notice once, on their first visit after the change. Position records are untouched; records of positions the new repertoire drops go dormant (not drilled, not on progress) and return if a later snapshot restores them. A band missing from the snapshot falls back to 1500+, as `graph_for` does.
+- **No staging**: hosted mode on localhost (Switching chessop serve into hosted mode) is the rehearsal; the tag + CI gate does the rest.
+- **Handed on** to Operating the hosted site: the human-only steps (ordering the VPS, DNS, SSH key, filling in the env file, creating the GitHub repo) and the notify-owner unit `OnFailure=` points at.

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}chessop · change your address{% endblock %}
+{% block content %}
+<main class="page">
+  <h1>Change your address</h1>
+  {% if changed %}
+  <p>Your account's address is now <b>{{ changed }}</b>. Sign in with it from now on.</p>
+  <p><a href="/">Play</a></p>
+  {% elif taken %}
+  <p class="error">Another account now uses <b>{{ taken }}</b>, so your address is unchanged.</p>
+  {% elif good %}
+  <p>Press the button to make this address your account's.</p>
+  <form method="post" action="{{ action }}">
+    <input type="hidden" name="token" value="{{ token }}">
+    <button type="submit">Confirm</button>
+  </form>
+  {% else %}
+  <p class="error">This link no longer works: it was used already, a newer one was sent, or it is more than 15 minutes old.</p>
+  <p><a href="/account">Your account</a></p>
+  {% endif %}
+</main>
+{% endblock %}

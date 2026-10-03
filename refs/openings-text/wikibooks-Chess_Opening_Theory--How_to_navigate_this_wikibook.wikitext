@@ -1,0 +1,73 @@
+Each page of the '''Chess Opening Theory''' wikibook<ref>Excepting meta-pages like this one, of course.</ref> corresponds to one position in a game of chess. This page describes ways to explore this wikibook to find the position you wish to read about. 
+
+The page titles are organised in a systematic way. The title of each page encodes the move order needed to reach that position. For example, the page for the position reached after '''1. e4 e5 2. Nf3 Nc6''' is found at [[Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6]]. If you know this, you could reach a particular position just by typing out the page name into the Wikibooks search bar at the top of this page, or directly into the URL in your browser. However, this becomes ungainly quickly as positions get deeper.
+
+== By following links ==
+
+The first page, [[Chess Opening Theory]], begins with the starting position. From there, you can follow links, e.g. [[Chess Opening Theory/1. e4|1. e4]], to navigate to the next move. You can follow links from one page to the next to go move by move into an opening. As well as being discussed in the text on each page, many pages contain a '''theory table''' that shows lots of possible continuations in one place.
+
+If you wish to go backwards, the top of each page has links allowing you to go back to the parent, grandparent, etc, move, right back to the start of the game. 
+
+At the bottom of each page is a navigation aid that links directly to common positions, so you can skip straight to the pages for, say, the [[Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. Nd2|Tarrasch French]] if you know that's what you want to look up.  
+
+== Using the Lichess analysis board ==
+[[File:Chess opening theory lichess analysis board.png|right|thumb|Screenshot of Lichess.org analysis board with Chess Opening Theory snippet (left).]]
+
+[[w:Lichess|Lichess.org]] maintains a [https://www.lichess.org/analysis free analysis board], with database and engine support. From 2021, as you play through moves on the analysis board, Lichess automatically looks up the corresponding Chess Opening Theory page and displays a snippet next to the board. This is functionally a [[w:GUI|GUI]] for navigating the wikibook.
+
+This makes it easy to find corresponding pages simply by playing out the move order, although at time of writing there are some minor limitations. 
+* Only text is imported to the analysis board. That means images (e.g. board diagrams) and text in theory tables aren't displayed, and to see them you need to click the link at the end of the Wikibooks box to open the full page on wikibooks.org. 
+* Lichess looks up pages by move order (not by FEN, see below) and only supports transpositions ''if there is a redirect for that move order already in the wikibook''. This often means that the transposing move shows the correct analysis but later moves do not, even if there is a corresponding wikibook page. 
+
+This functionality was originally developed by Lichess user JimmyRustles in March 2021<ref>[https://lichess.org/forum/general-chess-discussion/ive-written-a-chess-openings-explorer-for-windows-that-shows-you-a-detailed-wiki-page-for-each-open I've written a chess openings explorer for Windows that shows you a detailed wiki page for each open - Lichess.org forum]</ref> before being implemented on the Lichess website in October 2021.<ref>[https://lichess.org/changelog Lichess changelog]</ref>
+
+== By searching by FEN ==
+
+Most chess positions can be arrived at by multiple move orders, so it's possible that a page for a particular position may not be where you expect! For example:
+
+{| style="margin: 0 auto;"
+|{{Chess/board|moves=1. e4 e6 2. d4 c5 3. Nf3 cxd4}}
+|style="text-align:center;"|←―――→
+|{{Chess/board|moves=1. e4 c5 2. Nf3 e6 3. d4 cxd4}}
+|-
+|
+1. [[../1. e4|e4]] [[../1. e4/1...e6|e6]] <br>
+2. [[../1. e4/1...e6/2. d4|d4]] [[../1. e4/1...e6/2. d4/2...c5|c5]] <br>
+3. [[../1. e4/1...e6/2. d4/2...c5/3. Nf3|Nf3]] [[../1. e4/1...e6/2. d4/2...c5/3. Nf3/3...cxd4|cxd4]] 
+|style="padding:0 1em;text-align:center;"|...is the same position as...
+|
+1. [[../1. e4|e4]] [[../1. e4/1...c5|c5]] <br>
+2. [[../1. e4/1...c5/2. Nf3|Nf3]] [[../1. e4/1...c5/2. Nf3/2...e6|e6]] <br>
+3. [[../1. e4/1...c5/2. Nf3/2...e6/3. d4|d4]] [[../1. e4/1...c5/2. Nf3/2...e6/3. d4/3...cxd4|cxd4]] 
+|}
+
+Usually the page for the position will be located at the most common move order, and hopefully other common move orders will redirect you to that page. 
+
+If you are looking for a particular position, you can look it up by '''FEN''' instead of move order. A FEN is a code written in [[w:Forsyth–Edwards Notation|Forsyth–Edwards Notation]] that identifies a certain position of the pieces on the board, irrespective of what moves were played to get there. 
+
+To look up by FEN, paste the first field of the position's [[w:Forsyth–Edwards Notation|FEN]] record into the search box below and wrap it inside quotation marks. Try e.g. [[Special:Search/"rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR"|"rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR"]].
+
+{{Book search|float=center|width=500}}
+
+== By contents (GBOS) or index (ECO) ==
+{{quote|Back in 2005 I was the founder of the Chess Opening Theory wikibook. Thirteen years later, I've gotten around to writing a contents page for it. There is no deadline!|sign=[[User:Chi Sigma]]|source=[https://en.wikibooks.org/w/index.php?title=User:Chi_Sigma&oldid=3364207 (src)]}}
+
+The [[Chess Opening Theory/Great Big Opening Survey|Great Big Opening Survey]] page lists the most frequently occurring opening lines. Given that [[w:Shannon number|the number of possible chess games is mind-bogglingly huge]], this list gives the most common moves that this Wikibook ''ought'' to cover. 
+
+The survey lists the popular moves based on opening databases. The cut-off for inclusion is that a move must appear in at least 0.4% (for the shortlist, 0.2% for the longlist) as many games in a database as the database lists for 1. e4. 1. e4 accounts for about 50% of all first moves, so this means that the move must occur in about 0.1% of games in a (sufficiently large) database to be listed.
+
+=== ECO codes ===
+When the [[w:Encyclopaedia of Chess Openings|''Encyclopaedia of Chess Openings'']] (ECO) was written in the 1970s, they came up with a new system for organising openings. Each opening falls under an ECO code, which is a letter from A-E (depending on which of the five volumes of the ECO the opening was printed in) then a two digit number from 00-99. 
+
+If there is a particular opening you want to look at and you know its ECO code, you can look it up in the ECO code indexes:
+
+* [[Chess Opening Theory/ECO volume A|Volume A]], flank openings.
+* [[Chess Opening Theory/ECO volume B|Volume B]], semi-open games other than the French.
+* [[Chess Opening Theory/ECO volume C|Volume C]], open games and the French.
+* [[Chess Opening Theory/ECO volume D|Volume D]], closed and semi-closed games.
+* [[Chess Opening Theory/ECO volume E|Volume E]], the Indian defences. 
+
+== Notes ==
+{{reflist}}
+
+{{BookCat}}

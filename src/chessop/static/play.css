@@ -1,0 +1,229 @@
+:root { --board: min(72vh, 92vw); --bg: #161512; --fg: #e8e6e3; --dim: #8a8781; --ok: #5fb85f; --bad: #e04b4b; --warn: #f0c419; --panel: #22201c; --fading: #f08a24; --never: #6b6964; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg); font: 15px/1.4 system-ui, sans-serif; }
+kbd { background: #333; border-radius: 3px; padding: 0 .35em; font-size: .85em; }
+
+.play { display: flex; flex-direction: column; align-items: center; min-height: 100%; }
+.banner { width: 100%; text-align: center; padding: 14px 0; font-size: 1.6em; background: var(--panel); }
+.banner .name { color: var(--dim); font-size: .75em; margin-left: .8em; }
+.banner .forced { color: var(--warn); font-size: .8em; margin-left: 1.2em; font-weight: 700; }
+.banner .score { font-size: .8em; font-weight: 700; margin-left: 1.2em; }
+.banner .since { color: var(--dim); font-size: .6em; margin-left: .5em; }
+.play .notice { margin: 10px 16px 0; max-width: var(--board); color: var(--warn); text-align: center; }
+.play .notice[hidden] { display: none; }
+.badge { display: inline-block; padding: .2em .6em; border-radius: .4em; font-weight: 700; letter-spacing: .04em; }
+.badge.white { background: #f0f0f0; color: #111; }
+.badge.black { background: #111; color: #eee; border: 1px solid #555; }
+
+.board { margin-top: 16px; width: var(--board); height: var(--board); }
+.board > div { width: 100%; height: 100%; }
+
+/* The verdict strip sits under the board and never covers it. */
+.strip { position: relative; width: var(--board); margin-top: 14px; display: flex; justify-content: center; }
+.verdict { min-height: 2.4em; font-size: 1.3em; visibility: hidden; cursor: pointer;
+  display: flex; gap: 1em; align-items: baseline; }
+.verdict.show { visibility: visible; }
+.verdict .big { font-size: 1.4em; font-weight: 800; }
+.verdict.ok .big { color: var(--ok); }
+.verdict.bad .big { color: var(--bad); }
+.verdict.warn .big { color: var(--warn); }
+.verdict .score { font-weight: 700; }
+.verdict .hint { color: var(--dim); font-size: .75em; }
+
+/* The socket's state, over the verdict strip: reconnecting, given up, slow, or the cut round. */
+.status { position: absolute; inset: 0; margin: 0; display: flex; align-items: center; justify-content: center;
+  gap: .6em; background: var(--bg); text-align: center; font-size: 1.1em; }
+.status[hidden] { display: none; }
+.status.down, .status.dead { color: var(--warn); font-weight: 700; }
+.status.slow, .status.note { color: var(--dim); }
+.status button { font: inherit; font-size: .85em; padding: .1em .8em; border-radius: 4px; border: 1px solid #555; background: var(--panel); color: var(--fg); cursor: pointer; }
+
+/* The Explanation under the strip; "more" expands it downward, below the board. */
+.explanation { width: var(--board); margin: 4px 0 24px; color: var(--fg); font-size: .95em; }
+.explanation[hidden], .explanation [hidden] { display: none; }
+.explanation p { margin: 0 0 .6em; }
+.explanation .borrowed { color: var(--dim); font-style: italic; }
+.explanation .more { background: none; border: 0; padding: 0; color: var(--warn); cursor: pointer; font: inherit; }
+.explanation .source { margin-top: .8em; color: var(--dim); font-size: .85em; }
+.explanation .source a { color: var(--dim); }
+
+/* Links off the play page, outside the board area. */
+.links { position: absolute; top: 8px; right: 12px; font-size: .9em; }
+.links a { color: var(--dim); margin-left: 1em; }
+
+/* The phone's controls: the header's icons and Next round, hidden on desktop (public spec §8). */
+.banner .icons, .play .next { display: none; }
+/* Drag and tap-to-move on the board never scroll or zoom the page. */
+.board { touch-action: none; -webkit-tap-highlight-color: transparent; }
+/* No keyboard on touch: the "space next round" hint goes. */
+@media (pointer: coarse) { .verdict .hint { display: none; } }
+
+/* Stacked, below about 40em: one compact header row, the opening name under it, the board as
+   wide as the screen, the verdict wrapping, a big Next round once the round is over. A phone
+   held in landscape takes the same controls, laid out by the block after this one. */
+@media (max-width: 40em), (orientation: landscape) and (max-height: 32em) and (pointer: coarse) {
+  :root { --board: min(100vw, 72vh); }
+  /* The play page's corner links give way to the icons; the other pages keep theirs. */
+  body > .links { display: none; }
+  /* A grid, so the header row never wraps: the Score's change gives way first. */
+  .banner { display: grid; grid-template-columns: auto auto minmax(0, 1fr) auto; align-items: center; gap: 0 .5em;
+    box-sizing: border-box; padding: 0 10px; font-size: 1em; text-align: left; }
+  .banner .badge { font-size: .85em; white-space: nowrap; }
+  .banner .score { font-size: 1.1em; margin-left: 0; white-space: nowrap; }
+  .banner .since { font-size: .8em; margin-left: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .banner .icons { display: flex; gap: 2px; }
+  .banner .name-line { grid-row: 2; grid-column: 1 / -1; margin: 0 -10px; padding: 6px 10px;
+    min-height: 1.4em; background: var(--bg); color: var(--dim); text-align: center; }
+  .banner .name { font-size: 1em; margin-left: 0; }
+  .banner .forced { font-size: 1em; margin-left: .4em; }
+  .icon { min-width: 44px; height: 44px; display: grid; place-items: center; padding: 0; background: none; border: 0;
+    color: var(--fg); text-decoration: none; font: inherit; font-size: 1.3em; cursor: pointer; }
+  .board { margin-top: 0; }
+  .strip { margin-top: 10px; }
+  .verdict { font-size: 1.05em; flex-wrap: wrap; justify-content: center; gap: .2em .6em; padding: 0 10px; }
+  .play .next { display: block; box-sizing: border-box; width: calc(100% - 20px); max-width: 30em; margin: 8px 10px; min-height: 52px;
+    font: inherit; font-size: 1.15em; font-weight: 700; border-radius: 10px; border: 0; background: var(--ok); color: #111; cursor: pointer; }
+  .play .next[hidden] { display: none; }
+  .verdict-help { margin: 0 0 8px; }
+  .explanation { width: auto; align-self: stretch; padding: 0 14px; }
+}
+
+/* Landscape on a narrow screen: the board on the left at full height, the rest in a column
+   on its right. */
+@media (orientation: landscape) and (max-height: 32em) and (pointer: coarse) {
+  .play { display: grid; grid-template-columns: auto 1fr; grid-template-rows: repeat(6, auto) 1fr;
+    align-items: start; column-gap: 12px; }
+  .play > * { grid-column: 2; }
+  .play > .board { grid-column: 1; grid-row: 1 / -1; position: sticky; top: 0; margin: 0;
+    width: min(100vh, 60vw); height: min(100vh, 60vw); width: min(100dvh, 60vw); height: min(100dvh, 60vw); }
+  .play .notice { max-width: none; }
+  .strip { width: auto; }
+  .play .next { width: auto; max-width: none; margin: 8px 10px 8px 0; }
+  .explanation { width: auto; padding: 0 14px 0 0; }
+}
+
+/* The settings page and its confirmation: a plain form, no script. */
+.page { max-width: 42em; margin: 0 auto; padding: 16px; position: relative; }
+.page .links { top: 16px; right: 16px; }
+.page fieldset { border: 1px solid #3a3833; border-radius: 6px; margin: 0 0 16px; padding: 8px 14px 12px; }
+.page legend { color: var(--dim); padding: 0 .4em; }
+.page .field { display: grid; grid-template-columns: 14em 8em 1fr; gap: .2em 1em; align-items: baseline; margin: .5em 0; }
+.page .field input { background: var(--panel); color: var(--fg); border: 1px solid #444; border-radius: 4px; padding: .2em .4em; font: inherit; }
+.page .field input[type=checkbox] { justify-self: start; }
+.page .rule, .page .hint { color: var(--dim); font-size: .85em; }
+.page .error { color: var(--bad); grid-column: 1 / -1; }
+.page .field.bad input { border-color: var(--bad); }
+.page .notice { color: var(--ok); }
+.page .notice.changed { color: var(--warn); }
+.page button { font: inherit; padding: .3em 1em; border-radius: 4px; border: 1px solid #555; background: var(--panel); color: var(--fg); cursor: pointer; }
+.page .danger { margin-top: 24px; }
+.page .danger button { border-color: var(--bad); color: var(--bad); }
+.page a { color: var(--fg); }
+@media (max-width: 40em) { .page .field { grid-template-columns: 1fr; } }
+
+/* The progress ledger: server-rendered, unfolded with <details>, no script. */
+.ledger { max-width: 72em; }
+.ledger .dim { color: var(--dim); }
+.ledger .head { display: flex; flex-wrap: wrap; gap: 1em 2em; align-items: flex-end; background: var(--panel); border-radius: 6px; padding: 12px 16px; margin-bottom: 16px; }
+.ledger .head > div { display: flex; flex-direction: column; }
+.ledger .head .big b { font-size: 2em; }
+.ledger .head .outside { color: var(--warn); }
+.ledger .spark polyline { fill: none; stroke: var(--ok); stroke-width: 1.5; }
+.ledger .spark circle { fill: var(--ok); }
+.ledger .row { display: grid; grid-template-columns: minmax(12em, 1fr) 7em 5em 12em 5em 5em 5em 8em; gap: 0 .8em; align-items: center; padding: .3em .4em; }
+.ledger .row .num { text-align: right; }
+.ledger .row .acts { display: flex; gap: .4em; justify-content: flex-end; }
+.ledger .row .acts button { padding: .1em .6em; font-size: .85em; }
+.ledger .th { color: var(--dim); border-bottom: 1px solid #3a3833; }
+.ledger summary { cursor: pointer; border-bottom: 1px solid #2a2824; }
+.ledger summary::marker { content: ""; }
+.ledger summary > span:first-child::before { content: "▸ "; color: var(--dim); }
+.ledger details[open] > summary > span:first-child::before { content: "▾ "; }
+.ledger .line > summary { font-size: .95em; }
+.ledger .line > summary > span:first-child { padding-left: 1.2em; }
+.ledger .opening.out > summary { opacity: .55; }
+.ledger .bar { display: flex; height: .6em; background: #3a3833; border-radius: 3px; overflow: hidden; }
+.ledger .bar .known { background: var(--ok); }
+.ledger .bar .learning { background: var(--warn); }
+.ledger .branches { list-style: none; margin: .2em 0 .6em; padding-left: 3.2em; }
+.ledger .branches li { margin: .25em 0; }
+.ledger .mv { text-decoration: none; color: var(--dim); padding: 0 .1em; }
+.ledger a.mv, .ledger .legend .mv { color: var(--fg); border-bottom: 3px solid; }
+.ledger .mv.known { border-color: var(--ok); }
+.ledger .mv.learning { border-color: var(--warn); }
+.ledger .mv.fading { border-color: var(--fading); }
+.ledger .mv.relearn { border-color: var(--bad); }
+.ledger .mv.never { border-color: var(--never); }
+.ledger .never li { margin: .3em 0; }
+@media (max-width: 60em) { .ledger .row { grid-template-columns: 1fr 4em 4em 4em 4em 7em; } .ledger .row .eco, .ledger .row .bar, .ledger .th > span:nth-child(4) { display: none; } }
+/* The condensed table, below about 40em (public spec §8): opening, Score, White and Black only;
+   an opened row shows its in/out and reset on a line of their own; move chips get tap room. */
+@media (max-width: 40em) {
+  .ledger .head { gap: .6em 1.2em; padding: 10px; }
+  .ledger .row { grid-template-columns: minmax(0, 1fr) 4.2em 3.6em 3.6em; gap: 0 .5em; font-size: .92em; min-height: 40px; }
+  .ledger .row > :first-child { overflow-wrap: anywhere; }
+  .ledger .row .num { white-space: nowrap; }
+  .ledger .row .pos, .ledger .row .acts { display: none; }
+  .ledger details[open] > summary .acts { display: flex; grid-column: 1 / -1; justify-content: flex-start; padding: 4px 0; }
+  .ledger .row .acts button { min-height: 36px; }
+  .ledger .branches { padding-left: 1em; }
+  .ledger .branches .mv { display: inline-block; padding: 6px 2px; }
+}
+
+/* The position page: one position of the ledger, server-rendered, no script. */
+.position h1 { font-size: 1.4em; }
+.position .badge { font-size: .6em; vertical-align: middle; padding: .15em .5em; border-radius: 4px; }
+.position .board-svg svg { width: min(360px, 100%); height: auto; display: block; }
+.position .state { font-size: 1.3em; }
+.position .state.known { color: var(--ok); }
+.position .state.learning { color: var(--warn); }
+.position .state.fading { color: var(--fading); }
+.position .state.relearn { color: var(--bad); }
+.position .state.never { color: var(--dim); }
+.position .nums { display: grid; grid-template-columns: max-content 1fr; gap: .2em 1.2em; }
+.position .nums dt { color: var(--dim); }
+.position .nums dd { margin: 0; }
+.position .chip { display: inline-block; margin: .1em .3em; }
+.position .chips a.mv, .position .legend .mv { color: var(--fg); border-bottom: 3px solid; }
+.position .mv.leaf { border-color: transparent; }
+.position .mv.stub { color: var(--dim); border-bottom: 3px dotted var(--never); }
+.position .explanation { width: auto; }
+.position .explanation:has(details[open]) > .lead { display: none; }
+.position .explanation summary { list-style: none; color: var(--warn); cursor: pointer; margin-bottom: .6em; border: 0; }
+.position .explanation summary::marker { content: ""; }
+
+/* The name of every square, in lower case as moves are written, large enough to read at a glance. */
+.cg-wrap coords.squares { text-transform: none; font-size: 11px; }
+
+/* The help page, and the links into it: labels on progress, a line under the verdict on play. */
+.hl { color: inherit !important; text-decoration: underline dotted var(--dim); text-underline-offset: 3px; }
+.verdict-help { margin: -4px 0 8px; font-size: .9em; }
+.verdict-help a { color: var(--dim); }
+.helppage { max-width: 40em; }
+.helppage .toc { columns: 2; color: var(--dim); padding-left: 1.2em; }
+.helppage section { scroll-margin-top: 12px; }
+.helppage section:target h2 { color: var(--warn); }
+.helppage hr { border: 0; border-top: 1px solid #3a3833; margin: 24px 0 0; }
+.helppage .mv { color: var(--fg); border-bottom: 3px solid; }
+.helppage .ok { color: var(--ok); }
+.helppage .bad { color: var(--bad); }
+.helppage .warn { color: var(--warn); }
+.helppage.closing { margin-top: 16px; color: var(--dim); }
+@media (max-width: 40em) { .helppage .toc { columns: 1; } }
+
+/* The hosted site's footer, under every page (public spec §10). */
+footer.site { padding: 24px 16px 16px; text-align: center; font-size: .85em; color: var(--dim); }
+footer.site a { color: var(--dim); }
+/* The legal and privacy notices (public spec §10): each processing's five parts side by side. */
+.privacy .processing dl { display: grid; grid-template-columns: 9em 1fr; gap: .3em 1em; margin: 0 0 8px; }
+.privacy .processing dt { color: var(--dim); }
+.privacy .processing dd { margin: 0; }
+@media (max-width: 40em) { .privacy .processing dl { grid-template-columns: 1fr; gap: 0; } .privacy .processing dd { margin-bottom: .5em; } }
+.legal .terms li, .privacy li { margin: .3em 0; }
+.ledger.kofi { margin-top: 8px; font-size: .9em; }
+/* Who is signed in, or "Sign in": the top left corner of every hosted page (public spec §5). */
+.who { position: absolute; top: 8px; left: 12px; margin: 0; font-size: .9em; z-index: 1; }
+.who a { color: var(--dim); }
+/* On a phone it takes a line of its own, above the page. */
+@media (max-width: 40em), (orientation: landscape) and (max-height: 32em) and (pointer: coarse) {
+  .who { position: static; padding: 4px 10px; text-align: right; }
+}

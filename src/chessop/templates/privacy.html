@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% block title %}chessop · privacy{% endblock %}
+{% set mail %}<a href="mailto:{{ site.contact }}">{{ site.contact }}</a>{% endset %}
+{% macro parts(why, basis, what, who, how_long) -%}
+<dl>
+  <dt>Why</dt><dd>{{ why }}</dd>
+  <dt>Legal basis</dt><dd>{{ basis }}</dd>
+  <dt>What</dt><dd>{{ what }}</dd>
+  <dt>Who receives it</dt><dd>{{ who }}</dd>
+  <dt>How long</dt><dd>{{ how_long }}</dd>
+</dl>
+{%- endmacro %}
+{% block content %}
+<main class="page privacy">
+  <nav class="links"><a href="/">play</a><a href="/data">your data</a></nav>
+  <h1>Privacy</h1>
+  <p>This page says what chessop keeps about you, why, who else sees it and for how long. chessop keeps only what the drill you came for needs, so it never has to ask for your consent, and there is no cookie banner.</p>
+
+  <h2>Who is in charge of your data</h2>
+  <p>chessop is run by {{ controller }}, who decides what happens to your data (the "controller", in the words of the GDPR, the EU's data protection law). Write to {{ mail }} about anything on this page.</p>
+
+  <h2>What chessop keeps, and why</h2>
+  <p>You can play without giving anything: an email address or a Lichess account is needed only to sign in. No decision about you is ever made by a machine.</p>
+
+  <section class="processing" id="email-accounts">
+    <h3>Signing in by email</h3>
+    {{ parts(
+      "To send you a sign-in link and code, and to know it is you when you come back.",
+      "contract: it is the sign-in you asked for (GDPR article 6(1)(b)).",
+      "Your email address, when your account was created and when you last visited. The link and the code are stored scrambled (hashed) and stop working after 15 minutes.",
+      "OVH, which hosts the server; Scaleway, which sends the emails.",
+      "Until you delete your account, or 24 months after your last visit. At 23 months you get one warning email; visit within 30 days and nothing is deleted.",
+    ) }}
+  </section>
+
+  <section class="processing" id="lichess-accounts">
+    <h3>Signing in with Lichess</h3>
+    {{ parts(
+      "To know it is you when you sign in with your Lichess account.",
+      "contract: it is the sign-in you asked for.",
+      "Your Lichess id and username, nothing else: not your email address. chessop throws away the key Lichess gives it at once, so it can do nothing on Lichess in your name.",
+      "OVH, which hosts the server; Lichess, only because you choose to sign in there.",
+      "Until you delete your account, or 24 months after your last visit, with no warning: chessop has no address to warn you at.",
+    ) }}
+  </section>
+
+  <section class="processing" id="signed-in-history">
+    <h3>Your history, when you are signed in</h3>
+    {{ parts(
+      "The drill itself: the opponent steers toward what you know least, and the progress page shows how you are doing.",
+      "contract: keeping your history is the service.",
+      "Your record at each position (passes, misses, when you last passed), every round you played, your daily Scores, and your settings (rating band, widths, openings, sound, animation, time zone).",
+      "OVH, which hosts the server; Scaleway, which keeps the encrypted backups.",
+      "As long as your account.",
+    ) }}
+  </section>
+
+  <section class="processing" id="anonymous-history">
+    <h3>Your history without an account, and its cookie</h3>
+    {{ parts(
+      "The same drill, before you sign in, or if you never do. The cookie tells chessop which history is yours.",
+      "contract: keeping your history is the service.",
+      "The same history as above, and the cookie that points to it. Nothing is kept until you play a round, save your settings or opt an opening in or out: looking at pages keeps nothing.",
+      "OVH, which hosts the server; Scaleway, which keeps the encrypted backups.",
+      "12 months after your last visit, or 30 days after it if you played fewer than 5 rounds. There is no warning: chessop has no way to reach you.",
+    ) }}
+  </section>
+
+  <section class="processing" id="refitting-and-counting">
+    <h3>Improving the memory model, and counting use</h3>
+    {{ parts(
+      "To check and adjust the memory model that estimates what you remember, and to count how much chessop is used (daily totals, such as rounds played).",
+      "legitimate interest: making the drill work better, and knowing whether the site is used. Only the round log chessop already keeps is used; nothing more is collected. To object, delete your data: the drill cannot run without it.",
+      "The rounds you played, as kept for your history. The daily totals hold no learner, only numbers.",
+      "Nobody outside chessop.",
+      "Deleted with your history. The daily totals are kept for good, as they say nothing about anyone.",
+    ) }}
+  </section>
+
+  <section class="processing" id="error-logs">
+    <h3>Error logs</h3>
+    {{ parts(
+      "To find and fix what breaks.",
+      "legitimate interest: keeping the site working and safe.",
+      "The server's error messages. chessop keeps no log of visits, and never logs your IP address or your cookie.",
+      "OVH, which hosts the server.",
+      "6 months at most.",
+    ) }}
+  </section>
+
+  <section class="processing" id="audience-statistics">
+    <h3>Audience statistics</h3>
+    {{ parts(
+      "To know how many pages are viewed and which sites visitors come from.",
+      "legitimate interest, within the CNIL's exemption for audience measurement: anonymous statistics for chessop alone, never shared, never following you to other sites.",
+      "The page you view (without anything after a ?), the name of the site you came from, your browser and system, and your country, worked out from your IP address. Your IP address is not stored: a visit is recognised for 8 hours at most, by a scrambled key held in memory. Never your cookie or your account.",
+      "Nobody: the statistics tool, GoatCounter, runs on chessop's own server.",
+      "760 days (25 months).",
+    ) }}
+    <p class="toggle"><label><input type="checkbox" id="count-me" checked disabled> Count my visits in the audience statistics</label></p>
+    <p class="hint">Untick the box and this browser is no longer counted. It needs JavaScript; without it you are not counted anyway. If your browser sends Do Not Track or Global Privacy Control, you are never counted, whatever the box says.</p>
+  </section>
+
+  <section class="processing" id="ko-fi">
+    <h3>Tips on Ko-fi</h3>
+    <p>If you tip chessop on Ko-fi, Ko-fi takes the payment and handles your details as its own controller, under its own privacy policy. No donor data reaches chessop.</p>
+  </section>
+
+  <h2>Who receives data</h2>
+  <ul>
+    <li><b>OVH</b> hosts the server, in France.</li>
+    <li><b>Scaleway</b> sends the sign-in emails and keeps the encrypted backups, in Paris.</li>
+    <li><b>Lichess</b>, only when you choose to sign in with it.</li>
+  </ul>
+  <p>All of them are in France: no data goes outside the EU. GoatCounter, the statistics tool, runs on chessop's own server. UptimeRobot checks that the site is up and sees no personal data.</p>
+
+  <section id="cookie">
+    <h2>The cookie</h2>
+    <p>chessop sets one cookie, named <code>chessop</code>. It holds a random key that points to your history or your sign-in, lasts 12 months from your last visit, and is used for nothing else: never for statistics or advertising. It is set only once you play a round, save your settings, opt an opening in or out, or sign in. The audience statistics set no cookie; unticking the box above stores <code>skipgc</code> in this browser so that it is not counted.</p>
+  </section>
+
+  <section id="retention">
+    <h2>How long things are kept</h2>
+    <ul>
+      <li>History without an account: 12 months after your last visit; 30 days if you played fewer than 5 rounds.</li>
+      <li>Accounts: 24 months after your last visit. Email accounts get one warning at 23 months and are deleted only if you still do not visit within 30 days; Lichess accounts get no warning.</li>
+      <li>Error logs: 6 months at most. There are no visit logs.</li>
+      <li>Audience statistics: 760 days. The daily usage totals, which hold nothing about anyone: for good.</li>
+      <li>Backups: 14 days on the server, 30 days in the encrypted copy kept elsewhere, and the copies taken before each of the last 3 updates of the site.</li>
+    </ul>
+  </section>
+
+  <section id="rights">
+    <h2>Your rights</h2>
+    <ul>
+      <li><b>See and export</b> (access and portability): download everything chessop keeps about you on <a href="/data">Your data</a>.</li>
+      <li><b>Correct</b> it: change your email address on your account page.</li>
+      <li><b>Erase</b> it: "Forget this browser's history" on <a href="/data">Your data</a>, or delete your account; either is done at once. Deleted data leaves the backups within 30 days.</li>
+      <li><b>Restrict</b> or <b>object</b> to what chessop does with it: write to {{ mail }}.</li>
+    </ul>
+    <p>For any of these, or anything else, write to {{ mail }}: you get a reply within one month. You can also leave instructions about what should happen to your data after your death (French law): write them to the same address. If you think chessop treats your data wrongly, you can complain to the CNIL, France's data protection authority: <a href="https://www.cnil.fr/fr/plaintes">cnil.fr</a>.</p>
+  </section>
+</main>
+{% endblock %}
+{% block scripts %}<script src="/static/audience-toggle.js" defer></script>{% endblock %}

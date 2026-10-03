@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}chessop · {{ moves or 'the start' }}{% endblock %}
+{% block content %}
+<main class="page ledger position">
+  <nav class="links"><a href="/">play</a><a href="/progress">progress</a><a href="/settings">settings</a></nav>
+  <h1><span class="badge {{ side }}">{{ side }} to move</span>
+    {% if name %}{{ name }}{% if not exact %} <i class="dim inherited">(inherited)</i>{% endif %}{% elif moves %}{{ first_moves }} <i class="dim">(no name)</i>{% else %}Start position{% endif %}</h1>
+  <p class="dim sub">{% if eco %}{{ eco }} · {% endif %}{{ moves or 'the start position' }}</p>
+  <div class="board-svg">{{ board | safe }}</div>
+
+  {% if numbers %}
+  <p class="state-line"><b class="state {{ numbers.shade }}">{{ numbers.state }}</b></p>
+  {% else %}
+  <p class="dim">A leaf: the branch ends here, nothing to recall.</p>
+  {% endif %}
+  <dl class="nums">
+    {% if numbers %}
+    <dt>recall estimate</dt><dd>{{ '%.1f %%' | format(numbers.recall) }}</dd>
+    <dt>half-life</dt><dd>{{ numbers.half_life }}</dd>
+    <dt>counted passes / misses</dt><dd>{{ numbers.passes }} / {{ numbers.misses }}{% if numbers.relearn %} <span class="dim">(relearning pass owed)</span>{% endif %}</dd>
+    <dt>last pass</dt><dd>{{ numbers.since ~ ' ago' if numbers.since else 'never' }}</dd>
+    {% endif %}
+    <dt>reached by</dt><dd>{{ '%.2f' | format(share) }} % of the band's games · {{ orders }} move order{{ '' if orders == 1 else 's' }}</dd>
+  </dl>
+  {% if numbers %}
+  <form method="post" action="{{ reset }}" class="danger">
+    <button type="submit">Reset this position…</button>
+  </form>
+  {% endif %}
+
+  {% if chips %}
+  <h2>Main moves</h2>
+  <p class="chips">
+    {% for c in chips %}
+    {% if c.href %}<a class="mv chip {{ c.shade or 'leaf' }}" href="{{ c.href }}">{{ c.san }} <span class="dim">{{ c.share }} %</span></a>
+    {% else %}<span class="mv chip stub" title="stub: accepted, ends the round">{{ c.san }} <span class="dim">{{ c.share }} % · stub</span></span>{% endif %}
+    {% endfor %}
+  </p>
+  <p class="legend dim"><span class="mv known">≥ {{ sure }} %</span> <span class="mv learning">50–{{ sure }} %</span> <span class="mv fading">&lt; 50 %</span> <span class="mv relearn">relearning pass owed</span> <span class="mv never">never passed</span> <span class="mv leaf">a leaf</span></p>
+  {% endif %}
+
+  {% if explanation %}
+  <section class="explanation">
+    {% if explanation.borrowed_from %}<p class="borrowed">No text of its own: the text for {{ explanation.borrowed_from }}</p>{% endif %}
+    <div class="lead">{% for p in explanation.lead %}<p>{{ p }}</p>{% endfor %}</div>
+    {% if explanation.more %}
+    <details class="full">
+      <summary class="more">more</summary>
+      {% for p in explanation.text %}<p>{{ p }}</p>{% endfor %}
+    </details>
+    {% endif %}
+    <p class="source">From Wikibooks, <a href="{{ explanation.url }}" title="{{ explanation.title }}" target="_blank" rel="noopener"><i>Chess Opening Theory</i></a> · CC BY-SA 4.0 · trimmed</p>
+  </section>
+  {% endif %}
+</main>
+{% endblock %}

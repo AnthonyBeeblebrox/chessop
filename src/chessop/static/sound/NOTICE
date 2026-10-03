@@ -1,0 +1,6 @@
+Lichess "sfx" sound set by Enigmahack (https://github.com/Enigmahack), AGPL-3.0-or-later
+(see LICENSE), copied from lichess-org/lila, public/sound/sfx, at commit
+202dba26a1c0ef1f3153e44ef736258b68d33a63: Move, Capture, Check, Victory, Defeat.
+
+The set's own Error file is only a link to Lichess's default "standard" set, which is non-free
+and not shipped; a miss plays the set's Defeat instead.

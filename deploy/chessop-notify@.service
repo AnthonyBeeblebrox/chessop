@@ -1,0 +1,20 @@
+# Mails the owner that unit %i failed, with its status and last 50 journal lines (public spec
+# §14). The OnFailure= of chessop, chessop-maintain, chessop-disk, chessop-digest and
+# goatcounter start it as chessop-notify@<unit>.service. It has no OnFailure= of its own.
+[Unit]
+Description=Mail the owner that %i failed
+ConditionPathExists=/opt/chessop/current/.venv/bin/chessop
+
+[Service]
+Type=oneshot
+User=chessop
+Group=chessop
+SupplementaryGroups=systemd-journal
+EnvironmentFile=/etc/chessop/chessop.env
+ExecStart=/usr/local/lib/chessop/notify-failure %i
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX

@@ -1,0 +1,154 @@
+<languages />
+{{notice|1=<translate><!--T:1--> This page is purely informative, reflecting the current state of affairs. To discuss this topic, please use the wikitech-l [[<tvar name="1">:m:Special:MyLanguage/Mailing lists</tvar>|mailing list]].</translate>}}
+{{policy-staff}}
+
+<translate><!--T:2-->
+As of February 15, 2010, Wikimedia sites require a '''HTTP [[<tvar name="1">{{lwp|User-Agent}}</tvar>|User-Agent]] header''' for all requests. This was an operative decision made by the technical staff and was announced and discussed on the technical mailing list.</translate><ref>[[mailarchive:wikitech-l/2010-February/thread.html#46764|<translate><!--T:30--> The Wikitech-l February 2010 Archive by subject</translate>]]</ref><ref>[[listarchive:list/wikitech-l@lists.wikimedia.org/thread/R4RU7XTBM5J3BTS6GGQW77NYS2E4WGLI/|<translate><!--T:31--> User-Agent: - <tvar name="1">Wikitech-l - lists.wikimedia.org</tvar></translate>]]</ref> <translate><!--T:32-->
+The rationale is, that clients that do not send a User-Agent string are mostly ill behaved scripts that cause a lot of load on the servers, without benefiting the projects. User-Agent strings that begin with non-descriptive default values, such as <tvar name="4"><code>python-requests/x</code></tvar>, may also be blocked from Wikimedia sites (or parts of a website, e.g. <tvar name="5"><code>api.php</code></tvar>).
+
+<!--T:3-->
+Requests (e.g. from browsers or scripts) that do not send a descriptive User-Agent header, may encounter an error message like this:</translate>
+
+:<translate><!--T:4--> ''Scripts should use an informative User-Agent string with contact information, or they may be blocked without notice.''</translate>
+
+<translate><!--T:5-->
+Requests from disallowed user agents may instead encounter a less helpful error message like this:</translate>
+
+:<translate><!--T:6--> ''Our servers are currently experiencing a technical problem. Please try again in a few minutes.''</translate>
+
+<translate><!--T:7-->
+This change is most likely to affect scripts (bots) accessing Wikimedia websites such as Wikipedia automatically, via <tvar name="1">api.php</tvar> or otherwise, and command line programs.</translate><ref>[[:mw:Special:MyLanguage/API:FAQ|<translate><!--T:33--> API:FAQ - MediaWiki</translate>]]</ref> <translate><!--T:34--> If you operate a bot, please send a User-Agent header identifying the bot in a way that isn't going to be confused with many other bots, and supplying some way of contacting you, the operator, in accordance with the [[<tvar name="1">Special:MyLanguage/Policy:Wikimedia Foundation API Usage Guidelines</tvar>|API Usage Guidelines]]. The contact information should be given as an email address, a website, or a wiki user using the format <tvar name="2"><code>(<project>; User:<name>)</code></tvar>, e.g. <tvar name="3"><code>(wikipedia:de; User:DuesenBot)</code></tvar>. For example:</translate>
+<pre>
+User-Agent: CoolBot/0.0 (https://example.org/coolbot/; coolbot@example.org) generic-library/0.0
+</pre>
+
+<translate>
+<!--T:22-->
+The generic format is <tvar name="1"><code><client name>/<version> (<contact information>) <library/framework name>/<version> [<library name>/<version> ...]</code></tvar>. Parts that are not applicable can be omitted.
+
+<!--T:14-->
+If you run an automated agent, please consider following the Internet-wide convention of including the string "bot" in the User-Agent string, in any combination of lowercase or uppercase letters. This is recognized by Wikimedia's systems, and used to classify traffic and provide more accurate statistics.
+
+<!--T:8-->
+Do not copy a browser's user agent for your bot, as bot-like behavior with a browser's user agent will be assumed malicious.</translate><ref>[[mailarchive:wikitech-l/2010-February/046783.html|<translate><!--T:35--> <tvar name="1">[Wikitech-l]</tvar> User-Agent:</translate>]]</ref> <translate><!--T:36--> Do not use generic agents such as "<tvar name="1">curl</tvar>", "<tvar name="2">lwp</tvar>", "<tvar name="3">Python-urllib</tvar>", and so on. For large frameworks like <tvar name="4">pywikibot</tvar>, there are so many users that just "<tvar name="5">pywikibot</tvar>" is likely to be somewhat vague. Including detail about the specific task/script/etc would be a good idea, even if that detail is opaque to anyone besides the operator.</translate><ref>[[mailarchive:mediawiki-api/2014-July/003308.html|<translate><!--T:37--> Clarification on what is needed for "identifying the bot" in bot user-agent?</translate>]]</ref>
+
+<translate><!--T:10-->
+Web browsers generally send a User-Agent string automatically; if you encounter the above error, please refer to your browser's manual to find out how to set the User-Agent string. Note that some plugins or proxies for privacy enhancement may suppress this header. However, for anonymous surfing, it is recommended to send a generic User-Agent string, instead of suppressing it or sending an empty string. Note that other features are much more likely to identify you to a website — if you are interested in protecting your privacy, visit the [<tvar name="1">//coveryourtracks.eff.org/</tvar> Cover Your Tracks project].
+
+<!--T:11-->
+Browser-based applications written in JavaScript are typically forced to send the same User-Agent header as the browser that hosts them. This is not a violation of policy, however such applications are encouraged to include the <tvar name="1"><code>Api-User-Agent</code></tvar> header to supply an appropriate agent.
+
+<!--T:13-->
+As of 2015, Wikimedia sites do not reject all page views and API requests from clients that do not set a User-Agent header. As such, the requirement is not automatically enforced. Rather, it may be enforced in specific cases as needed.</translate><ref>gmane.science.linguistics.wikipedia.technical/83870 ([//thread.gmane.org/gmane.science.linguistics.wikipedia.technical/83870/ <translate><!--T:38--> deadlink</translate>])</ref>
+<translate>
+== Code examples == <!--T:17-->
+
+<!--T:18-->
+On Wikimedia wikis, if you don't supply a <tvar name="1"><code>User-Agent</code></tvar> header, or you supply an empty or generic one, your request will fail with an HTTP 403 error. Other MediaWiki installations may have similar policies.
+
+=== JavaScript === <!--T:23-->
+
+<!--T:19-->
+If you are calling the API from browser-based JavaScript, you won't be able to influence the <tvar name="1"><code>User-Agent</code></tvar> header: the browser will use its own. To work around this, use the <tvar name="2"><code>Api-User-Agent</code></tvar> header and indicate the feature, user script or gadget that is making the call, ideally including a link to the source code:
+</translate>
+
+<syntaxhighlight lang="javascript">
+// Using XMLHttpRequest
+xhr.setRequestHeader( 'Api-User-Agent', 'Example/1.0' );
+</syntaxhighlight>
+<syntaxhighlight lang="javascript">
+// Using jQuery
+$.ajax( {
+    url: 'https://example/...',
+    data: ...,
+    dataType: 'json',
+    type: 'GET',
+    headers: { 'Api-User-Agent': 'Example/1.0' },
+} ).then( function ( data )  {
+    // ..
+} );
+</syntaxhighlight>
+<syntaxhighlight lang="javascript">
+// Using mw.Api
+var api = new mw.Api( {
+    userAgent: 'Example/1.0'
+} );
+api.get( ... ).then( function ( data ) {
+    // ...
+});
+</syntaxhighlight>
+<syntaxhighlight lang="javascript">
+// Using Fetch
+fetch( 'https://example/...', {
+    method: 'GET',
+    headers: new Headers( {
+        'Api-User-Agent': 'Example/1.0'
+    } )
+} ).then( function ( response ) {
+    return response.json();
+} ).then( function ( data ) {
+    // ...
+});
+</syntaxhighlight>
+
+<translate>
+=== PHP === <!--T:24-->
+
+<!--T:20-->
+In PHP, you can identify your user-agent with code such as this:
+</translate>
+
+<syntaxhighlight lang="php">
+ini_set( 'user_agent', 'CoolBot/0.0 (https://example.org/coolbot/; coolbot@example.org)' );
+</syntaxhighlight>
+
+<translate>
+=== cURL === <!--T:25-->
+
+<!--T:21-->
+Or if you use [[<tvar name="1">{{lwp|cURL}}</tvar>|cURL]]:
+</translate>
+
+<syntaxhighlight lang="php">
+curl_setopt( $curl, CURLOPT_USERAGENT, 'CoolBot/0.0 (https://example.org/coolbot/; coolbot@example.org)' );
+</syntaxhighlight>
+
+<translate>
+=== Python === <!--T:26-->
+
+<!--T:27-->
+In Python, you can use the [[<tvar name="1">{{lwp|Requests (software)}}</tvar>|Requests]] library to set a header:
+</translate>
+
+<syntaxhighlight lang="python">
+import requests
+
+url = 'https://example/...'
+headers = {'User-Agent': 'CoolBot/0.0 (https://example.org/coolbot/; coolbot@example.org)'}
+
+response = requests.get(url, headers=headers)
+</syntaxhighlight>
+
+<translate>
+<!--T:28-->
+Or, if you want to use [<tvar name="1">//sparqlwrapper.readthedocs.io</tvar> SPARQLWrapper] like in <tvar name="2">https://people.wikimedia.org/~bearloga/notes/wdqs-python.html</tvar>:
+</translate>
+
+<syntaxhighlight lang="python">
+from SPARQLWrapper import SPARQLWrapper, JSON
+
+url = 'https://example/...'
+user_agent = 'CoolBot/0.0 (https://example.org/coolbot/; coolbot@example.org)'
+
+sparql = SPARQLWrapper(url, agent = user_agent )
+results = sparql.query()
+</syntaxhighlight>
+
+== {{int string|Notes}} ==
+<references />
+
+== {{int string|See also}} ==
+
+* <translate><!--T:16--> [[<tvar name="1">wikitech:Robot policy</tvar>|Policy for crawlers and bots]] that wish to operate on Wikimedia websites</translate>
+
+[[Category:Bots{{#translation:}}]]

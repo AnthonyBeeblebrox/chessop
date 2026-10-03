@@ -1,0 +1,10 @@
+# Starts chessop-digest.service daily (public spec §14), after the night's upkeep.
+[Unit]
+Description=chessop daily error digest
+
+[Timer]
+OnCalendar=*-*-* 06:15:00 UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target

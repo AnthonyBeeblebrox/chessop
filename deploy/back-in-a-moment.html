@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#161512">
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="15">
+<title>chessop is back in a moment</title>
+<!-- What Caddy answers while chessop is not answering, during a deploy's restart for one
+     (public spec §14). Caddy serves it from /usr/share/chessop with nothing else, so it stands
+     alone: no image, script or stylesheet from the app. Colours are play.css's, written out. -->
+<style>
+  html, body { margin: 0; height: 100%; background: #161512; color: #e8e6e3;
+    font: 17px/1.4 system-ui, sans-serif; }
+  body { display: grid; place-items: center; text-align: center; padding: 0 16px; box-sizing: border-box; }
+  h1 { font-size: 1.4em; }
+  a { color: #5fb85f; }
+</style>
+</head>
+<body>
+<main>
+  <h1>chessop is back in a moment</h1>
+  <p>The server is restarting.<br>This page reloads by itself.</p>
+  <p><a href="/">Reload now</a></p>
+</main>
+</body>
+</html>

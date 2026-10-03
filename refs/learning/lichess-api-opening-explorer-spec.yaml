@@ -1,0 +1,679 @@
+# ===== doc/specs/tags/openingexplorer/masters.yaml
+get:
+  operationId: openingExplorerMaster
+  summary: Masters database
+  description: |
+    **Endpoint: <https://explorer.lichess.org/masters>**
+
+    Example: `curl https://explorer.lichess.org/masters?play=d2d4,d7d5,c2c4,c7c6,c4d5`
+  tags:
+    - Opening Explorer
+  servers:
+    - url: https://explorer.lichess.org
+    - url: http://localhost:{port}
+      variables:
+        port:
+          default: "9002"
+  security:
+    - OAuth2: []
+  parameters:
+    - in: query
+      name: fen
+      description: X-FEN of the root position
+      schema:
+        type: string
+      example: rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+    - in: query
+      name: play
+      description: |
+        Comma separated sequence of legal moves in UCI notation.
+        Play additional moves starting from `fen`.
+        Required to find an opening name, if `fen` is not an exact match
+        for a named position.
+      schema:
+        type: string
+        default: ""
+      example: d2d4,d7d5,c2c4,c7c6,c4d5
+    - in: query
+      name: since
+      description: Include only games from this year or later
+      schema:
+        type: integer
+        default: 1952
+    - in: query
+      name: until
+      description: Include only games from this year or earlier
+      schema:
+        type: integer
+    - in: query
+      name: moves
+      description: Number of most common moves to display
+      schema:
+        type: integer
+        default: 12
+    - in: query
+      name: topGames
+      description: Number of top games to display
+      schema:
+        type: integer
+        default: 15
+        maximum: 15
+  responses:
+    "200":
+      description: Opening statistics and game references for the position.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/OpeningExplorerMasters.yaml"
+          examples:
+            default:
+              $ref: "../../examples/openingExplorer-masters.json.yaml"
+
+# ===== doc/specs/tags/openingexplorer/lichess.yaml
+get:
+  operationId: openingExplorerLichess
+  summary: Lichess games
+  description: |
+    **Endpoint: <https://explorer.lichess.org/lichess>**
+
+    Aggregated rated games from all Lichess players.
+
+    Example: `curl https://explorer.lichess.org/lichess?variant=standard&speeds=blitz,rapid,classical&ratings=2200,2500&fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR%20w%20KQkq%20-%200%201`
+  tags:
+    - Opening Explorer
+  servers:
+    - url: https://explorer.lichess.org
+    - url: http://localhost:{port}
+      variables:
+        port:
+          default: "9002"
+  security:
+    - OAuth2: []
+  parameters:
+    - in: query
+      name: variant
+      description: Variant
+      schema:
+        $ref: "../../schemas/VariantKey.yaml"
+        default: standard
+    - in: query
+      name: fen
+      description: X-FEN or EPD of the root position
+      schema:
+        type: string
+      example: rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2
+    - in: query
+      name: play
+      description: |
+        Comma separated sequence of legal moves in UCI notation.
+        Play additional moves starting from `fen`.
+        Required to find an opening name, if `fen` is not an exact match
+        for a named position.
+      schema:
+        type: string
+        default: ""
+      example: d2d4,d7d5,c2c4,c7c6,c4d5
+    - in: query
+      name: speeds
+      description: Comma separated list of game speeds to filter by
+      schema:
+        type: array
+        items:
+          $ref: "../../schemas/Speed.yaml"
+    - in: query
+      name: ratings
+      description: |
+        Comma separated list of ratings groups to filter by.
+        Each group ranges from its value to the next higher
+        group in the enum (`0` from 0 to 999, `1000` from 1000 to 1199,
+        ..., `2500` from 2500 to any rating above).
+      schema:
+        type: array
+        items:
+          type: integer
+          enum:
+            - 0
+            - 1000
+            - 1200
+            - 1400
+            - 1600
+            - 1800
+            - 2000
+            - 2200
+            - 2500
+    - in: query
+      name: since
+      description: Include only games from this month or later
+      schema:
+        type: string
+        default: 1952-01
+    - in: query
+      name: until
+      description: Include only games from this month or earlier
+      schema:
+        type: string
+        default: 3000-12
+    - in: query
+      name: moves
+      description: Number of most common moves to display
+      schema:
+        type: integer
+        default: 12
+    - in: query
+      name: topGames
+      description: |
+        Maximum number of top games to display.
+
+        Due to the way banned users are handled internally, the response may
+        contain fewer games than expected.
+      schema:
+        type: integer
+        default: 4
+        maximum: 4
+    - in: query
+      name: recentGames
+      description: |
+        Maximum number of recent games to display.
+
+        Due to the way banned users are handled internally, the response may
+        contain fewer games than expected.
+      schema:
+        type: integer
+        default: 4
+        maximum: 4 # or 8, depending on query
+    - in: query
+      name: history
+      description: Optionally retrieve history
+      schema:
+        type: boolean
+        default: false
+  responses:
+    "200":
+      description: Opening statistics and game references for the position.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/OpeningExplorerLichess.yaml"
+          examples:
+            default:
+              $ref: "../../examples/openingExplorer-lichess.json.yaml"
+
+# ===== doc/specs/tags/openingexplorer/player.yaml
+get:
+  operationId: openingExplorerPlayer
+  summary: Player games
+  description: |
+    **Endpoint: <https://explorer.lichess.org/player>**
+
+    Games of a Lichess player.
+
+    Responds with a stream of [newline delimited JSON](#description/streaming-with-nd-json). Will start indexing
+    on demand, immediately respond with the current results, and stream
+    more updates until indexing is complete. The stream is throttled
+    and deduplicated. Empty lines may be sent to avoid timeouts.
+
+    Will index new games at most once per minute, and revisit previously
+    ongoing games at most once every day.
+
+    Example: `curl https://explorer.lichess.org/player?player=revoof&color=white&play=d2d4,d7d5&recentGames=1`
+  tags:
+    - Opening Explorer
+  servers:
+    - url: https://explorer.lichess.org
+    - url: http://localhost:{port}
+      variables:
+        port:
+          default: "9002"
+  security:
+    - OAuth2: []
+  parameters:
+    - in: query
+      name: player
+      description: Username or ID of the player
+      schema:
+        type: string
+      example: revoof
+      required: true
+    - in: query
+      name: color
+      description: Look for games with *player* on the given side
+      schema:
+        type: string
+        enum:
+          - white
+          - black
+      example: white
+      required: true
+    - in: query
+      name: variant
+      description: Variant
+      schema:
+        $ref: "../../schemas/VariantKey.yaml"
+        default: standard
+    - in: query
+      name: fen
+      description: X-FEN of the root position
+      schema:
+        type: string
+      example: rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+    - in: query
+      name: play
+      description: |
+        Comma separated sequence of legal moves in UCI notation.
+        Play additional moves starting from `fen`.
+        Required to find an opening name, if `fen` is not an exact match
+        for a named position.
+      schema:
+        type: string
+        default: ""
+      example: d2d4,d7d5
+    - in: query
+      name: speeds
+      description: Comma separated list of game speeds to look for
+      schema:
+        type: array
+        items:
+          $ref: "../../schemas/Speed.yaml"
+    - in: query
+      name: modes
+      description: Comma separated list of modes
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - casual
+            - rated
+    - in: query
+      name: since
+      description: Include only games from this month or later
+      schema:
+        type: string
+        default: 1952-01
+    - in: query
+      name: until
+      description: Include only games from this month or earlier
+      schema:
+        type: string
+        default: 3000-12
+    - in: query
+      name: moves
+      description: Number of most common moves to display
+      schema:
+        type: integer
+    - in: query
+      name: recentGames
+      description: Number of recent games to display
+      schema:
+        type: integer
+        default: 8
+        maximum: 8
+  responses:
+    "200":
+      description: Opening statistics and game references for the position.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            default: "'*'"
+      content:
+        application/x-ndjson:
+          schema:
+            $ref: "../../schemas/OpeningExplorerPlayer.yaml"
+          examples:
+            default:
+              $ref: "../../examples/openingExplorer-player.json.yaml"
+
+# ===== doc/specs/schemas/OpeningExplorerLichess.yaml
+type: object
+
+properties:
+  opening:
+    oneOf:
+      - $ref: "./OpeningExplorerOpening.yaml"
+      - type: "null"
+  white:
+    type: integer
+  draws:
+    type: integer
+  black:
+    type: integer
+  moves:
+    type: array
+    items:
+      type: object
+      properties:
+        uci:
+          type: string
+        san:
+          type: string
+        averageRating:
+          type: integer
+        white:
+          type: integer
+        draws:
+          type: integer
+        black:
+          type: integer
+        game:
+          oneOf:
+            - $ref: "./OpeningExplorerLichessGame.yaml"
+            - type: "null"
+        opening:
+          oneOf:
+            - $ref: "./OpeningExplorerOpening.yaml"
+            - type: "null"
+      required:
+        - uci
+        - san
+        - averageRating
+        - white
+        - draws
+        - black
+        - game
+        - opening
+  topGames:
+    type: array
+    items:
+      allOf:
+        - type: object
+          properties:
+            uci:
+              type: string
+          required:
+            - uci
+        - $ref: "./OpeningExplorerLichessGame.yaml"
+  recentGames:
+    type: array
+    items:
+      allOf:
+        - type: object
+          properties:
+            uci:
+              type: string
+          required:
+            - uci
+        - $ref: "./OpeningExplorerLichessGame.yaml"
+  history:
+    type: array
+    items:
+      type: object
+      properties:
+        month:
+          type: string
+        white:
+          type: integer
+        draws:
+          type: integer
+        black:
+          type: integer
+      required:
+        - month
+        - white
+        - draws
+        - black
+
+required:
+  - opening
+  - white
+  - draws
+  - black
+  - moves
+  - topGames
+
+# ===== doc/specs/schemas/OpeningExplorerMasters.yaml
+type: object
+
+properties:
+  opening:
+    oneOf:
+      - $ref: "./OpeningExplorerOpening.yaml"
+      - type: "null"
+  white:
+    type: integer
+  draws:
+    type: integer
+  black:
+    type: integer
+  moves:
+    type: array
+    items:
+      properties:
+        uci:
+          type: string
+        san:
+          type: string
+        averageRating:
+          type: integer
+        white:
+          type: integer
+        draws:
+          type: integer
+        black:
+          type: integer
+        game:
+          oneOf:
+            - $ref: "./OpeningExplorerMastersGame.yaml"
+            - type: "null"
+        opening:
+          oneOf:
+            - $ref: "./OpeningExplorerOpening.yaml"
+            - type: "null"
+      required:
+        - uci
+        - san
+        - averageRating
+        - white
+        - draws
+        - black
+        - game
+        - opening
+  topGames:
+    type: array
+    items:
+      allOf:
+        - type: object
+          properties:
+            uci:
+              type: string
+          required:
+            - uci
+        - $ref: "./OpeningExplorerMastersGame.yaml"
+
+required:
+  - opening
+  - white
+  - draws
+  - black
+  - moves
+  - topGames
+
+# ===== doc/specs/schemas/OpeningExplorerPlayer.yaml
+type: object
+
+properties:
+  opening:
+    oneOf:
+      - $ref: "./OpeningExplorerOpening.yaml"
+      - type: "null"
+  queuePosition:
+    type: integer
+    description: Waiting for other players to be indexed first
+  white:
+    type: integer
+  draws:
+    type: integer
+  black:
+    type: integer
+  moves:
+    type: array
+    items:
+      type: object
+      properties:
+        uci:
+          type: string
+        san:
+          type: string
+        averageOpponentRating:
+          type: integer
+        performance:
+          type: integer
+        white:
+          type: integer
+        draws:
+          type: integer
+        black:
+          type: integer
+        game:
+          oneOf:
+            - $ref: "./OpeningExplorerPlayerGame.yaml"
+            - type: "null"
+        opening:
+          oneOf:
+            - $ref: "./OpeningExplorerOpening.yaml"
+            - type: "null"
+      required:
+        - uci
+        - san
+        - averageOpponentRating
+        - performance
+        - white
+        - draws
+        - black
+        - game
+        - opening
+  recentGames:
+    type: array
+    items:
+      allOf:
+        - type: object
+          properties:
+            uci:
+              type: string
+          required:
+            - uci
+        - $ref: "./OpeningExplorerPlayerGame.yaml"
+
+required:
+  - opening
+  - queuePosition
+  - white
+  - draws
+  - black
+  - moves
+  - recentGames
+
+example:
+  {
+    "opening": { "eco": "D00", "name": "Queen's Pawn Game" },
+    "queuePosition": 25,
+    "white": 366,
+    "draws": 23,
+    "black": 279,
+    "moves":
+      [
+        {
+          "uci": "c2c4",
+          "san": "c4",
+          "averageOpponentRating": 1695,
+          "performance": 1744,
+          "white": 361,
+          "draws": 23,
+          "black": 272,
+          "game": null,
+          "opening": { "eco": "D06", "name": "Queen's Gambit" },
+        },
+        {
+          "uci": "c2c3",
+          "san": "c3",
+          "averageOpponentRating": 1797,
+          "performance": 1797,
+          "white": 2,
+          "draws": 0,
+          "black": 2,
+          "game": null,
+          "opening": null,
+        },
+        {
+          "uci": "e2e4",
+          "san": "e4",
+          "averageOpponentRating": 1762,
+          "performance": 1640,
+          "white": 1,
+          "draws": 0,
+          "black": 2,
+          "game": null,
+          "opening": { "eco": "D00", "name": "Blackmar-Diemer Gambit" },
+        },
+        {
+          "uci": "g1f3",
+          "san": "Nf3",
+          "averageOpponentRating": 1497,
+          "performance": 1374,
+          "white": 1,
+          "draws": 0,
+          "black": 2,
+          "game": null,
+          "opening": { "eco": "D02", "name": "Queen's Pawn Game: Zukertort Variation" },
+        },
+        {
+          "uci": "h2h4",
+          "san": "h4",
+          "averageOpponentRating": 1674,
+          "performance": 874,
+          "white": 0,
+          "draws": 0,
+          "black": 1,
+          "game":
+            {
+              "id": "9vA24xBn",
+              "winner": "black",
+              "speed": "bullet",
+              "mode": "rated",
+              "black": { "name": "MentalBlood", "rating": 1674 },
+              "white": { "name": "revoof", "rating": 1657 },
+              "year": 2020,
+              "month": "2020-06",
+            },
+          "opening": null,
+        },
+      ],
+    "recentGames":
+      [
+        {
+          "uci": "c2c4",
+          "id": "ycZbWQZO",
+          "winner": "white",
+          "speed": "bullet",
+          "mode": "rated",
+          "black": { "name": "Winavesh", "rating": 1700 },
+          "white": { "name": "revoof", "rating": 1700 },
+          "year": 2024,
+          "month": "2024-11",
+        },
+      ],
+  }
+
+# ===== doc/specs/schemas/OpeningExplorerOpening.yaml
+type: object
+
+properties:
+  eco:
+    type: string
+  name:
+    type: string
+
+required:
+  - eco
+  - name
+

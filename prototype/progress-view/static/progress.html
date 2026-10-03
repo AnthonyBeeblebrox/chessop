@@ -1,0 +1,17 @@
+<!doctype html>
+<!-- PROTOTYPE (ticket 19). Three variants of the progress view, switchable via ?variant=A|B|C on this throwaway route. -->
+<html lang="en"><head><meta charset="utf-8"><title>chessop progress-view PROTOTYPE</title>
+<link rel="stylesheet" href="/cg/chessground.base.css">
+<link rel="stylesheet" href="/cg/chessground.brown.css">
+<link rel="stylesheet" href="/cg/chessground.cburnett.css">
+<link rel="stylesheet" href="/static/progress.css">
+</head><body>
+<nav id="topnav"><a href="#" class="brand">chessop</a><a href="#" class="dim">Play</a><a href="#" class="current">Progress</a><a href="#" class="dim">Settings</a><span id="navscore" class="dim"></span></nav>
+<div id="app"></div>
+<div id="toast"></div>
+<div id="switcher">
+  <button id="prev">←</button><span id="vlabel"></span><button id="next">→</button>
+  <span id="vstats"></span><a href="/data" target="_blank">data</a>
+</div>
+<script type="module" src="/static/progress.js"></script>
+</body></html>

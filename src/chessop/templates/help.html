@@ -1,0 +1,92 @@
+{#- One section per figure, each under its anchor: the progress view's labels and the play page's
+    post-round line link here (public spec §9). `sure` and `target` are the running values. -#}
+{% extends "base.html" %}
+{% block title %}How chessop works{% endblock %}
+{% set sections = [
+  ('round', 'How a round works'),
+  ('verdict', 'The verdict under the board'),
+  ('forced', '“Not Nf3 this time”'),
+  ('score', 'Score'),
+  ('since', 'Change since your last day'),
+  ('sides', 'As White and as Black'),
+  ('counts', 'Known, learning, never passed'),
+  ('session', 'This session'),
+  ('spark', 'The line'),
+  ('openings', 'Openings'),
+  ('colours', 'Move colours'),
+  ('band', 'Rating band'),
+] %}
+{% macro section(anchor) -%}
+{% for a, title in sections if a == anchor %}<section id="{{ a }}">
+    <h2>{{ title }}</h2>
+    {{ caller() }}
+  </section>{% endfor %}
+{%- endmacro %}
+{% block content %}
+<main class="page ledger helppage">
+  <nav class="links"><a href="/">play</a><a href="/progress">progress</a><a href="/settings">settings</a></nav>
+  <h1>How chessop works</h1>
+  <p class="dim">chessop drills the openings real players play at your rating band, and keeps sending you back to the positions you are about to forget.</p>
+  <ol class="toc">
+    {% for a, title in sections %}<li><a href="#{{ a }}">{{ title }}</a></li>
+    {% endfor %}
+  </ol>
+
+  {% call section('round') %}
+    <p>A round starts from the start position. The app picks your side, and the opponent plays the other.</p>
+    <p>At each of your turns, play a <b>main move</b>: one of the moves players at your rating band choose most often there. Any main move is right, not only the most played one.</p>
+    <p>A move outside them is a <b>miss</b>: the round ends and the main moves appear as green arrows, numbered by popularity. A round with no miss is a <b>success</b> (✓).</p>
+    <p>The opponent steers towards the positions you are most likely to have forgotten, so what you keep getting right comes up less often, but never disappears.</p>
+  {% endcall %}
+  {% call section('verdict') %}
+    <p><b class="ok">✓ 12 plies</b>: a success. You played a main move at every turn, and the branch ended after 12 half-moves.</p>
+    <p><b class="bad">✗ Nf3</b>: a miss. Nf3 is not a main move here; the green arrows show what is.</p>
+    <p><b class="warn">Nf3 was set aside</b>: you played the move the app asked you to leave this turn. Neither a pass nor a miss.</p>
+    <p>The percentage after it is your Score, with its change from this round.</p>
+  {% endcall %}
+  {% call section('forced') %}
+    <p>When you know one main move better than all the others, the app sometimes sets it aside for one turn, shown by a yellow arrow and by name, so you get to know the other main moves too.</p>
+    <p>Play any other main move. Playing the set-aside one ends the round, counting neither for nor against you.</p>
+  {% endcall %}
+  <hr>
+  {% call section('score') %}
+    <p>Your chance of playing a main move at a random turn of yours in a real game, in the openings you drill, at your rating band.</p>
+    <p>It averages the recall estimate of every position where you are to move, the app’s estimate that you still know it, weighting each by how often games at your band reach it: the positions you meet every game count most.</p>
+    <p>It slowly falls when you do not play, since memory fades, and rises as you pass positions.</p>
+  {% endcall %}
+  {% call section('since') %}
+    <p>How much your Score moved since the last day you played. After a break it is often negative: the estimates fade with time, and a few rounds bring them back.</p>
+  {% endcall %}
+  {% call section('sides') %}
+    <p>The same Score, counted over only the positions where you play White, or only those where you play Black.</p>
+  {% endcall %}
+  {% call section('counts') %}
+    <p><b>Known</b>: the app is as confident as it gets that you will play a main move there: its recall estimate is {{ sure }} % or more.</p>
+    <p><b>Learning</b>: you have passed it at least once, but it is not known yet, or it has faded since.</p>
+    <p><b>Never passed</b>: you have never played a main move there first try. Tap the number to list them, most common first.</p>
+  {% endcall %}
+  {% call section('session') %}
+    <p>Successes, rounds without a miss, out of the rounds you played since chessop started. A round that ends on a set-aside move counts in neither.</p>
+    <p>About {{ target }} % is the sweet spot: easy enough to keep going, hard enough to remember more. Much lower, and you may be drilling too wide a repertoire; the figure turns yellow outside that range. It is only a guide.</p>
+  {% endcall %}
+  {% call section('spark') %}
+    <p>Your Score at the end of each day you played, oldest on the left.</p>
+  {% endcall %}
+  {% call section('openings') %}
+    <p>Every named opening in your repertoire. Tap one to unfold its named lines, and a line to see its branches: the paths you walk in rounds.</p>
+    <p>Score, White and Black are the same figures as at the top, counted over that opening only. <b>out</b> takes an opening out of your repertoire and <b>in</b> brings it back; <b>reset</b> deletes your history in it, after asking.</p>
+  {% endcall %}
+  {% call section('colours') %}
+    <p>Each of your moves in a branch is coloured by the recall estimate of the position you play it from. Tap one to see its numbers and its explanation.</p>
+    <p><span class="mv known">green</span> known, {{ sure }} % or more · <span class="mv learning">yellow</span> learning, 50 to {{ sure }} % · <span class="mv fading">orange</span> fading, below 50 % · <span class="mv relearn">red</span> missed last time, a relearning pass owed · <span class="mv never">grey</span> never passed</p>
+  {% endcall %}
+  {% call section('band') %}
+    <p>Whose games decide which moves are main. At <b>1500+</b>, only games where both players are rated 1500 or more count. A closed band such as 1500–1800 stays closer to your own rating.</p>
+    <p>Change it in settings; your history is kept.</p>
+  {% endcall %}
+
+</main>
+{% endblock %}
+{#- The hosted site has a contact address (public spec §9, §10); local mode links the repository only. #}
+{% block site_end %}<p class="page helppage closing">Questions or a bug? Write to <a href="mailto:{{ site.contact }}">{{ site.contact }}</a>, or open an issue on <a href="{{ repository }}">GitHub</a>.</p>{% endblock %}
+{% block local_end %}<p class="page helppage closing">Questions or a bug? Open an issue on the <a href="{{ repository }}">chessop repository</a>.</p>{% endblock %}

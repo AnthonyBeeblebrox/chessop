@@ -1,0 +1,10 @@
+[project]
+name = "chessop-progress-view-prototype"
+version = "0.0.0"
+description = "THROWAWAY prototype for ticket 19: the progress view. Not the app."
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "chess>=1.11",
+]

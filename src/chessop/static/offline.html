@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#161512">
+<title>chessop needs a connection</title>
+<!-- What the service worker shows when a page load fails (public spec §8); it comes from the
+     worker's cache, so it needs nothing outside the shell. Its colours are play.css's
+     (--bg, --fg, --ok), written out so the page stands alone. -->
+<style>
+  html, body { margin: 0; height: 100%; background: #161512; color: #e8e6e3;
+    font: 17px/1.4 system-ui, sans-serif; }
+  body { display: grid; place-items: center; text-align: center; padding: 0 16px; box-sizing: border-box; }
+  img { width: 96px; height: 96px; }
+  button { font: inherit; min-height: 52px; padding: 0 1.6em; border: 0; border-radius: 10px;
+    background: #5fb85f; color: #161512; font-weight: 700; cursor: pointer; }
+</style>
+</head>
+<body>
+<main>
+  <img src="/static/icons/icon-192.png" alt="">
+  <p>chessop needs a connection:<br>every move is checked by the server.</p>
+  <button type="button" onclick="location.reload()">Try again</button>
+</main>
+</body>
+</html>

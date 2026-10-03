@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}chessop{% endblock %}
+{% block styles %}<link rel="stylesheet" href="/static/chessground/chessground.base.css">
+<link rel="stylesheet" href="/static/chessground/chessground.brown.css">
+<link rel="stylesheet" href="/static/chessground/chessground.cburnett.css">
+<link rel="stylesheet" href="/static/play.css">{% endblock %}
+{% block body_attrs %} data-sound="{{ 'true' if sound else 'false' }}" data-animation-ms="{{ animation_ms }}"{% endblock %}
+{% block content %}
+<nav class="links"><a href="/progress">progress</a><a href="/settings">settings</a><a href="/help">help</a></nav>
+<main class="play">
+  {#- One banner for both layouts: a line on desktop; below about 40em a compact header row with
+      the touch icons, the opening name on a line of its own under it (public spec §8, Stacked). #}
+  <div class="banner" id="banner"><span class="badge" id="side"></span><span class="name-line"><span class="name" id="name"></span><span class="forced" id="forced"></span></span><span class="score" id="score"></span><span class="since" id="since"></span>
+    <span class="icons"><button type="button" class="icon" id="sound" aria-label="sound" aria-pressed="{{ 'true' if sound else 'false' }}">{{ '🔊' if sound else '🔇' }}</button><a class="icon" href="/progress" aria-label="progress">▤</a><a class="icon" href="/settings" aria-label="settings">⚙</a></span>
+  </div>
+  <p class="notice" id="notice" hidden></p>
+  <div class="board"><div id="board"></div></div>
+  <div class="strip"><div class="verdict" id="verdict"></div><p class="status" id="status" hidden></p></div>
+  {#- The touch equivalent of space, shown only on a phone and only once the round is over. #}
+  <button type="button" class="next" id="next" hidden>Next round</button>
+  <p class="verdict-help" id="verdict-help" hidden><a href="/help#verdict">what does this mean?</a> · <a href="/help#score">what is the Score?</a></p>
+  <section class="explanation" id="explanation" hidden>
+    <p class="borrowed" id="borrowed"></p>
+    <div class="lead" id="lead"></div>
+    <div class="full" id="full" hidden></div>
+    <button type="button" class="more" id="more">more</button>
+    <p class="source">From Wikibooks, <a id="source" target="_blank" rel="noopener"><i>Chess Opening Theory</i></a> · CC BY-SA 4.0 · trimmed</p>
+  </section>
+</main>
+{% endblock %}
+{% block scripts %}<script type="module" src="/static/play.js"></script>{% endblock %}

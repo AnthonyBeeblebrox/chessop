@@ -1,0 +1,289 @@
+id	ply	path	name	named_here	status	title	lila_skips	prose_chars
+1	1	e4	King's Pawn Game	True	page	Chess Opening Theory/1. e4	False	6364
+2	2	e4 c5	Sicilian Defense	True	page	Chess Opening Theory/1. e4/1...c5	False	8562
+3	3	e4 c5 Nf3	Sicilian Defense	True	page	Chess Opening Theory/1. e4/1...c5/2. Nf3	False	3254
+4	4	e4 c5 Nf3 Nc6	Sicilian Defense: Old Sicilian	True	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...Nc6	False	1306
+5	5	e4 c5 Nf3 Nc6 d4	Sicilian Defense: Open	True	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...Nc6/3. d4	False	592
+6	6	e4 c5 Nf3 Nc6 d4 cxd4	Sicilian Defense: Open	True	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...Nc6/3. d4/3...cxd4	False	597
+7	7	e4 c5 Nf3 Nc6 d4 cxd4 Nxd4	Sicilian Defense: Open	True	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...Nc6/3. d4/3...cxd4/4. Nxd4	False	1996
+8	8	e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 g6	Sicilian Defense: Accelerated Dragon	True	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...Nc6/3. d4/3...cxd4/4. Nxd4/4...g6	False	3459
+9	9	e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 g6 Nc3	Sicilian Defense: Accelerated Dragon, Modern Variation	True	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...Nc6/3. d4/3...cxd4/4. Nxd4/4...g6/5. Nc3	False	424
+10	10	e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 g6 Nc3 Bg7	Sicilian Defense: Accelerated Dragon, Modern Variation	False	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...Nc6/3. d4/3...cxd4/4. Nxd4/4...g6/5. Nc3/5...Bg7	False	58
+11	11	e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 g6 Nc3 Bg7 Be3	Sicilian Defense: Accelerated Dragon, Modern Variation	False	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...Nc6/3. d4/3...cxd4/4. Nxd4/4...g6/5. Nc3/5...Bg7/6. Be3	False	59
+12	12	e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 g6 Nc3 Bg7 Be3 Nf6	Sicilian Defense: Accelerated Dragon, Modern Variation	False	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...Nc6/3. d4/3...cxd4/4. Nxd4/4...g6/5. Nc3/5...Bg7/6. Be3/6...Nf6	False	1315
+13	8	e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 Nf6	Sicilian Defense: Open	True	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...Nc6/3. d4/3...cxd4/4. Nxd4/4...Nf6	False	505
+14	9	e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 Nf6 Nc3	Sicilian Defense: Open	False	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...Nc6/3. d4/3...cxd4/4. Nxd4/4...Nf6/5. Nc3	False	2075
+15	10	e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 Nf6 Nc3 d6	Sicilian Defense: Classical Variation	True	redirect->page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...d6/3. d4/3...cxd4/4. Nxd4/4...Nf6/5. Nc3/5...Nc6	False	799
+16	8	e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 e5	Sicilian Defense: Löwenthal Variation	True	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...Nc6/3. d4/3...cxd4/4. Nxd4/4...e5	False	232
+17	5	e4 c5 Nf3 Nc6 Bc4	Sicilian Defense: Old Sicilian	False	missing	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...Nc6/3. Bc4	False	0
+18	6	e4 c5 Nf3 Nc6 Bc4 e6	Sicilian Defense: Old Sicilian	False	missing	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...Nc6/3. Bc4/3...e6	False	0
+19	6	e4 c5 Nf3 Nc6 Bc4 d6	Sicilian Defense: Old Sicilian	False	missing	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...Nc6/3. Bc4/3...d6	False	0
+20	5	e4 c5 Nf3 Nc6 Bb5	Sicilian Defense: Nyezhmetdinov-Rossolimo Attack	True	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...Nc6/3. Bb5	False	4128
+21	6	e4 c5 Nf3 Nc6 Bb5 g6	Sicilian Defense: Nyezhmetdinov-Rossolimo Attack, Fianchetto Variation	True	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...Nc6/3. Bb5/3...g6	False	439
+22	4	e4 c5 Nf3 d6	Sicilian Defense: Modern Variations	True	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...d6	False	2227
+23	5	e4 c5 Nf3 d6 d4	Sicilian Defense	True	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...d6/3. d4	False	1219
+24	6	e4 c5 Nf3 d6 d4 cxd4	Sicilian Defense	True	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...d6/3. d4/3...cxd4	False	1160
+25	7	e4 c5 Nf3 d6 d4 cxd4 Nxd4	Sicilian Defense	False	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...d6/3. d4/3...cxd4/4. Nxd4	False	823
+26	8	e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6	Sicilian Defense: Modern Variations, Main Line	True	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...d6/3. d4/3...cxd4/4. Nxd4/4...Nf6	False	2475
+27	9	e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3	Sicilian Defense: Modern Variations, Main Line	False	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...d6/3. d4/3...cxd4/4. Nxd4/4...Nf6/5. Nc3	False	738
+28	10	e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6	Sicilian Defense: Najdorf Variation	True	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...d6/3. d4/3...cxd4/4. Nxd4/4...Nf6/5. Nc3/5...a6	False	4707
+29	10	e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 g6	Sicilian Defense: Dragon Variation	True	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...d6/3. d4/3...cxd4/4. Nxd4/4...Nf6/5. Nc3/5...g6	False	2105
+30	5	e4 c5 Nf3 d6 Bb5+	Sicilian Defense: Moscow Variation	True	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...d6/3. Bb5	False	2416
+31	6	e4 c5 Nf3 d6 Bb5+ Bd7	Sicilian Defense: Moscow Variation, Main Line	True	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...d6/3. Bb5/3...Bd7	False	0
+32	5	e4 c5 Nf3 d6 c3	Sicilian Defense: Delayed Alapin Variation, with d6	True	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...d6/3. c3	False	130
+33	6	e4 c5 Nf3 d6 c3 Nf6	Sicilian Defense: Delayed Alapin Variation, with d6	False	missing	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...d6/3. c3/3...Nf6	False	0
+34	7	e4 c5 Nf3 d6 c3 Nf6 Be2	Sicilian Defense: Delayed Alapin Variation, with d6	False	missing	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...d6/3. c3/3...Nf6/4. Be2	False	0
+35	4	e4 c5 Nf3 e6	Sicilian Defense: French Variation	True	page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...e6	False	2195
+36	3	e4 c5 b4	Sicilian Defense: Wing Gambit	True	page	Chess Opening Theory/1. e4/1...c5/2. b4	False	587
+37	4	e4 c5 b4 cxb4	Sicilian Defense: Wing Gambit	False	page	Chess Opening Theory/1. e4/1...c5/2. b4/2...cxb4	False	356
+38	5	e4 c5 b4 cxb4 d4	Sicilian Defense: Wing Gambit	False	missing	Chess Opening Theory/1. e4/1...c5/2. b4/2...cxb4/3. d4	False	0
+39	6	e4 c5 b4 cxb4 d4 d5	Sicilian Defense: Wing Gambit	False	missing	Chess Opening Theory/1. e4/1...c5/2. b4/2...cxb4/3. d4/3...d5	False	0
+40	7	e4 c5 b4 cxb4 d4 d5 e5	Sicilian Defense: Wing Gambit	False	missing	Chess Opening Theory/1. e4/1...c5/2. b4/2...cxb4/3. d4/3...d5/4. e5	False	0
+41	8	e4 c5 b4 cxb4 d4 d5 e5 Nc6	Sicilian Defense: Wing Gambit	False	missing	Chess Opening Theory/1. e4/1...c5/2. b4/2...cxb4/3. d4/3...d5/4. e5/4...Nc6	False	0
+42	9	e4 c5 b4 cxb4 d4 d5 e5 Nc6 f4	Sicilian Defense: Wing Gambit	False	missing	Chess Opening Theory/1. e4/1...c5/2. b4/2...cxb4/3. d4/3...d5/4. e5/4...Nc6/5. f4	False	0
+43	6	e4 c5 b4 cxb4 d4 e6	Sicilian Defense: Wing Gambit	False	missing	Chess Opening Theory/1. e4/1...c5/2. b4/2...cxb4/3. d4/3...e6	False	0
+44	7	e4 c5 b4 cxb4 d4 e6 f4	Sicilian Defense: Wing Gambit	False	missing	Chess Opening Theory/1. e4/1...c5/2. b4/2...cxb4/3. d4/3...e6/4. f4	False	0
+45	3	e4 c5 Nc3	Sicilian Defense: Closed	True	page	Chess Opening Theory/1. e4/1...c5/2. Nc3	False	4345
+46	4	e4 c5 Nc3 Nc6	Sicilian Defense: Closed, Traditional	True	page	Chess Opening Theory/1. e4/1...c5/2. Nc3/2...Nc6	False	408
+47	5	e4 c5 Nc3 Nc6 g3	Sicilian Defense: Closed, Fianchetto Variation	True	page	Chess Opening Theory/1. e4/1...c5/2. Nc3/2...Nc6/3. g3	False	231
+48	4	e4 c5 Nc3 d6	Sicilian Defense: Closed	False	page	Chess Opening Theory/1. e4/1...c5/2. Nc3/2...d6	False	252
+49	2	e4 e5	King's Pawn Game	True	page	Chess Opening Theory/1. e4/1...e5	False	5197
+50	3	e4 e5 Nf3	King's Knight Opening	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3	False	4069
+51	4	e4 e5 Nf3 Nc6	King's Knight Opening: Normal Variation	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6	False	2589
+52	5	e4 e5 Nf3 Nc6 Bb5	Ruy Lopez	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5	False	7275
+53	6	e4 e5 Nf3 Nc6 Bb5 a6	Ruy Lopez: Morphy Defense	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...a6	False	1174
+54	7	e4 e5 Nf3 Nc6 Bb5 a6 Ba4	Ruy Lopez: Morphy Defense	False	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...a6/4. Ba4	False	3567
+55	8	e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6	Ruy Lopez: Morphy Defense	False	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...a6/4. Ba4/4...Nf6	False	2762
+56	9	e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O	Ruy Lopez: Morphy Defense	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...a6/4. Ba4/4...Nf6/5. O-O	False	4284
+57	10	e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7	Ruy Lopez: Closed	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...a6/4. Ba4/4...Nf6/5. O-O/5...Be7	False	1494
+58	11	e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1	Ruy Lopez: Closed	False	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...a6/4. Ba4/4...Nf6/5. O-O/5...Be7/6. Re1	False	1182
+59	12	e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5	Ruy Lopez: Closed	False	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...a6/4. Ba4/4...Nf6/5. O-O/5...Be7/6. Re1/6...b5	False	84
+60	13	e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3	Ruy Lopez: Closed	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...a6/4. Ba4/4...Nf6/5. O-O/5...Be7/6. Re1/6...b5/7. Bb3	False	1596
+61	14	e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O	Ruy Lopez: Closed	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...a6/4. Ba4/4...Nf6/5. O-O/5...Be7/6. Re1/6...b5/7. Bb3/7...O-O	False	948
+62	15	e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3	Ruy Lopez: Closed	False	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...a6/4. Ba4/4...Nf6/5. O-O/5...Be7/6. Re1/6...b5/7. Bb3/7...O-O/8. c3	False	406
+63	16	e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5	Ruy Lopez: Marshall Attack	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...a6/4. Ba4/4...Nf6/5. O-O/5...Be7/6. Re1/6...b5/7. Bb3/7...O-O/8. c3/8...d5	False	351
+64	17	e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5	Ruy Lopez: Marshall Attack	False	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...a6/4. Ba4/4...Nf6/5. O-O/5...Be7/6. Re1/6...b5/7. Bb3/7...O-O/8. c3/8...d5/9. exd5	False	144
+65	18	e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 e4	Ruy Lopez: Marshall Attack, Steiner Variation	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...a6/4. Ba4/4...Nf6/5. O-O/5...Be7/6. Re1/6...b5/7. Bb3/7...O-O/8. c3/8...d5/9. exd5/9...e4	False	486
+66	10	e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Nxe4	Ruy Lopez: Open	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...a6/4. Ba4/4...Nf6/5. O-O/5...Nxe4	False	2063
+67	11	e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Nxe4 d4	Ruy Lopez: Open	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...a6/4. Ba4/4...Nf6/5. O-O/5...Nxe4/6. d4	False	915
+68	12	e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Nxe4 d4 b5	Ruy Lopez: Open	False	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...a6/4. Ba4/4...Nf6/5. O-O/5...Nxe4/6. d4/6...b5	False	391
+69	13	e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Nxe4 d4 b5 Bb3	Ruy Lopez: Open	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...a6/4. Ba4/4...Nf6/5. O-O/5...Nxe4/6. d4/6...b5/7. Bb3	False	1732
+70	14	e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Nxe4 d4 b5 Bb3 d5	Ruy Lopez: Open	False	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...a6/4. Ba4/4...Nf6/5. O-O/5...Nxe4/6. d4/6...b5/7. Bb3/7...d5	False	711
+71	15	e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Nxe4 d4 b5 Bb3 d5 dxe5	Ruy Lopez: Open	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...a6/4. Ba4/4...Nf6/5. O-O/5...Nxe4/6. d4/6...b5/7. Bb3/7...d5/8. dxe5	False	743
+72	16	e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Nxe4 d4 b5 Bb3 d5 dxe5 Be6	Ruy Lopez: Open, Main Line	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...a6/4. Ba4/4...Nf6/5. O-O/5...Nxe4/6. d4/6...b5/7. Bb3/7...d5/8. dxe5/8...Be6	False	2884
+73	6	e4 e5 Nf3 Nc6 Bb5 d6	Ruy Lopez: Steinitz Defense	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...d6	False	2731
+74	7	e4 e5 Nf3 Nc6 Bb5 d6 O-O	Ruy Lopez: Steinitz Defense	False	missing	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...d6/4. O-O	False	0
+75	7	e4 e5 Nf3 Nc6 Bb5 d6 d4	Ruy Lopez: Steinitz Defense	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...d6/4. d4	False	618
+76	8	e4 e5 Nf3 Nc6 Bb5 d6 d4 exd4	Ruy Lopez: Steinitz Defense	False	missing	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...d6/4. d4/4...exd4	False	0
+77	9	e4 e5 Nf3 Nc6 Bb5 d6 d4 exd4 Nxd4	Ruy Lopez: Steinitz Defense	False	missing	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...d6/4. d4/4...exd4/5. Nxd4	False	0
+78	10	e4 e5 Nf3 Nc6 Bb5 d6 d4 exd4 Nxd4 Bd7	Ruy Lopez: Steinitz Defense	False	missing	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...d6/4. d4/4...exd4/5. Nxd4/5...Bd7	False	0
+79	6	e4 e5 Nf3 Nc6 Bb5 Nf6	Ruy Lopez: Berlin Defense	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bb5/3...Nf6	False	2582
+80	5	e4 e5 Nf3 Nc6 Bc4	Italian Game	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bc4	False	5448
+81	6	e4 e5 Nf3 Nc6 Bc4 Nf6	Italian Game: Two Knights Defense	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bc4/3...Nf6	False	2444
+82	7	e4 e5 Nf3 Nc6 Bc4 Nf6 d3	Italian Game: Two Knights Defense, Modern Bishop's Opening	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bc4/3...Nf6/4. d3	False	66
+83	8	e4 e5 Nf3 Nc6 Bc4 Nf6 d3 Be7	Italian Game: Two Knights Defense, Modern Bishop's Opening	True	missing	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bc4/3...Nf6/4. d3/4...Be7	False	0
+84	7	e4 e5 Nf3 Nc6 Bc4 Nf6 Nc3	Four Knights Game: Italian Variation	True	redirect->page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Nc3/3...Nf6/4. Bc4	False	1607
+85	8	e4 e5 Nf3 Nc6 Bc4 Nf6 Nc3 Be7	Four Knights Game: Italian Variation	False	missing	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bc4/3...Nf6/4. Nc3/4...Be7	False	0
+86	7	e4 e5 Nf3 Nc6 Bc4 Nf6 Ng5	Italian Game: Two Knights Defense, Knight Attack	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bc4/3...Nf6/4. Ng5	False	2233
+87	8	e4 e5 Nf3 Nc6 Bc4 Nf6 Ng5 d5	Italian Game: Two Knights Defense, Knight Attack, Normal Variation	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bc4/3...Nf6/4. Ng5/4...d5	False	206
+88	9	e4 e5 Nf3 Nc6 Bc4 Nf6 Ng5 d5 exd5	Italian Game: Two Knights Defense, Knight Attack, Normal Variation	False	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bc4/3...Nf6/4. Ng5/4...d5/5. exd5	False	1262
+89	10	e4 e5 Nf3 Nc6 Bc4 Nf6 Ng5 d5 exd5 Na5	Italian Game: Two Knights Defense, Polerio Defense	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bc4/3...Nf6/4. Ng5/4...d5/5. exd5/5...Na5	False	94
+90	6	e4 e5 Nf3 Nc6 Bc4 Bc5	Italian Game: Giuoco Piano	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bc4/3...Bc5	False	3282
+91	7	e4 e5 Nf3 Nc6 Bc4 Bc5 Nc3	Italian Game: Giuoco Piano	False	missing	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bc4/3...Bc5/4. Nc3	False	0
+92	8	e4 e5 Nf3 Nc6 Bc4 Bc5 Nc3 Nf6	Four Knights Game: Italian Variation	True	missing	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bc4/3...Bc5/4. Nc3/4...Nf6	False	0
+93	9	e4 e5 Nf3 Nc6 Bc4 Bc5 Nc3 Nf6 d3	Italian Game: Giuoco Pianissimo, Italian Four Knights Variation	True	missing	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bc4/3...Bc5/4. Nc3/4...Nf6/5. d3	False	0
+94	7	e4 e5 Nf3 Nc6 Bc4 Bc5 c3	Italian Game: Classical Variation	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bc4/3...Bc5/4. c3	False	407
+95	8	e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6	Italian Game: Classical Variation	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bc4/3...Bc5/4. c3/4...Nf6	False	107
+96	9	e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d4	Italian Game: Classical Variation, Center Attack	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bc4/3...Bc5/4. c3/4...Nf6/5. d4	False	182
+97	5	e4 e5 Nf3 Nc6 d4	Scotch Game	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. d4	False	679
+98	6	e4 e5 Nf3 Nc6 d4 exd4	Scotch Game	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. d4/3...exd4	False	850
+99	7	e4 e5 Nf3 Nc6 d4 exd4 Nxd4	Scotch Game	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. d4/3...exd4/4. Nxd4	False	866
+100	7	e4 e5 Nf3 Nc6 d4 exd4 c3	Scotch Game: Göring Gambit	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. d4/3...exd4/4. c3	False	114
+101	7	e4 e5 Nf3 Nc6 d4 exd4 Bc4	Scotch Game: Scotch Gambit	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. d4/3...exd4/4. Bc4	False	2118
+102	4	e4 e5 Nf3 d6	Philidor Defense	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...d6	False	2400
+103	5	e4 e5 Nf3 d6 Bc4	Philidor Defense	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...d6/3. Bc4	False	1464
+104	6	e4 e5 Nf3 d6 Bc4 Be7	Philidor Defense	True	missing	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...d6/3. Bc4/3...Be7	False	0
+105	7	e4 e5 Nf3 d6 Bc4 Be7 O-O	Philidor Defense	False	missing	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...d6/3. Bc4/3...Be7/4. O-O	False	0
+106	8	e4 e5 Nf3 d6 Bc4 Be7 O-O Nf6	Philidor Defense	False	missing	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...d6/3. Bc4/3...Be7/4. O-O/4...Nf6	False	0
+107	6	e4 e5 Nf3 d6 Bc4 Bg4	Philidor Defense	False	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...d6/3. Bc4/3...Bg4	False	72
+108	5	e4 e5 Nf3 d6 d4	Philidor Defense	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...d6/3. d4	False	2687
+109	6	e4 e5 Nf3 d6 d4 exd4	Philidor Defense: Exchange Variation	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...d6/3. d4/3...exd4	False	589
+110	7	e4 e5 Nf3 d6 d4 exd4 Nxd4	Philidor Defense: Exchange Variation	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...d6/3. d4/3...exd4/4. Nxd4	False	592
+111	8	e4 e5 Nf3 d6 d4 exd4 Nxd4 Nf6	Philidor Defense: Exchange Variation	True	missing	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...d6/3. d4/3...exd4/4. Nxd4/4...Nf6	False	0
+112	9	e4 e5 Nf3 d6 d4 exd4 Nxd4 Nf6 Nc3	Philidor Defense: Exchange Variation	False	missing	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...d6/3. d4/3...exd4/4. Nxd4/4...Nf6/5. Nc3	False	0
+113	10	e4 e5 Nf3 d6 d4 exd4 Nxd4 Nf6 Nc3 Be7	Philidor Defense: Exchange Variation	False	missing	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...d6/3. d4/3...exd4/4. Nxd4/4...Nf6/5. Nc3/5...Be7	False	0
+114	4	e4 e5 Nf3 Nf6	Petrov's Defense	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nf6	False	3483
+115	5	e4 e5 Nf3 Nf6 Nxe5	Petrov's Defense	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nf6/3. Nxe5	False	1252
+116	5	e4 e5 Nf3 Nf6 Nc3	Petrov's Defense: Three Knights Game	True	page	Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nf6/3. Nc3	False	127
+117	3	e4 e5 f4	King's Gambit	True	page	Chess Opening Theory/1. e4/1...e5/2. f4	False	5225
+118	4	e4 e5 f4 exf4	King's Gambit Accepted	True	page	Chess Opening Theory/1. e4/1...e5/2. f4/2...exf4	False	3195
+119	5	e4 e5 f4 exf4 Nf3	King's Gambit Accepted: King's Knight's Gambit	True	page	Chess Opening Theory/1. e4/1...e5/2. f4/2...exf4/3. Nf3	False	5247
+120	4	e4 e5 f4 Bc5	King's Gambit Declined: Classical Variation	True	page	Chess Opening Theory/1. e4/1...e5/2. f4/2...Bc5	False	1022
+121	5	e4 e5 f4 Bc5 Nf3	King's Gambit Declined: Classical Variation	False	missing	Chess Opening Theory/1. e4/1...e5/2. f4/2...Bc5/3. Nf3	False	0
+122	6	e4 e5 f4 Bc5 Nf3 d6	King's Gambit Declined: Classical Variation	False	missing	Chess Opening Theory/1. e4/1...e5/2. f4/2...Bc5/3. Nf3/3...d6	False	0
+123	3	e4 e5 d4	Center Game	True	page	Chess Opening Theory/1. e4/1...e5/2. d4	False	3126
+124	4	e4 e5 d4 exd4	Center Game Accepted	True	page	Chess Opening Theory/1. e4/1...e5/2. d4/2...exd4	False	538
+125	5	e4 e5 d4 exd4 c3	Danish Gambit	True	page	Chess Opening Theory/1. e4/1...e5/2. d4/2...exd4/3. c3	False	833
+126	6	e4 e5 d4 exd4 c3 dxc3	Danish Gambit Accepted	True	page	Chess Opening Theory/1. e4/1...e5/2. d4/2...exd4/3. c3/3...dxc3	False	977
+127	7	e4 e5 d4 exd4 c3 dxc3 Bc4	Danish Gambit Accepted	False	page	Chess Opening Theory/1. e4/1...e5/2. d4/2...exd4/3. c3/3...dxc3/4. Bc4	False	375
+128	5	e4 e5 d4 exd4 Nf3	Center Game: Kieseritzky Variation	True	page	Chess Opening Theory/1. e4/1...e5/2. d4/2...exd4/3. Nf3	False	481
+129	2	e4 e6	French Defense	True	page	Chess Opening Theory/1. e4/1...e6	False	1637
+130	3	e4 e6 d4	French Defense: Normal Variation	True	page	Chess Opening Theory/1. e4/1...e6/2. d4	False	1302
+131	4	e4 e6 d4 d5	French Defense	True	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5	False	1898
+132	5	e4 e6 d4 d5 Nc3	French Defense: Paulsen Variation	True	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. Nc3	False	2169
+133	6	e4 e6 d4 d5 Nc3 Nf6	French Defense: Classical Variation	True	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. Nc3/3...Nf6	False	216
+134	7	e4 e6 d4 d5 Nc3 Nf6 Bg5	French Defense: Classical Variation	True	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. Nc3/3...Nf6/4. Bg5	False	800
+135	8	e4 e6 d4 d5 Nc3 Nf6 Bg5 Be7	French Defense: Classical Variation, Normal Variation	True	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. Nc3/3...Nf6/4. Bg5/4...Be7	False	509
+136	9	e4 e6 d4 d5 Nc3 Nf6 Bg5 Be7 e5	French Defense: Classical Variation, Normal Variation	False	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. Nc3/3...Nf6/4. Bg5/4...Be7/5. e5	False	449
+137	10	e4 e6 d4 d5 Nc3 Nf6 Bg5 Be7 e5 Nfd7	French Defense: Classical Variation, Normal Variation	False	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. Nc3/3...Nf6/4. Bg5/4...Be7/5. e5/5...Nfd7	False	176
+138	11	e4 e6 d4 d5 Nc3 Nf6 Bg5 Be7 e5 Nfd7 h4	French Defense: Alekhine-Chatard Attack	True	missing	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. Nc3/3...Nf6/4. Bg5/4...Be7/5. e5/5...Nfd7/6. h4	False	0
+139	8	e4 e6 d4 d5 Nc3 Nf6 Bg5 Bb4	French Defense: McCutcheon Variation	True	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. Nc3/3...Nf6/4. Bg5/4...Bb4	False	511
+140	9	e4 e6 d4 d5 Nc3 Nf6 Bg5 Bb4 e5	French Defense: McCutcheon Variation, Advance Variation	True	missing	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. Nc3/3...Nf6/4. Bg5/4...Bb4/5. e5	False	0
+141	10	e4 e6 d4 d5 Nc3 Nf6 Bg5 Bb4 e5 h6	French Defense: McCutcheon Variation, Advance Variation	False	missing	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. Nc3/3...Nf6/4. Bg5/4...Bb4/5. e5/5...h6	False	0
+142	11	e4 e6 d4 d5 Nc3 Nf6 Bg5 Bb4 e5 h6 Bd2	French Defense: McCutcheon Variation, Advance Variation	False	missing	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. Nc3/3...Nf6/4. Bg5/4...Bb4/5. e5/5...h6/6. Bd2	False	0
+143	7	e4 e6 d4 d5 Nc3 Nf6 e5	French Defense: Classical Variation, Steinitz Variation	True	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. Nc3/3...Nf6/4. e5	False	377
+144	8	e4 e6 d4 d5 Nc3 Nf6 e5 Nfd7	French Defense: Classical Variation, Steinitz Variation	False	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. Nc3/3...Nf6/4. e5/4...Nfd7	False	390
+145	6	e4 e6 d4 d5 Nc3 Bb4	French Defense: Winawer Variation	True	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. Nc3/3...Bb4	False	2038
+146	7	e4 e6 d4 d5 Nc3 Bb4 e5	French Defense: Winawer Variation, Advance Variation	True	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. Nc3/3...Bb4/4. e5	False	594
+147	8	e4 e6 d4 d5 Nc3 Bb4 e5 Ne7	French Defense: Winawer Variation, Advance Variation	False	missing	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. Nc3/3...Bb4/4. e5/4...Ne7	False	0
+148	7	e4 e6 d4 d5 Nc3 Bb4 a3	French Defense: Winawer Variation	False	missing	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. Nc3/3...Bb4/4. a3	False	0
+149	6	e4 e6 d4 d5 Nc3 dxe4	French Defense: Rubinstein Variation	True	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. Nc3/3...dxe4	False	433
+150	7	e4 e6 d4 d5 Nc3 dxe4 Nxe4	French Defense: Rubinstein Variation	False	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. Nc3/3...dxe4/4. Nxe4	False	2137
+151	5	e4 e6 d4 d5 e5	French Defense: Advance Variation	True	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. e5	False	1044
+152	6	e4 e6 d4 d5 e5 c5	French Defense: Advance Variation	True	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. e5/3...c5	False	1665
+153	7	e4 e6 d4 d5 e5 c5 c3	French Defense: Advance Variation	True	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. e5/3...c5/4. c3	False	338
+154	8	e4 e6 d4 d5 e5 c5 c3 Nc6	French Defense: Advance Variation	True	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. e5/3...c5/4. c3/4...Nc6	False	175
+155	9	e4 e6 d4 d5 e5 c5 c3 Nc6 Nf3	French Defense: Advance Variation, Paulsen Attack	True	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. e5/3...c5/4. c3/4...Nc6/5. Nf3	False	277
+156	9	e4 e6 d4 d5 e5 c5 c3 Nc6 f4	French Defense: Advance Variation	False	missing	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. e5/3...c5/4. c3/4...Nc6/5. f4	False	0
+157	5	e4 e6 d4 d5 exd5	French Defense: Exchange Variation	True	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. exd5	False	707
+158	6	e4 e6 d4 d5 exd5 exd5	French Defense: Exchange Variation	False	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. exd5/3...exd5	False	701
+159	7	e4 e6 d4 d5 exd5 exd5 Bd3	French Defense: Exchange Variation	False	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. exd5/3...exd5/4. Bd3	False	484
+160	8	e4 e6 d4 d5 exd5 exd5 Bd3 Nf6	French Defense: Exchange Variation	False	missing	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. exd5/3...exd5/4. Bd3/4...Nf6	False	0
+161	9	e4 e6 d4 d5 exd5 exd5 Bd3 Nf6 Ne2	French Defense: Exchange Variation	False	missing	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. exd5/3...exd5/4. Bd3/4...Nf6/5. Ne2	False	0
+162	7	e4 e6 d4 d5 exd5 exd5 c4	French Defense: Exchange Variation, Monte Carlo Variation	True	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. exd5/3...exd5/4. c4	False	387
+163	7	e4 e6 d4 d5 exd5 exd5 Nf3	French Defense: Exchange Variation	True	page	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. exd5/3...exd5/4. Nf3	False	163
+164	8	e4 e6 d4 d5 exd5 exd5 Nf3 Nf6	French Defense: Exchange Variation	False	missing	Chess Opening Theory/1. e4/1...e6/2. d4/2...d5/3. exd5/3...exd5/4. Nf3/4...Nf6	False	0
+165	4	e4 e6 d4 Ne7	French Defense: Normal Variation	False	missing	Chess Opening Theory/1. e4/1...e6/2. d4/2...Ne7	False	0
+166	3	e4 e6 Nf3	French Defense: Knight Variation	True	page	Chess Opening Theory/1. e4/1...e6/2. Nf3	False	559
+167	4	e4 e6 Nf3 d5	French Defense: Knight Variation	False	page	Chess Opening Theory/1. e4/1...e6/2. Nf3/2...d5	False	880
+168	5	e4 e6 Nf3 d5 exd5	French Defense: Knight Variation	False	missing	Chess Opening Theory/1. e4/1...e6/2. Nf3/2...d5/3. exd5	False	0
+169	6	e4 e6 Nf3 d5 exd5 exd5	French Defense: Knight Variation	False	missing	Chess Opening Theory/1. e4/1...e6/2. Nf3/2...d5/3. exd5/3...exd5	False	0
+170	7	e4 e6 Nf3 d5 exd5 exd5 d4	French Defense: Exchange Variation	True	missing	Chess Opening Theory/1. e4/1...e6/2. Nf3/2...d5/3. exd5/3...exd5/4. d4	False	0
+171	8	e4 e6 Nf3 d5 exd5 exd5 d4 Nf6	French Defense: Exchange Variation	False	missing	Chess Opening Theory/1. e4/1...e6/2. Nf3/2...d5/3. exd5/3...exd5/4. d4/4...Nf6	False	0
+172	8	e4 e6 Nf3 d5 exd5 exd5 d4 Bd6	French Defense: Exchange Variation	False	missing	Chess Opening Theory/1. e4/1...e6/2. Nf3/2...d5/3. exd5/3...exd5/4. d4/4...Bd6	False	0
+173	5	e4 e6 Nf3 d5 e5	French Defense: Knight Variation	False	page	Chess Opening Theory/1. e4/1...e6/2. Nf3/2...d5/3. e5	False	934
+174	6	e4 e6 Nf3 d5 e5 c5	French Defense: Knight Variation	False	page	Chess Opening Theory/1. e4/1...e6/2. Nf3/2...d5/3. e5/3...c5	False	478
+175	4	e4 e6 Nf3 c5	Sicilian Defense: French Variation	True	redirect->page	Chess Opening Theory/1. e4/1...c5/2. Nf3/2...e6	False	2195
+176	3	e4 e6 f4	French Defense: La Bourdonnais Variation	True	missing	Chess Opening Theory/1. e4/1...e6/2. f4	False	0
+177	4	e4 e6 f4 d5	French Defense: La Bourdonnais Variation	False	missing	Chess Opening Theory/1. e4/1...e6/2. f4/2...d5	False	0
+178	1	d4	Queen's Pawn Game	True	page	Chess Opening Theory/1. d4	False	6261
+179	2	d4 d5	Queen's Pawn Game	True	page	Chess Opening Theory/1. d4/1...d5	False	3102
+180	3	d4 d5 c4	Queen's Gambit	True	page	Chess Opening Theory/1. d4/1...d5/2. c4	False	2083
+181	4	d4 d5 c4 e6	Queen's Gambit Declined	True	page	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6	False	360
+182	5	d4 d5 c4 e6 Nc3	Queen's Gambit Declined: Queen's Knight Variation	True	page	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. Nc3	False	2302
+183	6	d4 d5 c4 e6 Nc3 Nf6	Queen's Gambit Declined: Normal Defense	True	page	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. Nc3/3...Nf6	False	1661
+184	7	d4 d5 c4 e6 Nc3 Nf6 Nf3	Queen's Gambit Declined: Three Knights Variation	True	page	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. Nc3/3...Nf6/4. Nf3	False	0
+185	8	d4 d5 c4 e6 Nc3 Nf6 Nf3 c6	Semi-Slav Defense	True	redirect->page	Chess Opening Theory/1. d4/1...d5/2. c4/2...c6/3. Nc3/3...Nf6/4. Nf3/4...e6	False	929
+186	9	d4 d5 c4 e6 Nc3 Nf6 Nf3 c6 Bg5	Semi-Slav Defense	False	missing	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. Nc3/3...Nf6/4. Nf3/4...c6/5. Bg5	False	0
+187	10	d4 d5 c4 e6 Nc3 Nf6 Nf3 c6 Bg5 Be7	Semi-Slav Defense	False	missing	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. Nc3/3...Nf6/4. Nf3/4...c6/5. Bg5/5...Be7	False	0
+188	11	d4 d5 c4 e6 Nc3 Nf6 Nf3 c6 Bg5 Be7 e3	Semi-Slav Defense	False	missing	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. Nc3/3...Nf6/4. Nf3/4...c6/5. Bg5/5...Be7/6. e3	False	0
+189	12	d4 d5 c4 e6 Nc3 Nf6 Nf3 c6 Bg5 Be7 e3 O-O	Semi-Slav Defense	False	missing	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. Nc3/3...Nf6/4. Nf3/4...c6/5. Bg5/5...Be7/6. e3/6...O-O	False	0
+190	8	d4 d5 c4 e6 Nc3 Nf6 Nf3 Be7	Queen's Gambit Declined: Three Knights Variation	False	page	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. Nc3/3...Nf6/4. Nf3/4...Be7	False	146
+191	7	d4 d5 c4 e6 Nc3 Nf6 Bg5	Queen's Gambit Declined: Modern Variation	True	page	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. Nc3/3...Nf6/4. Bg5	False	62
+192	8	d4 d5 c4 e6 Nc3 Nf6 Bg5 Be7	Queen's Gambit Declined	True	page	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. Nc3/3...Nf6/4. Bg5/4...Be7	False	173
+193	9	d4 d5 c4 e6 Nc3 Nf6 Bg5 Be7 e3	Queen's Gambit Declined	False	page	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. Nc3/3...Nf6/4. Bg5/4...Be7/5. e3	False	90
+194	10	d4 d5 c4 e6 Nc3 Nf6 Bg5 Be7 e3 O-O	Queen's Gambit Declined	False	page	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. Nc3/3...Nf6/4. Bg5/4...Be7/5. e3/5...O-O	False	0
+195	11	d4 d5 c4 e6 Nc3 Nf6 Bg5 Be7 e3 O-O Nf3	Queen's Gambit Declined: Modern Variation, Normal Line	True	page	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. Nc3/3...Nf6/4. Bg5/4...Be7/5. e3/5...O-O/6. Nf3	False	189
+196	12	d4 d5 c4 e6 Nc3 Nf6 Bg5 Be7 e3 O-O Nf3 Nbd7	Queen's Gambit Declined: Orthodox Defense	True	page	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. Nc3/3...Nf6/4. Bg5/4...Be7/5. e3/5...O-O/6. Nf3/6...Nbd7	False	793
+197	5	d4 d5 c4 e6 Nf3	Queen's Gambit Declined	False	page	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. Nf3	False	891
+198	6	d4 d5 c4 e6 Nf3 Nf6	Queen's Gambit Declined	False	page	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. Nf3/3...Nf6	False	458
+199	5	d4 d5 c4 e6 e3	Queen's Gambit Declined	False	missing	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. e3	False	0
+200	6	d4 d5 c4 e6 e3 Nf6	Queen's Gambit Declined	False	missing	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. e3/3...Nf6	False	0
+201	4	d4 d5 c4 Nc6	Queen's Gambit Declined: Chigorin Defense	True	page	Chess Opening Theory/1. d4/1...d5/2. c4/2...Nc6	False	1361
+202	5	d4 d5 c4 Nc6 Nc3	Queen's Gambit Declined: Chigorin Defense	True	page	Chess Opening Theory/1. d4/1...d5/2. c4/2...Nc6/3. Nc3	False	1083
+203	6	d4 d5 c4 Nc6 Nc3 Nf6	Queen's Gambit Declined: Chigorin Defense	False	missing	Chess Opening Theory/1. d4/1...d5/2. c4/2...Nc6/3. Nc3/3...Nf6	False	0
+204	5	d4 d5 c4 Nc6 Nf3	Queen's Gambit Declined: Chigorin Defense	False	page	Chess Opening Theory/1. d4/1...d5/2. c4/2...Nc6/3. Nf3	False	588
+205	6	d4 d5 c4 Nc6 Nf3 Bg4	Queen's Gambit Declined: Chigorin Defense, Main Line	True	missing	Chess Opening Theory/1. d4/1...d5/2. c4/2...Nc6/3. Nf3/3...Bg4	False	0
+206	7	d4 d5 c4 Nc6 Nf3 Bg4 e3	Queen's Gambit Declined: Chigorin Defense, Main Line	False	missing	Chess Opening Theory/1. d4/1...d5/2. c4/2...Nc6/3. Nf3/3...Bg4/4. e3	False	0
+207	4	d4 d5 c4 c6	Slav Defense	True	page	Chess Opening Theory/1. d4/1...d5/2. c4/2...c6	False	1162
+208	5	d4 d5 c4 c6 Nc3	Slav Defense	True	page	Chess Opening Theory/1. d4/1...d5/2. c4/2...c6/3. Nc3	False	1050
+209	6	d4 d5 c4 c6 Nc3 Nf6	Slav Defense	False	page	Chess Opening Theory/1. d4/1...d5/2. c4/2...c6/3. Nc3/3...Nf6	False	942
+210	7	d4 d5 c4 c6 Nc3 Nf6 Nf3	Slav Defense: Three Knights Variation	True	redirect->page	Chess Opening Theory/1. d4/1...d5/2. c4/2...c6/3. Nf3/3...Nf6/4. Nc3	False	1275
+211	3	d4 d5 Nf3	Queen's Pawn Game: Zukertort Variation	True	page	Chess Opening Theory/1. d4/1...d5/2. Nf3	False	302
+212	4	d4 d5 Nf3 e6	Queen's Pawn Game: Zukertort Variation	False	page	Chess Opening Theory/1. d4/1...d5/2. Nf3/2...e6	False	0
+213	5	d4 d5 Nf3 e6 Bf4	Queen's Pawn Game: London System, with e6	True	missing	Chess Opening Theory/1. d4/1...d5/2. Nf3/2...e6/3. Bf4	False	0
+214	6	d4 d5 Nf3 e6 Bf4 Nf6	Queen's Pawn Game: London System, with e6	True	missing	Chess Opening Theory/1. d4/1...d5/2. Nf3/2...e6/3. Bf4/3...Nf6	False	0
+215	7	d4 d5 Nf3 e6 Bf4 Nf6 e3	Queen's Pawn Game: London System, with e6	False	missing	Chess Opening Theory/1. d4/1...d5/2. Nf3/2...e6/3. Bf4/3...Nf6/4. e3	False	0
+216	8	d4 d5 Nf3 e6 Bf4 Nf6 e3 Be7	Queen's Pawn Game: London System, with e6	False	missing	Chess Opening Theory/1. d4/1...d5/2. Nf3/2...e6/3. Bf4/3...Nf6/4. e3/4...Be7	False	0
+217	9	d4 d5 Nf3 e6 Bf4 Nf6 e3 Be7 Nbd2	Queen's Pawn Game: London System, with e6	False	missing	Chess Opening Theory/1. d4/1...d5/2. Nf3/2...e6/3. Bf4/3...Nf6/4. e3/4...Be7/5. Nbd2	False	0
+218	5	d4 d5 Nf3 e6 e3	Queen's Pawn Game: Zukertort Variation	False	page	Chess Opening Theory/1. d4/1...d5/2. Nf3/2...e6/3. e3	False	0
+219	5	d4 d5 Nf3 e6 c4	Queen's Pawn Game: Zukertort Variation	False	missing	Chess Opening Theory/1. d4/1...d5/2. Nf3/2...e6/3. c4	False	0
+220	6	d4 d5 Nf3 e6 c4 Nf6	Queen's Pawn Game: Zukertort Variation	False	missing	Chess Opening Theory/1. d4/1...d5/2. Nf3/2...e6/3. c4/3...Nf6	False	0
+221	4	d4 d5 Nf3 Nf6	Queen's Pawn Game: Symmetrical Variation	True	redirect->page	Chess Opening Theory/1. d4/1...Nf6/2. Nf3/2...d5	False	1199
+222	5	d4 d5 Nf3 Nf6 Bf4	Queen's Pawn Game: London System	True	page	Chess Opening Theory/1. d4/1...d5/2. Nf3/2...Nf6/3. Bf4	False	666
+223	5	d4 d5 Nf3 Nf6 e3	Queen's Pawn Game: Colle System	True	redirect->page	Chess Opening Theory/1. d4/1...Nf6/2. Nf3/2...d5/3. e3	False	1287
+224	4	d4 d5 Nf3 Nc6	Queen's Pawn Game: Chigorin Variation	True	missing	Chess Opening Theory/1. d4/1...d5/2. Nf3/2...Nc6	False	0
+225	5	d4 d5 Nf3 Nc6 Bf4	Queen's Pawn Game: Chigorin Variation	False	missing	Chess Opening Theory/1. d4/1...d5/2. Nf3/2...Nc6/3. Bf4	False	0
+226	3	d4 d5 e3	Queen's Pawn Game	True	page	Chess Opening Theory/1. d4/1...d5/2. e3	False	0
+227	4	d4 d5 e3 e6	Queen's Pawn Game	False	page	Chess Opening Theory/1. d4/1...d5/2. e3/2...e6	False	0
+228	5	d4 d5 e3 e6 Bd3	Queen's Pawn Game	False	missing	Chess Opening Theory/1. d4/1...d5/2. e3/2...e6/3. Bd3	False	0
+229	4	d4 d5 e3 Nf6	Queen's Pawn Game	True	page	Chess Opening Theory/1. d4/1...d5/2. e3/2...Nf6	False	0
+230	4	d4 d5 e3 Nc6	Queen's Pawn Game	False	missing	Chess Opening Theory/1. d4/1...d5/2. e3/2...Nc6	False	0
+231	2	d4 Nf6	Indian Defense	True	page	Chess Opening Theory/1. d4/1...Nf6	False	2552
+232	3	d4 Nf6 c4	Indian Defense: Normal Variation	True	page	Chess Opening Theory/1. d4/1...Nf6/2. c4	False	3714
+233	4	d4 Nf6 c4 e6	Indian Defense: Normal Variation	False	page	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...e6	False	1455
+234	5	d4 Nf6 c4 e6 Nc3	Indian Defense: Normal Variation	False	page	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...e6/3. Nc3	False	449
+235	6	d4 Nf6 c4 e6 Nc3 d5	Queen's Gambit Declined: Normal Defense	True	redirect->page	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. Nc3/3...Nf6	False	1661
+236	7	d4 Nf6 c4 e6 Nc3 d5 e3	Queen's Gambit Declined: Normal Defense	False	missing	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...e6/3. Nc3/3...d5/4. e3	False	0
+237	6	d4 Nf6 c4 e6 Nc3 Bb4	Nimzo-Indian Defense	True	page	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...e6/3. Nc3/3...Bb4	False	1439
+238	5	d4 Nf6 c4 e6 Nf3	Indian Defense: Anti-Nimzo-Indian	True	page	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...e6/3. Nf3	False	1395
+239	6	d4 Nf6 c4 e6 Nf3 d5	Indian Defense: Anti-Nimzo-Indian	False	redirect->page	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. Nf3/3...Nf6	False	458
+240	7	d4 Nf6 c4 e6 Nf3 d5 e3	Indian Defense: Anti-Nimzo-Indian	False	missing	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...e6/3. Nf3/3...d5/4. e3	False	0
+241	4	d4 Nf6 c4 g6	Indian Defense: West Indian Defense	True	page	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...g6	False	2838
+242	5	d4 Nf6 c4 g6 Nc3	King's Indian Defense	True	page	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...g6/3. Nc3	False	749
+243	6	d4 Nf6 c4 g6 Nc3 Bg7	King's Indian Defense	False	page	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...g6/3. Nc3/3...Bg7	False	1111
+244	7	d4 Nf6 c4 g6 Nc3 Bg7 e4	King's Indian Defense: Normal Variation	True	page	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...g6/3. Nc3/3...Bg7/4. e4	False	798
+245	8	d4 Nf6 c4 g6 Nc3 Bg7 e4 d6	King's Indian Defense: Normal Variation	True	page	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...g6/3. Nc3/3...Bg7/4. e4/4...d6	False	2030
+246	9	d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3	King's Indian Defense: Normal Variation, Rare Defenses	True	page	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...g6/3. Nc3/3...Bg7/4. e4/4...d6/5. Nf3	False	414
+247	10	d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O	King's Indian Defense: Normal Variation, Rare Defenses	False	page	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...g6/3. Nc3/3...Bg7/4. e4/4...d6/5. Nf3/5...O-O	False	750
+248	8	d4 Nf6 c4 g6 Nc3 Bg7 e4 O-O	King's Indian Defense: Normal Variation	False	page	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...g6/3. Nc3/3...Bg7/4. e4/4...O-O	False	187
+249	6	d4 Nf6 c4 g6 Nc3 d5	Grünfeld Defense	True	page	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...g6/3. Nc3/3...d5	False	2069
+250	7	d4 Nf6 c4 g6 Nc3 d5 Nf3	Grünfeld Defense: Three Knights Variation	True	missing	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...g6/3. Nc3/3...d5/4. Nf3	False	0
+251	8	d4 Nf6 c4 g6 Nc3 d5 Nf3 Bg7	Grünfeld Defense: Three Knights Variation	True	missing	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...g6/3. Nc3/3...d5/4. Nf3/4...Bg7	False	0
+252	5	d4 Nf6 c4 g6 Nf3	King's Indian Defense: Normal Variation, King's Knight Variation	True	page	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...g6/3. Nf3	False	276
+253	6	d4 Nf6 c4 g6 Nf3 Bg7	King's Indian Defense: Normal Variation, King's Knight Variation	False	page	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...g6/3. Nf3/3...Bg7	False	311
+254	4	d4 Nf6 c4 e5	Indian Defense: Budapest Gambit	True	page	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...e5	False	1500
+255	5	d4 Nf6 c4 e5 dxe5	Indian Defense: Budapest Gambit Accepted	True	page	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...e5/3. dxe5	False	832
+256	6	d4 Nf6 c4 e5 dxe5 Ng4	Indian Defense: Budapest Gambit Accepted, Main Line	True	page	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...e5/3. dxe5/3...Ng4	False	3075
+257	7	d4 Nf6 c4 e5 dxe5 Ng4 Nf3	Indian Defense: Budapest Gambit Accepted, Main Line, Adler Variation	True	page	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...e5/3. dxe5/3...Ng4/4. Nf3	False	12041
+258	5	d4 Nf6 c4 e5 d5	Indian Defense: Budapest Gambit	False	page	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...e5/3. d5	False	959
+259	6	d4 Nf6 c4 e5 d5 Bc5	Indian Defense: Budapest Gambit	False	missing	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...e5/3. d5/3...Bc5	False	0
+260	3	d4 Nf6 Nf3	Indian Defense: Knights Variation	True	page	Chess Opening Theory/1. d4/1...Nf6/2. Nf3	False	1776
+261	4	d4 Nf6 Nf3 g6	East Indian Defense	True	page	Chess Opening Theory/1. d4/1...Nf6/2. Nf3/2...g6	False	125
+262	4	d4 Nf6 Nf3 e6	Indian Defense: Knights Variation	False	page	Chess Opening Theory/1. d4/1...Nf6/2. Nf3/2...e6	False	131
+263	4	d4 Nf6 Nf3 d5	Queen's Pawn Game: Symmetrical Variation	True	page	Chess Opening Theory/1. d4/1...Nf6/2. Nf3/2...d5	False	1199
+264	3	d4 Nf6 e3	Indian Defense	False	missing	Chess Opening Theory/1. d4/1...Nf6/2. e3	False	0
+265	4	d4 Nf6 e3 e6	Indian Defense	False	missing	Chess Opening Theory/1. d4/1...Nf6/2. e3/2...e6	False	0
+266	2	d4 e6	Horwitz Defense	True	page	Chess Opening Theory/1. d4/1...e6	False	1590
+267	3	d4 e6 c4	Horwitz Defense	False	page	Chess Opening Theory/1. d4/1...e6/2. c4	False	467
+268	4	d4 e6 c4 d5	Queen's Gambit Declined	True	redirect->page	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6	False	360
+269	5	d4 e6 c4 d5 Nc3	Queen's Gambit Declined: Queen's Knight Variation	True	redirect->page	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. Nc3	False	2302
+270	6	d4 e6 c4 d5 Nc3 Nf6	Queen's Gambit Declined: Normal Defense	True	redirect->page	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. Nc3/3...Nf6	False	1661
+271	7	d4 e6 c4 d5 Nc3 Nf6 Nf3	Queen's Gambit Declined: Three Knights Variation	True	redirect->page	Chess Opening Theory/1. d4/1...d5/2. c4/2...e6/3. Nc3/3...Nf6/4. Nf3	False	0
+272	4	d4 e6 c4 Nf6	Horwitz Defense	False	redirect->page	Chess Opening Theory/1. d4/1...Nf6/2. c4/2...e6	False	1455
+273	3	d4 e6 Nf3	Horwitz Defense	False	missing	Chess Opening Theory/1. d4/1...e6/2. Nf3	False	0
+274	1	Nf3	Zukertort Opening	True	page	Chess Opening Theory/1. Nf3	False	4691
+275	2	Nf3 Nf6	Zukertort Opening	True	page	Chess Opening Theory/1. Nf3/1...Nf6	False	328
+276	3	Nf3 Nf6 g3	Zukertort Opening	False	page	Chess Opening Theory/1. Nf3/1...Nf6/2. g3	False	257
+277	4	Nf3 Nf6 g3 d5	King's Indian Attack	True	page	Chess Opening Theory/1. Nf3/1...Nf6/2. g3/2...d5	False	0
+278	5	Nf3 Nf6 g3 d5 Bg2	King's Indian Attack	False	missing	Chess Opening Theory/1. Nf3/1...Nf6/2. g3/2...d5/3. Bg2	False	0
+279	3	Nf3 Nf6 d4	Indian Defense: Knights Variation	True	redirect->page	Chess Opening Theory/1. d4/1...Nf6/2. Nf3	False	1776
+280	3	Nf3 Nf6 c4	English Opening: Anglo-Indian Defense, King's Knight Variation	True	page	Chess Opening Theory/1. Nf3/1...Nf6/2. c4	False	303
+281	2	Nf3 d5	Zukertort Opening	True	page	Chess Opening Theory/1. Nf3/1...d5	False	333
+282	3	Nf3 d5 c4	Réti Opening	True	page	Chess Opening Theory/1. Nf3/1...d5/2. c4	False	2348
+283	3	Nf3 d5 g3	King's Indian Attack	True	page	Chess Opening Theory/1. Nf3/1...d5/2. g3	False	236
+284	3	Nf3 d5 d4	Queen's Pawn Game: Zukertort Variation	True	redirect->page	Chess Opening Theory/1. d4/1...d5/2. Nf3	False	302
+285	2	Nf3 Nc6	Zukertort Opening: Black Mustang Defense	True	missing	Chess Opening Theory/1. Nf3/1...Nc6	False	0
+286	3	Nf3 Nc6 d4	Zukertort Opening: Black Mustang Defense	False	missing	Chess Opening Theory/1. Nf3/1...Nc6/2. d4	False	0
+287	4	Nf3 Nc6 d4 d5	Queen's Pawn Game: Chigorin Variation	True	missing	Chess Opening Theory/1. Nf3/1...Nc6/2. d4/2...d5	False	0
+288	5	Nf3 Nc6 d4 d5 c4	Queen's Pawn Game: Chigorin Variation	False	missing	Chess Opening Theory/1. Nf3/1...Nc6/2. d4/2...d5/3. c4	False	0
