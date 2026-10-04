@@ -51,14 +51,16 @@ tagged_commit() {
 	printf '%s\n' "$sha"
 }
 
-# Refuse unless the latest CI run for the push of tag $2 at commit $1 finished green.
+# Refuse unless the latest CI run for a push of commit $1 (tag $2) finished green. Any push of
+# that commit counts: when a branch and its tag go up in one push, GitHub may run CI for the
+# branch alone, and the checks are the commit's either way.
 ci_green() {
 	local sha=$1 version=$2 runs verdict
 	runs=$(curl --fail --silent --show-error --location \
 		--header 'Accept: application/vnd.github+json' \
 		"https://api.github.com/repos/$GITHUB/actions/workflows/$WORKFLOW/runs?head_sha=$sha&event=push&per_page=100")
-	verdict=$(jq --raw-output --arg tag "$version" '
-		[.workflow_runs[] | select(.head_branch == $tag)] | sort_by(.created_at) | last
+	verdict=$(jq --raw-output '
+		[.workflow_runs[]] | sort_by(.created_at) | last
 		| if . == null then "none" else "\(.status) \(.conclusion)" end' <<<"$runs")
 	case $verdict in
 		"completed success") say "CI is green for $version" ;;

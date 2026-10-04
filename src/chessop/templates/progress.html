@@ -74,4 +74,4 @@
 </main>
 {% endblock %}
 {#- The hosted site's tip jar (public spec §10); local mode has none. #}
-{% block site_end %}<p class="page ledger kofi dim"><a href="{{ site.kofi }}">Support chessop on Ko-fi</a>: tips pay for the server and the domain, and are not tax-deductible.</p>{% endblock %}
+{% block site_end %}{% from "kofi.html" import button %}<p class="page ledger tip">{{ button(site.kofi, "Support chessop on Ko-fi") }} <span class="dim">Tips pay for the server and the domain, and are not tax-deductible.</span></p>{% endblock %}

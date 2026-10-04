@@ -219,7 +219,12 @@ footer.site a { color: var(--dim); }
 .privacy .processing dd { margin: 0; }
 @media (max-width: 40em) { .privacy .processing dl { grid-template-columns: 1fr; gap: 0; } .privacy .processing dd { margin-bottom: .5em; } }
 .legal .terms li, .privacy li { margin: .3em 0; }
-.ledger.kofi { margin-top: 8px; font-size: .9em; }
+.ledger.tip { margin-top: 8px; font-size: .9em; display: flex; flex-wrap: wrap; align-items: center; gap: .5em 1em; }
+/* The tip button (public spec §10): the one coloured element on a page, Ko-fi's blue. */
+a.kofi, footer.site a.kofi, .page a.kofi { display: inline-flex; align-items: center; gap: .4em; padding: .3em 1em; border-radius: 4px; background: #72a4f2; color: #161512; font-size: 1rem; font-weight: 600; text-decoration: none; }
+a.kofi:hover { background: #8fb7f5; }
+footer.site a.kofi { display: flex; width: fit-content; margin: 12px auto 0; }
+@media (pointer: coarse) { a.kofi { min-height: 36px; } }
 /* Who is signed in, or "Sign in": the top left corner of every hosted page (public spec §5). */
 .who { position: absolute; top: 8px; left: 12px; margin: 0; font-size: .9em; z-index: 1; }
 .who a { color: var(--dim); }

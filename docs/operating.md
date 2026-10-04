@@ -142,7 +142,7 @@ It ends with `provision: done`, after printing the GoatCounter command of step 1
 
 In the Scaleway console, in the project `chessop`:
 
-- **Mail key.** Transactional Email → `chessop.fr` → wait for the domain to show as verified (step 2's records). IAM → Applications → Create application `chessop-mail` → Policies → Create policy → scope: project `chessop` → permission set `TransactionalEmailEmailApiCreate` (sending only). Application `chessop-mail` → API keys → Generate an API key. Keep the **secret key** and the **project ID** (Project → Settings) for step 7.
+- **Mail key.** Transactional Email → `chessop.fr` → wait for the domain to show as verified (step 2's records). IAM → Applications → Create application `chessop-mail` → Policies → Create policy → scope: project `chessop` → permission set `TransactionalEmailEmailApiCreate` (sending only); without this policy Scaleway answers 403 `insufficient permissions` to every send, and the key alone grants nothing. Application `chessop-mail` → API keys → Generate an API key. Keep the **secret key** and the **project ID** (Project → Settings) for step 7.
 - **Backup bucket.** Create a second project, `chessop-backup`, holding nothing else. In it: Object Storage → Create bucket → region **Paris** (`fr-par`), private, a name such as `chessop-backup-<random>`. Bucket → Lifecycle rules → Create rule → whole bucket → **Expiration** after **30 days**: this rule is what keeps the privacy notice's promise that deleted data leaves the backups within 30 days.
 - **Write-only key.** IAM → Applications → Create application `chessop-backup` → Policies → Create policy → scope: project `chessop-backup` only → permission set `ObjectStorageObjectsWrite` (put objects; no read, list or delete). Application `chessop-backup` → API keys → Generate an API key, preferred Object Storage project `chessop-backup`. Keep the **access key** (`SCW…`) and the **secret key** for step 7.
 
@@ -191,7 +191,7 @@ Here, from a clean `main` (needs `git`, `curl` and `jq`):
 
 ```sh
 deploy/publish.sh vX.Y.Z
-gh run watch          # or the repository's Actions tab: wait for CI's run on the tag
+gh run watch          # or the repository's Actions tab: wait for CI's run on the release commit
 deploy/deploy.sh vX.Y.Z
 ```
 
@@ -221,7 +221,7 @@ Then sign in at `https://stats.chessop.fr` with that address and password; every
 
 ### 11. UptimeRobot on `/healthz`
 
-uptimerobot.com → create the account with the owner's own address → Add New Monitor → type HTTP(s) → URL `https://chessop.fr/healthz` → interval **5 minutes** → alert contact: the owner's address → in the monitor's settings turn on the **SSL certificate expiry** reminder → Create. `/healthz` answers 200 only while the database answers and the snapshot is loaded.
+uptimerobot.com → create the account with the owner's own address → Add New Monitor → type HTTP(s) → URL `https://chessop.fr/healthz` → interval **5 minutes** → alert contact: the owner's address → Create. `/healthz` answers 200 only while the database answers and the snapshot is loaded. The certificate-expiry reminder is a paid option and is not needed: Caddy renews a month ahead, and the HTTPS check itself fails, and alerts, on an expired certificate.
 
 ### 12. The restore rehearsal
 

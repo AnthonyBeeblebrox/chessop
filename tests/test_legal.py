@@ -187,8 +187,10 @@ def test_the_footer_links_resolve_on_every_hosted_page(tmp_path: Path) -> None:
                 "Privacy",
                 "Your data",
                 "Source",
-                "Ko-fi",
             ]
+            # The tip button closes the footer, the one link drawn as a button.
+            button = r'<a class="kofi" href="https://ko-fi.com/chessop">.*Tip on Ko-fi</a></footer>'
+            assert re.search(button, page), path
             for href in links:
                 if href.startswith("/"):
                     assert browser.get(href).status_code == 200, (path, href)
@@ -196,9 +198,9 @@ def test_the_footer_links_resolve_on_every_hosted_page(tmp_path: Path) -> None:
                     assert href.startswith("https://"), (path, href)
 
 
-KOFI_LINE = (
-    '<a href="https://ko-fi.com/chessop">Support chessop on Ko-fi</a>: tips pay for the server'
-    " and the domain, and are not tax-deductible."
+KOFI_LINE = re.compile(
+    r'<a class="kofi" href="https://ko-fi.com/chessop">.*Support chessop on Ko-fi</a>'
+    r' <span class="dim">Tips pay for the server and the domain, and are not tax-deductible.</span>'
 )
 
 
@@ -206,7 +208,7 @@ def test_hosted_progress_carries_the_ko_fi_line_and_local_progress_does_not(
     tmp_path: Path,
 ) -> None:
     with Site(tmp_path).browser() as browser:
-        assert KOFI_LINE in browser.get("/progress").text
+        assert KOFI_LINE.search(browser.get("/progress").text)
     with TestClient(create_app(E4_E5)) as browser:
         page = browser.get("/progress").text
         assert "Ko-fi" not in page and "ko-fi" not in page

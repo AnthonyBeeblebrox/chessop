@@ -1,0 +1,6 @@
+{#- The hosted site's tip button (public spec §10): a plain link to the Ko-fi page drawn as a
+    button, with a cup of its own. Ko-fi's widget would do the same with a script fetched from
+    Ko-fi on every page view, which the privacy notice does not allow for. #}
+{% macro button(href, label) -%}
+<a class="kofi" href="{{ href }}"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M3 7h13a1 1 0 0 1 1 1v1h2a3 3 0 0 1 0 6h-2.3A5.5 5.5 0 0 1 11.5 19h-3A5.5 5.5 0 0 1 3 13.5zm14 3v3h2a1.5 1.5 0 0 0 0-3zM5 21h12v-1H5z"/></svg>{{ label }}</a>
+{%- endmacro %}

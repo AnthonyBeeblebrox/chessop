@@ -408,7 +408,7 @@ FOOTER = (
     '<footer class="site"><a href="/legal">Legal notice</a> · <a href="/privacy">Privacy</a>'
     ' · <a href="/data">Your data</a>'
     ' · <a href="https://github.com/AnthonyBeeblebrox/chessop">Source</a>'
-    ' · <a href="https://ko-fi.com/chessop">Ko-fi</a></footer>'
+    '<a class="kofi" href="https://ko-fi.com/chessop">'
 )
 
 

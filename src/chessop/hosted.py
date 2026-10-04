@@ -751,7 +751,6 @@ def site(hosted: Hosted, source: str, account: str | None, request: Request) -> 
             ("Privacy", "/privacy"),
             ("Your data", "/data"),
             ("Source", source),
-            ("Ko-fi", KOFI),
         ),
         account=account,
         sign_in=f"/signin?next={quote(back, safe='')}",

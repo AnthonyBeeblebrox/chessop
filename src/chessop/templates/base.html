@@ -31,7 +31,7 @@
 {#- What a page adds under its content on the hosted site, or in local mode only. #}
 {% if site %}{% block site_end %}{% endblock %}{% else %}{% block local_end %}{% endblock %}{% endif %}
 {#- The hosted site's footer, on every page (public spec §10); local mode has none. #}
-{% if site %}{% block site_foot %}<footer class="site">{% for text, href in site.footer %}{{ ' · ' if not loop.first }}<a href="{{ href }}">{{ text }}</a>{% endfor %}</footer>{% endblock %}{% endif %}
+{% if site %}{% block site_foot %}{% from "kofi.html" import button %}<footer class="site">{% for text, href in site.footer %}{{ ' · ' if not loop.first }}<a href="{{ href }}">{{ text }}</a>{% endfor %}{{ button(site.kofi, "Tip on Ko-fi") }}</footer>{% endblock %}{% endif %}
 {#- Counts the page view in the audience statistics, when they are configured (public spec §12). #}
 {% if site and site.count_url %}<script src="/static/audience.js" data-goatcounter="{{ site.count_url }}" defer></script>{% endif %}
 {% block scripts %}{% endblock %}
